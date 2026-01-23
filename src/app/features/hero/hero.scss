@@ -1,6 +1,23 @@
-:host {
-  display: block;
-  position: relative; // for attribute 'fill' to work in <img>
-  height: 100dvh;
+/* Hero component scss */
+
+.hero {
+  position: relative; // 1. The boundary for absolute items
+  height: 100dvh;     // 2. Full viewport height
   width: 100%;
+  overflow: hidden;   // 3. Clip anything that overflows
+
+  // Flexbox Magic for Centering the H1
+  display: flex;
+  flex-direction: column;
+  justify-content: center; // Vertically center the H1
+  align-items: center;
 }
+
+.sticky-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
