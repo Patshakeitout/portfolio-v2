@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Navbar } from '../../core/components/navbar/navbar';
 
 @Component({
   selector: 'app-hero',
