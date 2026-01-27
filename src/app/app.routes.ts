@@ -1,15 +1,15 @@
 import { Routes } from '@angular/router';
-import { Home } from './features/home/home.component';
-import { LegalNotice } from './features/legal-notice/legal-notice.component';
+import { HomeComponent } from './features/home/home.component';
+import { LegalNoticeComponent } from './features/legal-notice/legal-notice.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: Home
+    component: HomeComponent
   },
   {
     path: 'legal-notice',
-    loadComponent: () => import('./features/legal-notice/legal-notice.component').then(m => m.LegalNotice)
+    loadComponent: () => import('./features/legal-notice/legal-notice.component').then(m => m.LegalNoticeComponent)
   },
   {
     path: '**',

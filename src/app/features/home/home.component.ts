@@ -16,9 +16,9 @@ import { ContactComponent } from '../contact/contact.component';
     ProjectsComponent,
     ContactComponent
   ],
-  templateUrl: './home.html',
-  styleUrl: './home.scss',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
 })
-export class Home {
+export class HomeComponent {
 
 }
