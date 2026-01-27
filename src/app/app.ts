@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { Header } from "./core/layout/header/header";
+import { Header } from "./core/layout/header/header.component";
 
 
 @Component({

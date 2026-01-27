@@ -1,5 +1,26 @@
-/* Globaly styles go here */
+/* styles.scss */
+
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf') format('truetype');
+  font-weight: 200 400 700 800;
+  font-display: swap;
+  font-style: normal;
+}
+
+$font-primary: 'Bricolage Grotesque';
+$global-white-bg: #F8F9FA;
+
+
+:root {
+  --font-main: 'Bricolage Grotesque', sans-serif;
+  color: $global-white-bg;
+}
+
 
 body {
   margin: 0;
+  border: border-box;
+  font-family: var(--font-main);
+  background-color: $global-white-bg;
 }

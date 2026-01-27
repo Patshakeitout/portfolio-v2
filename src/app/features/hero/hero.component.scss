@@ -1,0 +1,38 @@
+/* Hero component scss */
+
+
+.hero {
+  position: relative;
+  height: 100dvh;
+  overflow: hidden;
+
+  &__title {
+    position: absolute;
+    width: 100%;
+    top: 97px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 0 1rem;
+
+    p {
+      font-size: 4rem;
+      line-height: 1.2;
+      font-weight: 700;
+      text-align: left;
+      margin: 1rem;
+    }
+  }
+
+}
+
+.sticky-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+
+

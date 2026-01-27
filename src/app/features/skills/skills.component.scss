@@ -1,0 +1,26 @@
+/* Skills component scss */
+
+
+/* skills.scss */
+.skills {
+  position: relative;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+
+  // FIX 1: Enable Flexbox so the column layout works
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  // FIX 2: Target the image class correctly
+  .bg {
+    // 'cover' crops the image to fill the screen (no white borders)
+    object-fit: cover;
+
+    // Optional: Keeps it behind your text
+    z-index: -1;
+  }
+}
+
