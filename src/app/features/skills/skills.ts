@@ -4,8 +4,8 @@ import { NgOptimizedImage } from '@angular/common';
 @Component({
   selector: 'app-skills',
   imports: [NgOptimizedImage],
-  templateUrl: './skills.component.html',
-  styleUrl: './skills.component.scss',
+  templateUrl: './skills.html',
+  styleUrl: './skills.scss',
 })
 export class SkillsComponent {
 

@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-projects',
   imports: [],
-  templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss',
+  templateUrl: './projects.html',
+  styleUrl: './projects.scss',
 })
 export class ProjectsComponent {
 

@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './features/home/home.component';
-import { LegalNoticeComponent } from './features/legal-notice/legal-notice.component';
+import { HomeComponent } from './features/home/home';
+import { LegalNoticeComponent } from './features/legal-notice/legal-notice';
 
 export const routes: Routes = [
   {
@@ -9,7 +9,7 @@ export const routes: Routes = [
   },
   {
     path: 'legal-notice',
-    loadComponent: () => import('./features/legal-notice/legal-notice.component').then(m => m.LegalNoticeComponent)
+    loadComponent: () => import('./features/legal-notice/legal-notice').then(m => m.LegalNoticeComponent)
   },
   {
     path: '**',

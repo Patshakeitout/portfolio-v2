@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-legal-notice',
   imports: [],
-  templateUrl: './legal-notice.component.html',
-  styleUrl: './legal-notice.component.scss',
+  templateUrl: './legal-notice.html',
+  styleUrl: './legal-notice.scss',
 })
 export class LegalNoticeComponent {
 
