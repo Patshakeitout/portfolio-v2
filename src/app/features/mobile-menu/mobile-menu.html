@@ -1,1 +1,20 @@
-<p>mobile-menu.component works!</p>
+<!-- mobile-menu.html --->
+
+@if (isOpen()) {
+  <section class="mobile-menu">
+    <img
+      ngSrc="design-material/01_Background/design-size-relation/07_menu_mobile.webp"
+      class="bg"
+      fill
+      loading="lazy"
+      alt="Background"
+    />
+
+    <nav class="nav">
+      <a routerLink="">About</a>
+      <a routerLink="">Skills</a>
+      <a routerLink="">Projects</a>
+      <a routerLink="">Contact</a>
+    </nav>
+  </section>
+}

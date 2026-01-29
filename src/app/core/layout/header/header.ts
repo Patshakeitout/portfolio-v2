@@ -1,23 +1,26 @@
-import { Component, inject, ChangeDetectionStrategy, effect } from '@angular/core';
+import { MobileMenuComponent } from './../../../features/mobile-menu/mobile-menu';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderColorService } from '../../services/header-color.service';
+import { MobileMenuService } from '../../services/mobile-menu.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.html',
   styleUrls: ['./header.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent {
   private headerColorService = inject(HeaderColorService);
-
-  /**
-   * A signal representing whether the header should be in an inverted color state.
-   */
+  private mobileMenuService = inject(MobileMenuService);
   public isHeaderInverted = this.headerColorService.isHeaderInverted.asReadonly();
 
-  constructor() {
-    effect(() => {
-      console.log(`HeaderComponent: isHeaderInverted signal is now ${this.isHeaderInverted()}`);
-    });
+  isMenuOpen = this.mobileMenuService.isOpen;
+
+  toggleMenu() {
+    this.mobileMenuService.toggle();
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

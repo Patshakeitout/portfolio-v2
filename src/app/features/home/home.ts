@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, ElementRef, inject, OnDestroy, NgZone } from '@angular/core';
-import { HeaderColorService } from '../../core/services/header-color';
+import { HeaderColorService } from '../../core/services/header-color.service';
 import { HeroComponent } from './../hero/hero';
 import { AboutComponent } from './../about/about';
 import { SkillsComponent } from './../skills/skills';
