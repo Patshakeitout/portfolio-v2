@@ -11,10 +11,27 @@
     />
 
     <nav class="nav">
-      <a routerLink="">About</a>
-      <a routerLink="">Skills</a>
-      <a routerLink="">Projects</a>
-      <a routerLink="">Contact</a>
+      <a routerLink="/" fragment="about" (click)="scrollToSection($event)">About</a>
+      <a routerLink="/" fragment="skills" (click)="scrollToSection($event)">Skills</a>
+      <a routerLink="/" fragment="projects" (click)="scrollToSection($event)">Projects</a>
+      <a routerLink="/" fragment="contact" (click)="scrollToSection($event)">Contact</a>
+      <button class="nav__toggle" (click)="toggleLanguage()" aria-label="Toggle Language">
+        <img
+          [src]="isEnglish() ? 'icons/ui/toggle-lg-right.png' : 'icons/ui/toggle-lg-left.png'"
+          [alt]="isEnglish() ? 'Switch to German' : 'Switch to English'"
+        />
+      </button>
+    </nav>
+    <nav>
+      <a href="">
+
+      </a>
+      <a href="">
+
+      </a>
+      <a href="">
+
+      </a>
     </nav>
   </section>
 }

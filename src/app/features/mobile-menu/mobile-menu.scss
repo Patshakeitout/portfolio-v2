@@ -1,3 +1,7 @@
+/* mobile-menu.scss */
+
+@use 'variables' as vars;
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -26,6 +30,12 @@
 
     a {
       text-decoration: none;
+      color: vars.$global-white;
+    }
+
+    &__toggle {
+      background: none;
+      border: none;
     }
 
   }

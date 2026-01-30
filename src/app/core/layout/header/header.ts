@@ -13,6 +13,7 @@ export class HeaderComponent {
   private headerColorService = inject(HeaderColorService);
   private mobileMenuService = inject(MobileMenuService);
   public isHeaderInverted = this.headerColorService.isHeaderInverted.asReadonly();
+  public isInContactSection = this.headerColorService.isInContactSection.asReadonly();
 
   isMenuOpen = this.mobileMenuService.isOpen;
 

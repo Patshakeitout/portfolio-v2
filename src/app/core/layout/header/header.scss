@@ -13,6 +13,7 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  transition: top 0.3s ease-in-out;
 
   &__logo {
     width: 40px;
@@ -45,5 +46,10 @@
     .header--invert {
       filter: brightness(0) invert(1) brightness(0.06);
     }
+  }
+
+  &--contact {
+    // Move header a little bit down when in contact section
+    top: 24px;
   }
 }

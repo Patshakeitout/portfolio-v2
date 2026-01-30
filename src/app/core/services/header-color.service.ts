@@ -9,5 +9,6 @@ import { Injectable, signal } from '@angular/core';
 export class HeaderColorService {
 
   public isHeaderInverted = signal(false);
+  public isInContactSection = signal(false);
 
 }
