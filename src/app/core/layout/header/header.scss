@@ -1,6 +1,7 @@
 /* header.component.scss */
 
 @use 'variables' as vars;
+@use 'mixins' as mix;
 
 .header {
   position: fixed;
@@ -19,11 +20,21 @@
     width: 40px;
     height: auto;
     cursor: pointer;
+    transition: filter 0.3s ease-out;
+
+    &:hover,
+    &:active {
+      // Filter equivalent of vars.$highlight1-option1 (#F7C518)
+      filter: brightness(0) saturate(100%) invert(76%) sepia(53%) saturate(1029%) hue-rotate(358deg) brightness(103%) contrast(94%);
+    }
   }
 
   &__menu-icon {
     width: 32px;
     height: auto;
+    transition: filter 0.3s ease-out;
+    position: relative;
+    z-index: 1;
   }
 
   &--invert {
@@ -38,6 +49,41 @@
     padding: 0;
     display: flex;
     align-items: center;
+    position: relative;
+    isolation: isolate;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      background-image: url('/design-material/00_Hand-drawn%20lines/00_Header/Menu%20-%20Mobile%20icon/00_while%20pressing%201.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 2;
+      clip-path: mix.$clip-bottom-right-to-top-left;
+      transition: clip-path 0.3s ease-out;
+    }
+
+    &:hover::before,
+    &:active::before {
+      clip-path: inset(0 0 0 0);
+    }
+
+    &:hover .header__menu-icon,
+    &:active .header__menu-icon {
+      // Filter equivalent of vars.$highlight2-option1 (#3355FF)
+      filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1852%) hue-rotate(222deg) brightness(101%) contrast(102%);
+    }
+
+    // When menu is open (close icon - no --invert class)
+    &:has(.header__menu-icon:not(.header--invert))::before {
+      background-image: url('/design-material/00_Hand-drawn%20lines/00_Header/Menu%20-%20Mobile%20icon/00_While%20pressing%202.png');
+    }
   }
 
   &--inverted {

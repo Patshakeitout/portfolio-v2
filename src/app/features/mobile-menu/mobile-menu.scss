@@ -3,6 +3,15 @@
 @use 'variables' as vars;
 @use 'mixins' as mix;
 
+@keyframes rollo-down {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 .mobile-menu {
   position: fixed;
   top: 0;
@@ -15,6 +24,7 @@
   justify-content: center;
   align-items: center;
   z-index: 10;
+  animation: rollo-down 0.6s ease-out forwards;
 
   .bg {
     position: absolute;
