@@ -35,7 +35,7 @@
 
     a {
       text-decoration: none;
-      color: vars.$global-white;
+      color: vars.$base-white-option1;
       font-size: 18px;
       font-weight: 700;
       padding: 16px 0px;
@@ -79,11 +79,16 @@
       justify-content: center;
       align-items: center;
       box-sizing: border-box;
-      border: 1px solid vars.$global-white;
+      border: 1px solid vars.$base-white-option1;
       border-radius: 50%;
       padding: 4px;
       width: 40px;
       height: 40px;
+      transition: background-color 0.3s ease-out;
+
+      &:hover {
+        background-color: vars.$highlight2-option1;
+      }
     }
 
     img {

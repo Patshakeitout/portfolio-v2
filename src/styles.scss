@@ -13,7 +13,7 @@
 
 :root {
   --font-main: 'Bricolage Grotesque', sans-serif;
-  color: vars.$global-white;
+  color: vars.$base-white-option1;
 }
 
 
@@ -21,4 +21,4 @@ body {
   margin: 0;
   border: border-box;
   font-family: var(--font-main);
-  background-color: vars.$global-white;}
+  background-color: vars.$base-white-option1;}
