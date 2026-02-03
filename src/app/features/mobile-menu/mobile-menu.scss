@@ -1,15 +1,17 @@
 /* mobile-menu.scss */
 
 @use 'variables' as vars;
+@use 'mixins' as mix;
 
 .mobile-menu {
   position: fixed;
   top: 0;
   left: 0;
-  height: 50dvh;
+  height: 70dvh;
   width: 100vw;
   overflow: hidden;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 10;
@@ -24,7 +26,6 @@
   }
 
   .nav {
-    position: absolute;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,11 +41,54 @@
       padding: 16px 0px;
     }
 
+    &--about    { @include mix.nav-link-hover(1, mix.$clip-top-to-bottom); }
+    &--skills   { @include mix.nav-link-hover(2, mix.$clip-left-to-right); }
+    &--projects { @include mix.nav-link-hover(3, mix.$clip-left-to-right); }
+    &--contact  { @include mix.nav-link-hover(4, mix.$clip-left-to-right, 75%); }
+
     &__toggle {
+      @include mix.nav-link-hover(Toggle, mix.$clip-bottom-right-to-top-left, 50%, 2, 40%, 80%);
       background: none;
       border: none;
-    }
+      cursor: pointer;
 
+      &::before {
+        top: 45%;
+      }
+
+      // When English is active, highlight DE side (left)
+      &--english::before {
+        left: 18%;
+      }
+
+      // When German is active (default), highlight EN side (right)
+      &:not(&--english)::before {
+        left: 80%;
+      }
+    }
   }
 
+  .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 168px;
+
+    &__link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      border: 1px solid vars.$global-white;
+      border-radius: 50%;
+      padding: 4px;
+      width: 40px;
+      height: 40px;
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+  }
 }

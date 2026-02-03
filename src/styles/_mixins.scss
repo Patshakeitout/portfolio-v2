@@ -1,0 +1,64 @@
+/* _mixins.scss */
+
+// Clip-path animation directions
+$clip-top-to-bottom: inset(0 0 100% 0);
+$clip-left-to-right: inset(0 100% 0 0);
+$clip-bottom-to-top: inset(100% 0 0 0);
+$clip-right-to-left: inset(0 0 0 100%);
+$clip-bottom-right-to-top-left: inset(100% 0 0 100%);
+
+// Mixin for nav link hover effect with hand-drawn images
+@mixin nav-link-hover($image, $clip-start, $top: 50%, $color-option: 1, $width: 130%, $height: 200%) {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: $top;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $height;
+    background-image: url('/design-material/00_Hand-drawn%20lines/00_Header/Color%20option%20#{$color-option}/#{$image}.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    clip-path: $clip-start;
+    transition: clip-path 0.3s ease-out;
+  }
+
+  &:hover::before {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+// Mixin for hover effect with animated clip-path reveal
+@mixin hover-reveal($image-path, $clip-start, $top: 50%) {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: $top;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 130%;
+    height: 200%;
+    background-image: url($image-path);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    clip-path: $clip-start;
+    transition: clip-path 0.3s ease-out;
+  }
+
+  &:hover::before,
+  &:active::before,
+  &:focus::before {
+    clip-path: inset(0 0 0 0);
+  }
+}

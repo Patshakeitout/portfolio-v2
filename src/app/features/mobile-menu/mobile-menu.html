@@ -11,26 +11,33 @@
     />
 
     <nav class="nav">
-      <a routerLink="/" fragment="about" (click)="scrollToSection($event)">About me</a>
-      <a routerLink="/" fragment="skills" (click)="scrollToSection($event)">Skills</a>
-      <a routerLink="/" fragment="projects" (click)="scrollToSection($event)">Projects</a>
-      <a routerLink="/" fragment="contact" (click)="scrollToSection($event)">Contact</a>
-      <button class="nav__toggle" (click)="toggleLanguage()" aria-label="Toggle Language">
+      <a class="nav--about" routerLink="/" fragment="about" (click)="scrollToSection($event)">About me</a>
+      <a class="nav--skills" routerLink="/" fragment="skills" (click)="scrollToSection($event)">Skills</a>
+      <a class="nav--projects" routerLink="/" fragment="projects" (click)="scrollToSection($event)">Projects</a>
+      <a class="nav--contact" routerLink="/" fragment="contact" (click)="scrollToSection($event)">Contact</a>
+
+      <button
+        class="nav__toggle"
+        [class.nav__toggle--english]="isEnglish()"
+        (click)="toggleLanguage()"
+        aria-label="Toggle Language"
+      >
         <img
           [src]="isEnglish() ? 'icons/ui/toggle-lg-right.png' : 'icons/ui/toggle-lg-left.png'"
           [alt]="isEnglish() ? 'Switch to German' : 'Switch to English'"
         />
       </button>
     </nav>
-    <nav>
-      <a href="">
 
+    <nav class="contact">
+      <a class="contact__link" href="www.linkedin.com/in/patrick-schauer-5a369322a">
+        <img src="icons/contact/linkedin.svg" />
       </a>
-      <a href="">
-
+      <a class="contact__link" href="https://github.com/Patshakeitout">
+        <img src="icons/contact/github.svg" />
       </a>
-      <a href="">
-
+      <a class="contact__link" href="mailto:patrick_schauer@t-online.de">
+        <img src="icons/contact/mail.svg" />
       </a>
     </nav>
   </section>
