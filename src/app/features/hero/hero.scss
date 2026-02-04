@@ -33,16 +33,16 @@
     transform: scaleX(1) scaleY(1);
   }
   25% {
-    transform: scaleX(1.05) scaleY(0.95);
+    transform: scaleX(1.025) scaleY(0.975);
   }
   45% {
-    transform: scaleX(0.92) scaleY(1.05);
-  }
-  65% {
     transform: scaleX(0.96) scaleY(1.025);
   }
+  65% {
+    transform: scaleX(0.98) scaleY(1.012);
+  }
   85% {
-    transform: scaleX(0.99) scaleY(1.008);
+    transform: scaleX(0.995) scaleY(1.004);
   }
   100% {
     transform: scaleX(1) scaleY(1);
@@ -92,7 +92,33 @@
       margin: 1rem;
     }
 
-    .btn--primary {
+    // Text with individual letter hover effects
+    .hero__text {
+      span {
+        cursor: pointer;
+        transition: color 0.3s ease-out;
+
+        &:hover {
+          color: vars.$highlight1-option1;
+        }
+      }
+
+      // Frontend: lowercase → uppercase on hover, uppercase → lowercase
+      &--frontend span:hover {
+        text-transform: uppercase;
+      }
+
+      &--frontend span.uppercase:hover {
+        text-transform: lowercase;
+      }
+
+      // DEVELOPER: uppercase → lowercase on hover
+      &--developer span:hover {
+        text-transform: lowercase;
+      }
+    }
+
+    .btn-primary {
       position: relative;
       display: inline-flex;
       align-items: center;
@@ -107,7 +133,6 @@
       cursor: pointer;
       transform-origin: left center;
       transition: border-color 0.6s ease-out;
-      animation: btn-squash-unhover 1.4s ease-out;
 
       &::before {
         content: '';
@@ -121,20 +146,21 @@
         z-index: 0;
       }
 
-      .btn-default,
-      .btn-hover {
+      // BEM Elements
+      &__default,
+      &__hover {
         position: relative;
         z-index: 1;
       }
 
-      .btn-default {
+      &__default {
         max-width: 200px;
         overflow: hidden;
         transition: max-width 0.6s ease-out,
                     opacity 0.6s ease-out;
       }
 
-      .btn-hover {
+      &__hover {
         max-width: 0;
         overflow: hidden;
         opacity: 0;
@@ -142,7 +168,7 @@
                     opacity 0.6s ease-out;
       }
 
-      .btn-wave {
+      &__wave {
         position: absolute;
         right: 0;
         top: -40px;
@@ -153,26 +179,51 @@
         z-index: 2;
       }
 
-      &:hover,
-      &:active {
-        animation: btn-stretch-squash 1.8s ease-out;
+      // BEM Modifier: World button
+      &--world {
+        animation: btn-squash-unhover 1.4s ease-out;
+
+        &:hover,
+        &:active {
+          animation: btn-stretch-squash 1.8s ease-out;
+
+          &::before {
+            transform: scaleX(1);
+          }
+
+          .btn-primary__default {
+            max-width: 0;
+            opacity: 0;
+          }
+
+          .btn-primary__hover {
+            max-width: 300px;
+            opacity: 1;
+          }
+
+          .btn-primary__wave {
+            animation: wave-roll-brake 0.8s ease-out forwards;
+          }
+        }
+      }
+
+      // BEM Modifier: Talk button
+      &--talk {
+        float: right;
+        box-shadow: 2px 4px 0px 0px vars.$base-white-option1;
+        transition: transform 0.2s ease-out,
+                    box-shadow 0.2s ease-out,
+                    background-color 0.2s ease-out;
 
         &::before {
-          transform: scaleX(1);
+          display: none;
         }
 
-        .btn-default {
-          max-width: 0;
-          opacity: 0;
-        }
-
-        .btn-hover {
-          max-width: 300px;
-          opacity: 1;
-        }
-
-        .btn-wave {
-          animation: wave-roll-brake 0.8s ease-out forwards;
+        &:hover,
+        &:active {
+          transform: translate(2px, 4px);
+          box-shadow: 0px 0px 0px 0px vars.$base-white-option1;
+          background-color: vars.$highlight3-option2;
         }
       }
     }
