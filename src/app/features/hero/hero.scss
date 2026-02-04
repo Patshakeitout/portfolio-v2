@@ -4,20 +4,20 @@
 
 @keyframes wave-roll-brake {
   0% {
-    transform: rotate(-180deg);
+    transform: rotate(-360deg);
     opacity: 0;
   }
-  20% {
+  15% {
     opacity: 1;
   }
-  60% {
-    transform: rotate(20deg);
+  55% {
+    transform: rotate(25deg);
   }
-  75% {
-    transform: rotate(-10deg);
+  70% {
+    transform: rotate(-12deg);
   }
-  85% {
-    transform: rotate(5deg);
+  82% {
+    transform: rotate(6deg);
   }
   92% {
     transform: rotate(-2deg);
@@ -75,31 +75,44 @@
   height: 100dvh;
   overflow: hidden;
 
+  &__polaroid {
+    position: absolute;
+    width: 203.57px;
+    height: 244px;
+    top: 460px;
+    left: 50%;
+    transform: translateX(-50%) rotate(8deg);
+  }
+
   &__title {
     position: absolute;
-    width: 100%;
     top: 97px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    padding: 0 1rem;
+    left: 16px;
+    right: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 
     p {
       font-size: 4rem;
       line-height: 1.2;
       font-weight: 700;
       text-align: left;
-      margin: 1rem;
+      margin: 0;
     }
 
     // Text with individual letter hover effects
     .hero__text {
       span {
+        position: relative;
         cursor: pointer;
-        transition: color 0.3s ease-out;
+        padding: 0 3px;
+        margin: 0 -3px;
+        transition: color 0.4s ease-out 0.1s;
 
         &:hover {
           color: vars.$highlight1-option1;
+          transition-delay: 0s;
         }
       }
 
@@ -181,6 +194,7 @@
 
       // BEM Modifier: World button
       &--world {
+        width: fit-content;
         animation: btn-squash-unhover 1.4s ease-out;
 
         &:hover,
@@ -202,14 +216,15 @@
           }
 
           .btn-primary__wave {
-            animation: wave-roll-brake 0.8s ease-out forwards;
+            animation: wave-roll-brake 1.8s ease-out forwards;
           }
         }
       }
 
       // BEM Modifier: Talk button
       &--talk {
-        float: right;
+        align-self: flex-start;
+        margin-left: 227px;
         box-shadow: 2px 4px 0px 0px vars.$base-white-option1;
         transition: transform 0.2s ease-out,
                     box-shadow 0.2s ease-out,
