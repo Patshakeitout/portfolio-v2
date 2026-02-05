@@ -75,34 +75,83 @@
   height: 100dvh;
   overflow: hidden;
 
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
+    align-items: center;
+    height: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
   &__polaroid {
+    position: relative;
+    height: 36dvh;
+    max-height: 320px;
+    width: auto;
+    aspect-ratio: 184.8 / 220;
+    transform: rotate(8deg);
+    margin: 0;
+
+    @media (max-width: 309px) {
+      height: 28dvh;
+      max-height: 220px;
+    }
+
+    @media (max-height: 550px) {
+      display: none;
+    }
+  }
+
+  &__polaroid-photo {
     position: absolute;
-    width: 203.57px;
-    height: 244px;
-    top: 460px;
-    left: 50%;
-    transform: translateX(-50%) rotate(8deg);
+    top: 6.4%;
+    left: 7.5%;
+    width: 85%;
+    height: 72%;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  &__polaroid-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
   }
 
   &__title {
-    position: absolute;
-    top: 97px;
-    left: 16px;
-    right: 16px;
+    position: relative;
+    width: 100%;
+    align-self: flex-start;
     display: flex;
     flex-direction: column;
     gap: 16px;
 
-    p {
-      font-size: 4rem;
+    .hero__heading {
+      font-size: clamp(2.5rem, 16.5vw, 4rem);
       line-height: 1.2;
       font-weight: 700;
       text-align: left;
       margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @media (min-width: 385px) {
+        font-size: clamp(4rem, 12vw, 6rem); // Larger on bigger screens
+      }
     }
 
     // Text with individual letter hover effects
     .hero__text {
+      display: block;
       span {
         position: relative;
         cursor: pointer;
@@ -131,16 +180,28 @@
       }
     }
 
+    .hero__developer-row {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-end;
+      align-self: flex-start; // Keep row at 16px left margin
+      gap: 16px;
+
+      @media (min-width: 385px) {
+        align-self: flex-end; // Move to right on larger screens
+      }
+    }
+
     .btn-primary {
       position: relative;
       display: inline-flex;
       align-items: center;
       background-color: vars.$base-black-option1;
       color: vars.$base-white-option1;
-      padding: 12px 24px;
+      padding: clamp(10px, 3.1vw, 12px) clamp(18px, 6.2vw, 24px);
       border-radius: 100px;
       border: 1px solid vars.$base-white-option1;
-      font-size: 18px;
+      font-size: clamp(16px, 4.6vw, 18px);
       font-weight: 500;
       white-space: nowrap;
       cursor: pointer;
@@ -221,10 +282,9 @@
         }
       }
 
-      // BEM Modifier: Talk button
+      // BEM Modifier: Talk button (anchor link)
       &--talk {
-        align-self: flex-start;
-        margin-left: 227px;
+        text-decoration: none;
         box-shadow: 2px 4px 0px 0px vars.$base-white-option1;
         transition: transform 0.2s ease-out,
                     box-shadow 0.2s ease-out,
