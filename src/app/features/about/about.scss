@@ -5,4 +5,13 @@
   height: 100dvh;
   width: 100%;
   overflow: hidden;
+
+  &__content {
+     padding: 88px 16px;
+  }
+
+  &__title {
+    color: #000;
+
+  }
 }
