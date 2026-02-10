@@ -128,11 +128,11 @@
 
   &__title {
     position: relative;
+    top: 12px;
     width: 100%;
     align-self: flex-start;
     display: flex;
     flex-direction: column;
-    gap: 16px;
 
     .hero__heading {
       font-size: clamp(2.5rem, 16.5vw, 4rem);
@@ -253,7 +253,7 @@
         z-index: 2;
       }
 
-      // BEM Modifier: World button
+      // World button
       &--world {
         width: fit-content;
         animation: btn-squash-unhover 1.4s ease-out;
@@ -282,13 +282,13 @@
         }
       }
 
-      // BEM Modifier: Talk button (anchor link)
+      // Talk button (contact link)
       &--talk {
         text-decoration: none;
         box-shadow: 2px 4px 0px 0px vars.$base-white-option1;
-        transition: transform 0.2s ease-out,
-                    box-shadow 0.2s ease-out,
-                    background-color 0.2s ease-out;
+        transition: transform 0.3s ease-out,
+                    box-shadow 0.3s ease-out,
+                    background-color 0.3s ease-out;
 
         &::before {
           display: none;

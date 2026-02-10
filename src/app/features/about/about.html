@@ -2,42 +2,53 @@
 
 <section class="about">
   <div class="about__content">
-    <h1 class="about__title">About me</h1>
+    <header class="about__header">
+      <p class="about__subtitle">WHO'S PATRICK</p>
+      <h1 class="about__title">About me</h1>
 
-    <article>blbla
+      <article class="about__article">
+        <p>
+          Hi, I'm Patrick. My path from physics to QA engineering taught me to think precisely and
+          catch what others miss. Now in development — with frontend focus, I get to combine that
+          careful approach with creativity.
+        </p>
+        <p>Let's build value for others!</p>
 
-
-    </article>
-
-    <button></button>
+        <button class="btn-primary btn-primary--contact">Let's talk!</button>
+        <!-- routerLink="/" fragment="contact" -->
+      </article>
+    </header>
 
     <ul class="job-conditions" aria-label="Job conditions">
       <li class="job-conditions__item">
-        <i src="icons/hybrid-remote-onsite.svg"></i>
         <img
-          src="design-material/02_Ripped Paper/Option 3/Mobile/About me 4.png"
+          class="job-conditions__icon"
+          src="icons/work-cond/relocation.svg"
           alt=""
           aria-hidden="true"
         />
-        <span>Remote</span>
-      </li>
-      <li class="job-conditions__item">
-        <i src="icons/location.svg"></i>
         <img
-          src="design-material/02_Ripped Paper/Option 3/Mobile/About me 5.png"
-          alt=""
-          aria-hidden="true"
-        />
-        <span>Full-time</span>
-      </li>
-      <li class="job-conditions__item">
-        <i src="icons/relocation.svg"></i>
-        <img
+          class="job-conditions__paper"
           src="design-material/02_Ripped Paper/Option 3/Mobile/About me 6.png"
           alt=""
           aria-hidden="true"
         />
-        <span>Flexible</span>
+        <span class="job-conditions__label">Location: Itzehoe (+ 40km radius)</span>
+      </li>
+      <li class="job-conditions__item">
+        <img
+          class="job-conditions__icon"
+          src="icons/work-cond/hybrid-remote-onsite.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <img
+          class="job-conditions__paper"
+          src="design-material/02_Ripped Paper/Option 3/Mobile/About me 4.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <span class="job-conditions__label">On-site / Hybrid / Remote</span>
       </li>
     </ul>
   </div>

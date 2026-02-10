@@ -19,6 +19,6 @@
 
 body {
   margin: 0;
-  border: border-box;
+  box-sizing: border-box;
   font-family: var(--font-main);
   background-color: vars.$base-white-option1;}

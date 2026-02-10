@@ -1,4 +1,6 @@
-/* Hero component scss */
+/* About component scss */
+
+@use 'variables' as vars;
 
 .about {
   position: relative;
@@ -7,11 +9,161 @@
   overflow: hidden;
 
   &__content {
-     padding: 88px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    height: 100%;
+    padding: 88px 16px;
+    box-sizing: border-box;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__subtitle {
+    color: vars.$base-black-option1;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 4px;
   }
 
   &__title {
-    color: #000;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    color: vars.$base-black-option1;
+    font-size: 48px;
+    font-weight: 700;
 
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 14px;
+      background-image: url('/design-material/00_Hand-drawn lines/01_about-me/color-option3.png');
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    color: vars.$base-black-option1;
+    font-size: 18px;
+    font-weight: 400;
+
+    p {
+      width: 100%;
+
+      + p {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background-color: vars.$base-white-option1;
+  color: vars.$base-black-option1;
+  padding: clamp(10px, 3.1vw, 12px) clamp(18px, 6.2vw, 24px);
+  border-radius: 100px;
+  border: 1px solid vars.$base-black-option1;
+  font-size: clamp(16px, 4.6vw, 18px);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &--contact {
+    height: clamp(38px, 11vw, 44px);
+    text-decoration: none;
+    box-shadow: 2px 4px 0px 0px vars.$base-black-option1;
+    transition: transform 0.3s ease-out,
+                box-shadow 0.3s ease-out,
+                background-color 0.3s ease-out;
+
+    &:hover,
+    &:active {
+      transform: translate(2px, 4px);
+      box-shadow: 0px 0px 0px 0px vars.$base-black-option1;
+      background-color: vars.$highlight3-option2;
+    }
+  }
+}
+
+.job-conditions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 16px 24px 16px 32px;
+    width: calc(100vw - 32px);
+    aspect-ratio: 343 / 128;
+    gap: 12px;
+    box-sizing: border-box;
+
+    &:nth-child(1) {
+      transform: rotate(-4deg);
+      z-index: 2;
+    }
+
+    &:nth-child(2) {
+      transform: rotate(4deg);
+      margin-top: -24px;
+      z-index: 1;
+    }
+  }
+
+  &__paper {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 60px;
+    top: 46%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    z-index: 2;
+  }
+
+  &__label {
+    position: absolute;
+    left: 115px;
+    top: 45%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    text-align: left;
+    z-index: 2;
   }
 }

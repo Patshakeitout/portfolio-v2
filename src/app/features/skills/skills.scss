@@ -1,5 +1,7 @@
 /* skills.scss */
 
+@use 'variables' as vars;
+
 .skills {
   position: relative;
   height: 100dvh;
@@ -7,12 +9,87 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
-  .bg {
+  .bg-image {
     object-fit: cover;
     z-index: -1;
   }
-}
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 88px 16px 12px 16px;
+
+    header {
+      align-self: flex-end;
+    }
+
+    /* Title */
+    h5 {
+      text-align: right;
+      font-weight: 500;
+      font-size: 18px;
+      margin: 4px;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 48px;
+      margin: 4px;
+    }
+  }
+
+  &__article {
+    background: url('/design-material/02_Ripped Paper/skills-mobile-alt.webp') no-repeat center / 100% 100%;
+    padding: 0px 16px;
+    color: vars.$base-black-option1;
+    font-size: 18px;
+    font-weight: 400;
+
+    p {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.5;
+    }
+  }
+
+  &__icons {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    margin-top: 12px;
+    padding: 0;
+    width: 100%;
+
+    figure {
+      margin: 0;
+      width: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      figcaption {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+  }
+
+  .peel-off {
+    background: url("/design-material/03_Stickers/01_skills-peel-off/color-option-3/A-mobile.webp") no-repeat center / contain;
+    grid-column: -3 / -1;
+    aspect-ratio: 1;
+    transform: rotate(8deg);
+  }
+}
