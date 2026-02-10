@@ -8,5 +8,7 @@ import { NgOptimizedImage } from '@angular/common';
   styleUrl: './hero.scss',
 })
 export class HeroComponent {
-
+  scrollToContact() {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

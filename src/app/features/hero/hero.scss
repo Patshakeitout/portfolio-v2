@@ -115,6 +115,25 @@
     height: 72%;
     object-fit: cover;
     z-index: 1;
+    filter: grayscale(100%);
+    transition: filter 0.4s ease-out;
+  }
+
+  &__polaroid:hover &__polaroid-photo {
+    filter: grayscale(0%);
+  }
+
+  &__polaroid-caption {
+    position: absolute;
+    bottom: 4%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Kalam-bold', cursive;
+    font-size: clamp(20px, 3.5vw, 18px);
+    color: #333;
+    z-index: 3;
+    pointer-events: none;
   }
 
   &__polaroid-frame {
@@ -142,7 +161,6 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 16px;
 
       @media (min-width: 385px) {
         font-size: clamp(4rem, 12vw, 6rem); // Larger on bigger screens

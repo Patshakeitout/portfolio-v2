@@ -1,5 +1,5 @@
 import { MobileMenuComponent } from './../../../features/mobile-menu/mobile-menu';
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, signal, HostListener } from '@angular/core';
 import { HeaderColorService } from '../../services/header-color.service';
 import { MobileMenuService } from '../../services/mobile-menu.service';
 
@@ -16,6 +16,23 @@ export class HeaderComponent {
   public isInContactSection = this.headerColorService.isInContactSection.asReadonly();
 
   isMenuOpen = this.mobileMenuService.isOpen;
+  isHeaderHidden = signal(false);
+  private lastScrollY = 0;
+
+  @HostListener('window:scroll')
+  onScroll() {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY < 10) {
+      this.isHeaderHidden.set(false);
+    } else if (currentScrollY > this.lastScrollY + 10) {
+      this.isHeaderHidden.set(true);
+    } else if (currentScrollY < this.lastScrollY) {
+      this.isHeaderHidden.set(false);
+    }
+
+    this.lastScrollY = currentScrollY;
+  }
 
   toggleMenu() {
     this.mobileMenuService.toggle();

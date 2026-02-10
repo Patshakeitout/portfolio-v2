@@ -98,4 +98,8 @@
     // Move header a little bit down when in contact section
     top: 24px;
   }
+
+  &--hidden {
+    top: -80px;
+  }
 }
