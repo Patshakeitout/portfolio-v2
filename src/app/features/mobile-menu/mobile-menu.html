@@ -3,7 +3,7 @@
 @if (isOpen()) {
   <section class="mobile-menu">
     <img
-      ngSrc="design-material/01_Background/design-size-relation/07_menu_mobile.webp"
+      ngSrc="/design-material/01_Background/design-size-relation/07_menu_mobile.webp"
       class="bg"
       fill
       loading="lazy"
@@ -23,7 +23,7 @@
         aria-label="Toggle Language"
       >
         <img
-          [src]="isEnglish() ? 'icons/ui/toggle-lg-right.png' : 'icons/ui/toggle-lg-left.png'"
+          [src]="isEnglish() ? '/icons/ui/toggle-lg-right.png' : '/icons/ui/toggle-lg-left.png'"
           [alt]="isEnglish() ? 'Switch to German' : 'Switch to English'"
         />
       </button>
@@ -31,13 +31,13 @@
 
     <nav class="contact">
       <a class="contact__link" href="www.linkedin.com/in/patrick-schauer-5a369322a">
-        <img src="icons/contact/linkedin.svg" />
+        <img src="/icons/contact/linkedin.svg" />
       </a>
       <a class="contact__link" href="https://github.com/Patshakeitout">
-        <img src="icons/contact/github.svg" />
+        <img src="/icons/contact/github.svg" />
       </a>
       <a class="contact__link" href="mailto:patrick_schauer@t-online.de">
-        <img src="icons/contact/mail.svg" />
+        <img src="/icons/contact/mail.svg" />
       </a>
     </nav>
   </section>
