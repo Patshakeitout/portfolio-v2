@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 32px;
+    gap: 16px;
     height: 100%;
     padding: 88px 16px;
     box-sizing: border-box;
@@ -49,6 +49,73 @@
       background-image: url('/design-material/00_Hand-drawn%20lines/03_Portfolio/color-option3.png');
       background-size: 100% 100%;
       background-repeat: no-repeat;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 0.6s ease-in-out;
+    }
+
+    &:hover::after {
+      clip-path: inset(0 0 0 0);
     }
   }
+
+  &__article {
+    margin: 0;
+    padding: 0;
+    color: vars.$base-black-option1;
+    font-size: 17px;
+    font-weight: 400;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__image {
+    position: relative;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .laptop {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      animation: laptop-bob 3s ease-in-out infinite;
+    }
+
+    .btn-details {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 7.5rem;
+      height: auto;
+      z-index: 2;
+      opacity: 0.85;
+      cursor: pointer;
+    }
+  }
+
 }
+
+@keyframes laptop-bob {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-in;
+  }
+  15% {
+    transform: translateY(32px);
+  }
+  26% {
+    transform: translateY(32px);
+    animation-timing-function: ease-out;
+  }
+  37.5% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
