@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { PROJECTS } from '../project-details/projects-data';
 
 @Component({
   selector: 'app-projects',
@@ -8,5 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './projects.scss',
 })
 export class ProjectsComponent {
-
+  readonly projects = PROJECTS;
 }

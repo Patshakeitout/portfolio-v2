@@ -1,0 +1,133 @@
+@use 'variables' as vars;
+
+.project-details {
+  position: relative;
+  min-height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  background-color: vars.$base-black-option1;
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 88px 16px 32px;
+    box-sizing: border-box;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__period {
+    margin: 0 0 4px;
+    color: vars.$base-black-option1;
+    font-weight: 500;
+  }
+
+  &__title {
+    margin: 0;
+    color: vars.$base-black-option1;
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  &__image {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__article {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: vars.$base-black-option1;
+    font-size: 17px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__tech {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    li {
+      padding: 4px 12px;
+      border: 1px solid vars.$base-black-option1;
+      border-radius: 100px;
+      font-size: 14px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  &__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid vars.$base-black-option1;
+    background-color: vars.$base-white-option1;
+    color: vars.$base-black-option1;
+    font-size: 22px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+
+    &:hover {
+      transform: translateY(-2px);
+      background-color: vars.$highlight3-option2;
+    }
+
+    &--disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+
+  &__back {
+    color: vars.$base-black-option1;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+}

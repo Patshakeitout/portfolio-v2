@@ -1,0 +1,96 @@
+@let current = project();
+
+<section class="project-details">
+  <img
+    class="project-details__background"
+    src="/design-material/01_Background/design-size-relation/08_project-view-mobile.png"
+    alt=""
+  />
+
+  @if (current) {
+    <main class="project-details__content">
+      <header class="project-details__header">
+        <p class="project-details__period">{{ current.period }} · {{ current.duration }}</p>
+        <h1 class="project-details__title">{{ current.title }}</h1>
+      </header>
+
+      <article class="project-details__article">
+        <h4>Description</h4>
+        <p>{{ current.description }}</p>
+
+        <h4>Implementation</h4>
+        <p>{{ current.implementationDetails }}</p>
+
+        <figure class="project-details__image">
+          <img
+            [class]="current.imageClass"
+            [src]="current.image"
+            [alt]="current.title + ' preview'"
+          />
+        </figure>
+
+        @if (current.tech?.length) {
+          <ul class="project-details__tech">
+            @for (item of current.tech; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+        }
+
+        @if (current.liveUrl || current.repoUrl) {
+          <div class="project-details__links">
+            @if (current.liveUrl) {
+              <a class="btn-primary" [href]="current.liveUrl" target="_blank" rel="noopener"
+                >Live</a
+              >
+            }
+            @if (current.repoUrl) {
+              <a class="btn-primary" [href]="current.repoUrl" target="_blank" rel="noopener"
+                >Code</a
+              >
+            }
+          </div>
+        }
+      </article>
+
+      <nav class="project-details__nav" aria-label="Project navigation">
+        @if (prevSlug(); as prev) {
+          <a
+            class="project-details__arrow project-details__arrow--prev"
+            [routerLink]="['/projects', prev]"
+            aria-label="Previous project"
+            >←</a
+          >
+        } @else {
+          <span
+            class="project-details__arrow project-details__arrow--prev project-details__arrow--disabled"
+            aria-disabled="true"
+            >←</span
+          >
+        }
+
+        <a class="project-details__back" routerLink="/" fragment="projects">Back to projects</a>
+
+        @if (nextSlug(); as next) {
+          <a
+            class="project-details__arrow project-details__arrow--next"
+            [routerLink]="['/projects', next]"
+            aria-label="Next project"
+            >→</a
+          >
+        } @else {
+          <span
+            class="project-details__arrow project-details__arrow--next project-details__arrow--disabled"
+            aria-disabled="true"
+            >→</span
+          >
+        }
+      </nav>
+    </main>
+  } @else {
+    <main class="project-details__content">
+      <p>Project not found.</p>
+      <a class="btn-primary" routerLink="/">Back home</a>
+    </main>
+  }
+</section>

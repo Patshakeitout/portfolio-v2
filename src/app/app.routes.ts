@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './features/home/home';
-import { LegalNoticeComponent } from './features/legal-notice/legal-notice';
 
 export const routes: Routes = [
   {
@@ -9,7 +8,13 @@ export const routes: Routes = [
   },
   {
     path: 'legal-notice',
-    loadComponent: () => import('./features/legal-notice/legal-notice').then(m => m.LegalNoticeComponent)
+    loadComponent: () =>
+      import('./features/legal-notice/legal-notice').then(module => module.LegalNoticeComponent)
+  },
+  {
+    path: 'projects/:slug',
+    loadComponent: () =>
+      import('./features/project-details/project-details').then(module => module.ProjectDetails)
   },
   {
     path: '**',

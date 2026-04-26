@@ -3,30 +3,43 @@
 <section class="projects">
   <main class="projects__content">
     <header class="projects__header">
-      <h5 class="projects__subtitle">MY CRAFT</h5>
+      <p class="projects__subtitle">MY CRAFT</p>
       <h1 class="projects__title">Projects</h1>
     </header>
 
     <article class="projects__article">
       <p>
-        Curious? Dive into the projects below — every interaction is a design decision, every detail a choice I can walk you through. Frontend-focused builds, with Supabase stepping in when a backend is needed.
+        Curious? Dive into the projects below — every interaction is a design decision, every detail
+        a choice I can walk you through. Frontend-focused builds, with Supabase stepping in when a
+        backend is needed.
       </p>
     </article>
 
-    <figure class="projects__image">
-      <a class="btn-details" routerLink="/projects/join" aria-label="Open Join project details">
-        <img class="btn-details__sticker" src="/design-material/03_Stickers/00_Round/project-details.png" alt="">
-      </a>
-      <img class="laptop" src="/images/join-laptop.png" alt="Join project preview">
-    </figure>
+    @for (project of projects; track project.slug) {
+      <article class="projects__article">
+        <h4>{{ project.title }}</h4>
 
-    <article class="projects__article">
-      <h4>El Pollo Loco</h4>
-      <p>
-         2D platformer built based on OOP JavaScript. Help Pepe to find coins
-         and tabasco salsa to fight against the crazy hen.
-      </p>
-    </article>
+        <figure class="projects__image">
+          @if (project.cta === 'sticker') {
+            <a class="btn-details" [routerLink]="['/projects', project.slug]" [attr.aria-label]="'Open ' + project.title + ' project details'">
+              <img
+                class="btn-details__sticker"
+                src="/design-material/03_Stickers/00_Round/project-details.png"
+                alt=""
+              />
+            </a>
+          }
+
+          <img [class]="project.imageClass" [src]="project.image" [alt]="project.title + ' project preview'" />
+        </figure>
+
+        <p>{{ project.description }}</p>
+
+        @if (project.cta === 'button') {
+          <a class="btn-primary" [routerLink]="['/projects', project.slug]">Project Details</a>
+        }
+      </article>
+    }
 
   </main>
 </section>

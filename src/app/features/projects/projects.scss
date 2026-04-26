@@ -11,7 +11,8 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 16px;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
     height: 100%;
     padding: 88px 16px;
     box-sizing: border-box;
@@ -59,6 +60,8 @@
   }
 
   &__article {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     color: vars.$base-black-option1;
@@ -67,17 +70,23 @@
 
     h4 {
       font-size: 1.25rem;
-      margin-bottom: 1rem;
+      margin: 1rem 0;
     }
 
     p {
       margin: 0;
+      margin-top: 0.5rem;
+    }
+
+    .btn-primary {
+      align-self: flex-end;
+      margin-top: 1rem;
     }
   }
 
   &__image {
     position: relative;
-    margin: 0;
+    margin: 0 1rem 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,7 +96,14 @@
       max-width: 100%;
       height: auto;
       display: block;
+      padding-right: 1rem;
       animation: laptop-bob 3s ease-in-out infinite;
+    }
+
+    .epl {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     .btn-details {
@@ -149,16 +165,13 @@
 @keyframes laptop-bob {
   0% {
     transform: translateY(0);
-    animation-timing-function: ease-in;
-  }
-  15% {
-    transform: translateY(32px);
-  }
-  26% {
-    transform: translateY(32px);
     animation-timing-function: ease-out;
   }
-  37.5% {
+  40% {
+    transform: translateY(-32px);
+    animation-timing-function: ease-in;
+  }
+  60% {
     transform: translateY(0);
   }
   100% {
