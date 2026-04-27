@@ -1,5 +1,8 @@
 import { MobileMenuComponent } from './../../../features/mobile-menu/mobile-menu';
 import { Component, inject, ChangeDetectionStrategy, signal, HostListener } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { filter, map, startWith } from 'rxjs';
 import { HeaderColorService } from '../../services/header-color.service';
 import { MobileMenuService } from '../../services/mobile-menu.service';
 
@@ -12,8 +15,17 @@ import { MobileMenuService } from '../../services/mobile-menu.service';
 export class HeaderComponent {
   private headerColorService = inject(HeaderColorService);
   private mobileMenuService = inject(MobileMenuService);
+  private router = inject(Router);
   public isHeaderInverted = this.headerColorService.isHeaderInverted.asReadonly();
   public isInContactSection = this.headerColorService.isInContactSection.asReadonly();
+  public isOnProjectDetails = toSignal(
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      map(event => event.urlAfterRedirects.startsWith('/projects/')),
+      startWith(this.router.url.startsWith('/projects/'))
+    ),
+    { initialValue: this.router.url.startsWith('/projects/') }
+  );
 
   isMenuOpen = this.mobileMenuService.isOpen;
   isHeaderHidden = signal(false);
