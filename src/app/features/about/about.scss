@@ -51,13 +51,8 @@
       background-image: url('/design-material/00_Hand-drawn%20lines/01_about-me/color-option2.png');
       background-size: 100% 100%;
       background-repeat: no-repeat;
-      opacity: 0;
-      transition: opacity 0.3s ease-out;
-    }
-
-    &:hover::after,
-    &:active::after {
-      opacity: 1;
+      clip-path: inset(0 100% 0 0);
+      animation: draw-erase 3s ease-in-out infinite;
     }
   }
 
