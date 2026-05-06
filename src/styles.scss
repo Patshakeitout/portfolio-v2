@@ -1,7 +1,7 @@
 /* styles.scss */
 @use 'styles/variables' as vars;
 @use 'styles/mixins' as mx;
-@use 'styles/btn-primary';
+@use 'app/shared/ui/btn-primary/btn-primary';
 
 
 @font-face {

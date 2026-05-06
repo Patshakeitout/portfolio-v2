@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './about.scss',
 })
 export class AboutComponent {
-
+  scrollToContact() {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  }
 }

@@ -21,7 +21,7 @@
 
         <figure class="projects__image">
           @if (project.cta === 'sticker') {
-            <a class="btn-details" [routerLink]="['/projects', project.slug]" [attr.aria-label]="'Open ' + project.title + ' project details'">
+            <a class="btn-details" [routerLink]="['/projects', project.slug]" (pointerdown)="startPress($event, project.slug)" (pointerleave)="cancelPress($event)" (pointercancel)="cancelPress($event)" (click)="blockClick($event)" [attr.aria-label]="'Open ' + project.title + ' project details'">
               <img
                 class="btn-details__sticker"
                 src="/design-material/03_Stickers/00_Round/project-details.png"
