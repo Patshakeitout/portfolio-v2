@@ -50,6 +50,24 @@ body {
   background-color: vars.$base-white-option1;
 }
 
+@keyframes draw-erase-rtl {
+  0% {
+    clip-path: inset(0 0 0 100%);
+  }
+  15% {
+    clip-path: inset(0 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 0 0 0);
+  }
+  90% {
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
 @keyframes draw-erase {
   0% {
     clip-path: inset(0 100% 0 0);
