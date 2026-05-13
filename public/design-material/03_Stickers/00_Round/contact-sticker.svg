@@ -1,0 +1,21 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <clipPath id="circle-clip">
+      <circle cx="100" cy="100" r="99"/>
+    </clipPath>
+    <path id="text-path"
+      d="M 100,100 m -76,0 a 76,76 0 1,1 152,0 a 76,76 0 1,1 -152,0"/>
+  </defs>
+
+  <image href="blue.png"
+    x="0" y="0" width="200" height="200" clip-path="url(#circle-clip)"/>
+
+  <image href="../../../logo.webp"
+    x="52" y="52" width="96" height="96"/>
+
+  <text font-size="12.8" font-family="sans-serif" fill="black" font-weight="700" letter-spacing="1.8">
+    <textPath href="#text-path">
+      Frontend Developer ● Patrick Schauer ● Engineering &amp; Design ●
+    </textPath>
+  </text>
+</svg>

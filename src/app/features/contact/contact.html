@@ -5,8 +5,37 @@
 
   <main class="contact__content">
     <header class="contact__header">
+      <svg class="sticker" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <clipPath id="sticker-clip">
+            <circle cx="100" cy="100" r="99"/>
+          </clipPath>
+          <path id="sticker-text-path"
+            d="M 100,100 m -50.5,65.9 a 83,83 0 1,1 101,-131.8 a 83,83 0 1,1 -101,131.8"/>
+        </defs>
+        <image href="/design-material/03_Stickers/00_Round/blue.png"
+          x="0" y="0" width="200" height="200" clip-path="url(#sticker-clip)"/>
+        <image href="/logo.webp"
+          x="52" y="52" width="96" height="96"
+          transform="rotate(-75, 100, 100)"
+          filter="brightness(0) invert(1) sepia(1) saturate(0) hue-rotate(0deg) brightness(0.97)"/>
+        <text font-size="12" font-family="sans-serif" fill="#0E1013" font-weight="700">
+          <textPath href="#sticker-text-path" startOffset="0%" textLength="509" lengthAdjust="spacing">
+            Patrick Schauer ● Frontend Developer ● Engineering &amp; Design ●
+          </textPath>
+        </text>
+      </svg>
+
       <h5>CONTACT ME</h5>
       <h1>Got a Project?</h1>
     </header>
+
+    <article class="contact__text">
+      <p>
+        I work across the full stack and I care about the craft — clean code, solid structure,
+        and a UI that actually makes sense. Got a project? I'm in.
+      </p>
+    </article>
+
   </main>
 </section>
