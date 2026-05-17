@@ -1,17 +1,44 @@
-import { Component, ElementRef, inject, OnInit, OnDestroy } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, OnDestroy, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { HeaderColorService } from '../../core/services/header-color.service';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, ReactiveFormsModule],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
 export class ContactComponent implements OnInit, OnDestroy {
   private elementRef = inject(ElementRef);
   private headerColorService = inject(HeaderColorService);
+  private http = inject(HttpClient);
   private observer?: IntersectionObserver;
+
+  status = signal<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  form = new FormGroup({
+    name:    new FormControl('', Validators.required),
+    email:   new FormControl('', [Validators.required, Validators.email]),
+    message: new FormControl('', Validators.required),
+  });
+
+  async submit() {
+    if (this.form.invalid) return;
+    this.status.set('sending');
+
+    try {
+      await firstValueFrom(
+        this.http.post('https://v2.patrickschauer.de/api/contact.php', this.form.value)
+      );
+      this.status.set('success');
+      this.form.reset();
+    } catch {
+      this.status.set('error');
+    }
+  }
 
   ngOnInit() {
     this.observer = new IntersectionObserver(
