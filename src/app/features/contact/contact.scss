@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 88px 16px 0rem 16px;
+    padding: 5.5rem 1rem 0;
   }
 
   &__header {
@@ -46,8 +46,7 @@
     font-weight: 500;
     color: vars.$base-white-option1;
     margin-top: 1rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 0 1.5rem;
   }
 
   &__input {
@@ -71,7 +70,7 @@
   &__privacy {
     border: none;
     padding: 0;
-    margin: 2.5rem 0rem 1rem 0rem;
+    margin: 2.5rem 0 1rem;
   }
 
   &__privacy-label {
@@ -81,7 +80,6 @@
     font-size: 0.9375rem;
     color: vars.$base-white-option1;
     cursor: pointer;
-    padding: 0;
 
     input[type="checkbox"] {
       appearance: none;
@@ -90,10 +88,9 @@
       height: 1.125rem;
       background: transparent;
       border: 2px solid #3355FF;
-      border-radius: 0.2rem;
+      border-radius: 0.125rem;
       cursor: pointer;
       position: relative;
-      margin-top: 0.15rem;
 
       &:hover {
         background: #3355FF4D;
@@ -101,10 +98,7 @@
       }
 
       &:checked {
-        background-image: url("/design-material/00_Hand-drawn lines/05_Contact/checked.png");
-        background-size: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
+        background: url("/design-material/00_Hand-drawn lines/05_Contact/checked.png") center / 100% no-repeat;
       }
     }
   }
@@ -115,7 +109,6 @@
     justify-content: space-between;
     gap: 1rem;
     margin-top: 1rem;
-    padding: 0;
 
     .btn-primary {
       width: 9.625rem;
@@ -125,7 +118,7 @@
         background-color: rgba(0, 0, 0, 0.01);
         color: #F8F9FA;
         border: 1px solid #F8F9FA;
-        box-shadow: 2px 4px 0px 0px #F8F9FA;
+        box-shadow: 2px 4px 0 #F8F9FA;
         mix-blend-mode: exclusion;
         opacity: 0.5;
         width: 11rem;
@@ -168,29 +161,6 @@
       height: auto;
     }
 
-    &__bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      border-top: 1px solid rgba(248, 249, 250, 0.1);
-      padding-top: 1rem;
-    }
-
-    &__links {
-      display: flex;
-      gap: 1.5rem;
-
-      a {
-        color: vars.$base-white-option1;
-        text-decoration: none;
-        font-size: 18px;
-        font-weight: 500;
-        transition: color 300ms ease;
-
-        &:hover { color: vars.$base-white-option1; }
-      }
-    }
-
     &__meta {
       display: flex;
       flex-direction: column;
@@ -199,39 +169,71 @@
       font-style: normal;
     }
 
+    &__copyright {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: vars.$base-white-option1;
+    }
+
     &__legal {
-      font-size: 0.875rem;
+      font-size: 1.125rem;
+      font-weight: 700;
       color: vars.$base-white-option1;
       text-decoration: none;
-      transition: color 300ms ease;
+      transition: opacity 300ms ease;
 
-      &:hover { color: vars.$base-white-option1; }
+      &:hover { opacity: 0.7; }
     }
 
-    &__copyright {
-      font-size: 18px;
-      font-weight: bold;
-      color: vars.$base-white-option1;
+    &__bottom {
+      display: flex;
+      align-items: center;
+      border-top: 1px solid rgba(248, 249, 250, 0.1);
+      padding-top: 1rem;
     }
 
-    &__legal {
-      font-size: 18px;
-      font-weight: bold;
-      color: vars.$base-white-option1;
+    &__links {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 100%;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: 1px solid #F8F9FA;
+        isolation: isolate;
+        flex-shrink: 0;
+        transition: background 300ms ease, border-color 300ms ease;
+
+        &:hover {
+          background: #3355FF;
+          border-color: #3355FF;
+        }
+
+        img {
+          width: 2rem;
+          height: 2rem;
+          filter: brightness(0) invert(1);
+        }
+      }
     }
   }
 
   h5 {
     color: vars.$base-white-option1;
     font-weight: 500;
-    font-size: 18px;
-    margin: 0;
-    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    margin: 0 0 1rem;
   }
 
   h1 {
     font-weight: 700;
-    font-size: 48px;
+    font-size: 3rem;
     margin: 0;
   }
 }
