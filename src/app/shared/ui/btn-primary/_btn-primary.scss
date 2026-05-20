@@ -40,4 +40,27 @@
       box-shadow: 0px 0px 0px 0px #f8f9fa;
     }
   }
+
+  &--ghost {
+    background-color: rgba(0, 0, 0, 0.01);
+    color: #F8F9FA;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #F8F9FA;
+    box-shadow: 2px 4px 0px 0px #F8F9FA;
+
+    &:active,
+    &.is-pressing {
+      box-shadow: 0px 0px 0px 0px vars.$base-white-option1;
+    }
+  }
+}
+
+.btn-primary.btn-primary--ghost {
+  background-color: rgba(0, 0, 0, 0.01);
+  color: #F8F9FA;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #F8F9FA;
+  box-shadow: 2px 4px 0px 0px #F8F9FA;
 }

@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 88px 16px;
+    padding: 88px 16px 0rem 16px;
   }
 
   &__header {
@@ -29,16 +29,209 @@
     }
   }
 
+  &__text p {
+    font-size: 1.125rem;
+    margin-top: 2rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.375rem;
+    width: 100%;
+  }
+
+  &__label {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: vars.$base-white-option1;
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  &__input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #F7C518;
+    color: vars.$base-white-option1;
+    font-family: inherit;
+    font-size: 1.125rem;
+    padding: 0.625rem 1.5rem;
+    outline: none;
+    resize: none;
+    box-sizing: border-box;
+
+    &::placeholder {
+      color: rgba(248, 249, 250, 0.45);
+    }
+  }
+
+  &__privacy {
+    border: none;
+    padding: 0;
+    margin: 2.5rem 0rem 1rem 0rem;
+  }
+
+  &__privacy-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    color: vars.$base-white-option1;
+    cursor: pointer;
+    padding: 0;
+
+    input[type="checkbox"] {
+      appearance: none;
+      flex-shrink: 0;
+      width: 1.125rem;
+      height: 1.125rem;
+      background: transparent;
+      border: 2px solid #3355FF;
+      border-radius: 0.2rem;
+      cursor: pointer;
+      position: relative;
+      margin-top: 0.15rem;
+
+      &:hover {
+        background: #3355FF4D;
+        box-shadow: 0 0 0 0.1875rem #3355FF4D;
+      }
+
+      &:checked {
+        background-image: url("/design-material/00_Hand-drawn lines/05_Contact/checked.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 0;
+
+    .btn-primary {
+      width: 9.625rem;
+      justify-content: center;
+
+      &.btn-primary--ghost {
+        background-color: rgba(0, 0, 0, 0.01);
+        color: #F8F9FA;
+        border: 1px solid #F8F9FA;
+        box-shadow: 2px 4px 0px 0px #F8F9FA;
+        mix-blend-mode: exclusion;
+        opacity: 0.5;
+        width: 11rem;
+        height: 2.75rem;
+      }
+    }
+  }
+
+  &__arrow {
+    max-width: 9.56rem;
+  }
+
+  &__feedback {
+    font-size: 0.875rem;
+    margin: 1rem 0 0;
+
+    &--success { color: #4caf50; }
+    &--error   { color: #f44336; }
+  }
+
+  .footer {
+    position: relative;
+    z-index: 1;
+    margin-top: 0.5rem;
+    background: transparent;
+    color: vars.$base-white-option1;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    &__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__logo {
+      width: 3rem;
+      height: auto;
+    }
+
+    &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      border-top: 1px solid rgba(248, 249, 250, 0.1);
+      padding-top: 1rem;
+    }
+
+    &__links {
+      display: flex;
+      gap: 1.5rem;
+
+      a {
+        color: vars.$base-white-option1;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        transition: color 300ms ease;
+
+        &:hover { color: vars.$base-white-option1; }
+      }
+    }
+
+    &__meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.25rem;
+      font-style: normal;
+    }
+
+    &__legal {
+      font-size: 0.875rem;
+      color: vars.$base-white-option1;
+      text-decoration: none;
+      transition: color 300ms ease;
+
+      &:hover { color: vars.$base-white-option1; }
+    }
+
+    &__copyright {
+      font-size: 18px;
+      font-weight: bold;
+      color: vars.$base-white-option1;
+    }
+
+    &__legal {
+      font-size: 18px;
+      font-weight: bold;
+      color: vars.$base-white-option1;
+    }
+  }
+
   h5 {
     color: vars.$base-white-option1;
     font-weight: 500;
     font-size: 18px;
-    margin: 4px;
+    margin: 0;
+    margin-bottom: 1rem;
   }
 
   h1 {
     font-weight: 700;
     font-size: 48px;
-    margin: 4px;
+    margin: 0;
   }
 }

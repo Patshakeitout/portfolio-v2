@@ -3,11 +3,12 @@ import { NgOptimizedImage } from '@angular/common';
 import { HeaderColorService } from '../../core/services/header-color.service';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-contact',
-  imports: [NgOptimizedImage, ReactiveFormsModule],
+  imports: [NgOptimizedImage, ReactiveFormsModule, RouterLink],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
@@ -23,6 +24,7 @@ export class ContactComponent implements OnInit, OnDestroy {
     name:    new FormControl('', Validators.required),
     email:   new FormControl('', [Validators.required, Validators.email]),
     message: new FormControl('', Validators.required),
+    privacy: new FormControl(false, Validators.requiredTrue),
   });
 
   async submit() {
