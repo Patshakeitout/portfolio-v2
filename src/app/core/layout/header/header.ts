@@ -1,6 +1,6 @@
 import { MobileMenuComponent } from './../../../features/mobile-menu/mobile-menu';
 import { Component, inject, ChangeDetectionStrategy, signal, HostListener } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map, startWith } from 'rxjs';
 import { HeaderColorService } from '../../services/header-color.service';
@@ -8,6 +8,7 @@ import { MobileMenuService } from '../../services/mobile-menu.service';
 
 @Component({
   selector: 'app-header',
+  imports: [RouterLink],
   templateUrl: './header.html',
   styleUrls: ['./header.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

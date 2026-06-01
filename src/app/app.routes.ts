@@ -12,6 +12,11 @@ export const routes: Routes = [
       import('./features/legal-notice/legal-notice').then(module => module.LegalNoticeComponent)
   },
   {
+    path: 'privacy-policy',
+    loadComponent: () =>
+      import('./features/privacy-policy/privacy-policy').then(module => module.PrivacyPolicyComponent)
+  },
+  {
     path: 'projects/:slug',
     loadComponent: () =>
       import('./features/project-details/project-details').then(module => module.ProjectDetails)
