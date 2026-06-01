@@ -145,12 +145,31 @@
         opacity: 0.5;
         width: 11rem;
         height: 2.75rem;
+        transition: transform 0.3s ease-out,
+                    box-shadow 0.3s ease-out,
+                    background-color 0.3s ease-out;
+
+        &:active, &.is-pressing {
+          transform: translate(2px, 4px);
+          box-shadow: 0 0 0 0 #F8F9FA;
+          background-color: #E08C05;
+          opacity: 1;
+        }
       }
     }
   }
 
   &__arrow {
     max-width: 9.56rem;
+    animation: arrow-fly 4s linear infinite;
+  }
+
+  @keyframes arrow-fly {
+    0%     { transform: translateX(0); }
+    12%    { transform: translateX(-120%); }
+    86.9%  { transform: translateX(-120%); }
+    87%    { transform: translateX(0); }
+    100%   { transform: translateX(0); }
   }
 
   &__feedback {
