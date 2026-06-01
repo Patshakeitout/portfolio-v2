@@ -206,11 +206,40 @@
     margin: 2rem 16px 0;
     width: calc(100% - 32px);
     transform: rotate(-4deg);
-    background-image: url('/design-material/03_Stickers/02_Testimonials/color-option-3/b.png');
+    background-image: url('/design-material/03_Stickers/02_Testimonials/color-option-3/A.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     padding: 2rem;
     box-sizing: border-box;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('/design-material/03_Stickers/02_Testimonials/color-option-3/Line.png') center / cover no-repeat;
+      transform: rotate(-180deg);
+      opacity: 0;
+      transition: opacity 0.4s ease-in-out;
+      pointer-events: none;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    &--b {
+      background-image: url('/design-material/03_Stickers/02_Testimonials/color-option-3/B.png');
+      transform: none;
+      margin-top: -0.3rem;
+      position: relative;
+      z-index: -1;
+
+      &::after {
+        transform: rotate(0deg);
+        transition: opacity 0.4s ease-in-out;
+      }
+    }
 
     p {
       margin: 0;
