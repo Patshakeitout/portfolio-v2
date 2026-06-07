@@ -1,22 +1,26 @@
 // mobile-menu.ts
 
-import { Component, inject, effect, EffectRef, OnDestroy, signal } from '@angular/core';
+import { Component, inject, effect, EffectRef, OnDestroy, computed } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 import { MobileMenuService } from '../../core/services/mobile-menu.service';
+import { LanguageService } from '../../core/services/language.service';
 import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-mobile-menu',
-  imports: [NgOptimizedImage, RouterLink],
+  imports: [NgOptimizedImage, RouterLink, TranslatePipe],
   templateUrl: './mobile-menu.html',
   styleUrl: './mobile-menu.scss',
 })
 export class MobileMenuComponent implements OnDestroy {
   private mobileMenuService = inject(MobileMenuService);
+  private language = inject(LanguageService);
   private effectRef: EffectRef;
 
   isOpen = this.mobileMenuService.isOpen;
-  isEnglish = signal(true);
+  lang = this.language.lang;
+  isEnglish = computed(() => this.language.lang() === 'en');
 
   constructor() {
     this.effectRef = effect(() => {
@@ -61,9 +65,8 @@ export class MobileMenuComponent implements OnDestroy {
     }
   }
 
+  /** Switches between German and English via the language service. */
   toggleLanguage() {
-    this.isEnglish.update(value => !value);
-    // TODO: Implement actual language switching logic
-    console.log('Language switched to:', this.isEnglish() ? 'English' : 'German');
+    this.language.toggle();
   }
 }

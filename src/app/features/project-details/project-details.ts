@@ -1,14 +1,17 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { PROJECTS } from './projects-data';
+import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-project-details',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './project-details.html',
   styleUrl: './project-details.scss',
 })
 export class ProjectDetails {
+  readonly lang = inject(LanguageService).lang;
   readonly slug = input.required<string>();
 
   readonly project = computed(() =>

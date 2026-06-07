@@ -1,0 +1,139 @@
+{
+  "common": {
+    "back": "Back"
+  },
+  "nav": {
+    "about": "About me",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact",
+    "switchToGerman": "Switch to German",
+    "switchToEnglish": "Switch to English"
+  },
+  "hero": {
+    "helloWorld": "Hello, World!",
+    "name": "I'M PATRICK SCHAUER",
+    "getInTouch": "Get in touch",
+    "polaroidCaption": "Patrick :D"
+  },
+  "about": {
+    "subtitle": "WHO'S PATRICK",
+    "title": "About me",
+    "paragraph1": "Hi, I'm Patrick. My path from physics to QA engineering taught me to think precisely and catch what others miss. Now in development — with frontend focus, I get to combine that careful approach with creativity.",
+    "paragraph2": "Let's build value for others!",
+    "cta": "Let's talk!",
+    "location": "Location: Itzehoe (+ 40km radius)",
+    "workMode": "On-site / Hybrid / Remote"
+  },
+  "skills": {
+    "subtitle": "MY STACK",
+    "title": "Skill Set",
+    "intro": "I started dev in data with R and Python, but found more joy in creating UI/UX combined with a solid backend. I chose the web stack for its constant learning and endless challenges even in AI age.",
+    "swipeHint": "Swipe to see more",
+    "peel0": "Pull to peel!",
+    "peel1": "Peel more!!",
+    "peel2": "Keen to dive into:"
+  },
+  "projects": {
+    "subtitle": "MY CRAFT",
+    "title": "Projects",
+    "intro": "Curious? Dive into the projects below — every interaction is a design decision, every detail a choice I can walk you through. Frontend-focused builds, with Supabase stepping in when a backend is needed.",
+    "detailsButton": "Project Details",
+    "openDetails": "Open {{title}} project details",
+    "recSubtitle": "IN THEIR WORDS",
+    "recTitlePre": "Colleague's",
+    "recTitleHighlight": "Thoughts",
+    "rec1Text": "I got to know Patrick as a consistent and reliable developer. He finds great solutions even when bugs come up and brings a high level of expertise, especially in the area of databases. His clear communication rounds off a very pleasant collaboration.",
+    "rec1Role": "Frontend-Developer",
+    "rec2Text": "Patrick Schauer was a reliable and helpful team member on the 'Join' project. He placed great importance on good team structure and fair task distribution, ensuring everyone could take on suitable responsibilities. Particularly noteworthy are his supportive nature, strong organisational skills, and the pleasant collaboration within the team.",
+    "rec2Role": "Frontend-Developer",
+    "profile": "Profile"
+  },
+  "projectData": {
+    "join": {
+      "description": "A Kanban-inspired task manager 📌 that keeps work flowing — drag tasks across columns, assign teammates, and group everything by category so nothing slips through.",
+      "implementation": "Built as a single-page Angular app with Supabase as the backend for auth and data. Tasks are persisted in real time, drag-and-drop is implemented with the Angular CDK, and the UI is fully responsive down to mobile.",
+      "duration": "1 month"
+    },
+    "epl": {
+      "description": "A 2D side-scrolling platformer 🎮 written in object-oriented JavaScript — guide Pepe through the desert, grab coins and tabasco bottles, and take down the boss hen.",
+      "implementation": "A side-scrolling platformer rendered on HTML5 Canvas. The architecture is class-based: separate entities for the player, enemies, collectibles, and the world, each with their own update/draw cycle driven by a central game loop.",
+      "duration": "2.5 months"
+    }
+  },
+  "projectDetails": {
+    "description": "Description",
+    "implementation": "Implementation",
+    "duration": "Duration:",
+    "github": "GitHub",
+    "liveTest": "Live Test",
+    "goBack": "Go Back",
+    "nextProject": "Next Project",
+    "notFound": "Project not found.",
+    "backHome": "Back home"
+  },
+  "contact": {
+    "eyebrow": "CONTACT ME",
+    "heading": "Got a Project?",
+    "intro": "I work across the full stack and I care about the craft — clean code, solid structure, and a UI that actually makes sense. Got a project? I'm in.",
+    "nameLabel": "What's your name?",
+    "namePlaceholder": "Your name goes here",
+    "nameError": "Oops! It seems your name is missing.",
+    "emailLabel": "What's your email?",
+    "emailPlaceholder": "yourEmail@email.com",
+    "emailRequired": "Oops! Your email is required.",
+    "emailInvalid": "No valid email!",
+    "messageLabel": "How can I help you?",
+    "messagePlaceholder": "Hello Patrick, I am interested in ...",
+    "messageError": "What do you need to develop?",
+    "privacyConsentPre": "I've read the ",
+    "privacyConsentLink": "privacy policy",
+    "privacyConsentPost": " and agree to the processing of my data as outlined.",
+    "privacyError": "Please accept the privacy policy.",
+    "send": "Send",
+    "sending": "Sending...",
+    "success": "Message sent — I'll get back to you soon!",
+    "error": "Something went wrong. Please try again."
+  },
+  "footer": {
+    "copyright": "© Patrick Schauer 2026",
+    "legalNotice": "Legal Notice"
+  },
+  "legalNotice": {
+    "title": "Legal Notice",
+    "imprintHeading": "Imprint",
+    "imprintBody": "Patrick Schauer<br />Elbeblick 5<br />25524 Itzehoe",
+    "acceptanceHeading": "Acceptance of terms",
+    "acceptanceBody": "By accessing and using <em>Portfolio</em> (Product), you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time to time. We may update or change the terms and conditions from time to time without notice.",
+    "scopeHeading": "Scope and ownership of the product",
+    "scopeBody": "<em>Portfolio</em> has been developed as part of a student group project in a web development bootcamp at the <a class=\"DevAka\" href=\"\">Developer Akademie GmbH</a>. It has an educational purpose and is not intended for extensive personal &amp; business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product. The design of Portfolio is owned by the Developer Akademie GmbH. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.",
+    "proprietaryHeading": "Proprietary rights",
+    "proprietaryBody": "Aside from the design owned by Developer Akademie GmbH, we retain all proprietary rights in Portfolio, including any associated copyrighted material, trademarks, and other proprietary information.",
+    "useHeading": "Use of the product",
+    "useBody": "Portfolio is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use of Portfolio for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely responsible for your interactions with other users of Portfolio.",
+    "disclaimerHeading": "Disclaimer of warranties and limitation of liability",
+    "disclaimerBody": "Portfolio is provided \"as is\" without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will we, or the Developer Akademie, be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such damages, arising out of or in connection with the use or performance of Portfolio.",
+    "indemnityHeading": "Indemnity",
+    "indemnityBody": "You agree to indemnify, defend and hold harmless us, the Developer Akademie, and our affiliates, partners, officers, directors, agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of Portfolio and/or your breach of this Legal Notice.",
+    "contactBody": "For any questions or notices, please contact us at <a href=\"mailto:patrick_schauer@t-online.de\">patrick_schauer@t-online.de</a>.",
+    "date": "Date: June 02, 2026"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "controllerHeading": "1. Controller",
+    "controllerBody": "Patrick Schauer<br />Email: <a href=\"mailto:patrick_schauer@t-online.de\">patrick_schauer@t-online.de</a>",
+    "collectionHeading": "2. Collection and Processing of Personal Data",
+    "collectionBody": "Personal data is only collected on this website to the extent technically necessary. Under no circumstances will collected data be sold or passed on to third parties for any other reason.",
+    "formHeading": "3. Contact Form",
+    "formBody": "When you use the contact form on this website, the data you provide (name, email address, message) will be processed for the purpose of handling your enquiry. This data is used solely to respond to your request and will be deleted afterwards. The legal basis is Art. 6(1)(b) GDPR (pre-contractual measures) or Art. 6(1)(f) GDPR (legitimate interest in responding to enquiries).",
+    "hostingHeading": "4. Hosting",
+    "hostingBody": "This website is hosted by netcup GmbH, Daimlerstraße 25, 76185 Karlsruhe, Germany. When the website is accessed, the hosting provider automatically stores server log files containing your browser type, operating system, referrer URL, IP address and access time. These data are technically necessary and are not merged with other data sources. The legal basis is Art. 6(1)(f) GDPR.",
+    "cookiesHeading": "5. No Cookies, No Tracking",
+    "cookiesBody": "This website does not use cookies and does not deploy any tracking or analytics tools. No user profiles are created.",
+    "rightsHeading": "6. Your Rights",
+    "rightsBody1": "You have the right to access (Art. 15 GDPR), rectification (Art. 16 GDPR), erasure (Art. 17 GDPR), restriction of processing (Art. 18 GDPR) and data portability (Art. 20 GDPR). To exercise your rights please contact: <a href=\"mailto:patrick_schauer@t-online.de\">patrick_schauer@t-online.de</a>.",
+    "rightsBody2": "You also have the right to lodge a complaint with a data protection supervisory authority. The competent authority is the State Commissioner for Data Protection and Freedom of Information Baden-Württemberg (LfDI BW).",
+    "statusHeading": "7. Up-to-date Status",
+    "statusBody": "This privacy policy is currently valid and dated June 2026. As the website evolves, updates to this policy may become necessary."
+  }
+}

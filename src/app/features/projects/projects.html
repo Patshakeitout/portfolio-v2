@@ -3,16 +3,12 @@
 <section class="projects">
   <main class="projects__content">
     <header class="projects__header">
-      <p class="projects__subtitle">MY CRAFT</p>
-      <h1 class="projects__title">Projects</h1>
+      <p class="projects__subtitle">{{ 'projects.subtitle' | translate }}</p>
+      <h1 class="projects__title">{{ 'projects.title' | translate }}</h1>
     </header>
 
     <article class="projects__article">
-      <p>
-        Curious? Dive into the projects below — every interaction is a design decision, every detail
-        a choice I can walk you through. Frontend-focused builds, with Supabase stepping in when a
-        backend is needed.
-      </p>
+      <p>{{ 'projects.intro' | translate }}</p>
     </article>
 
     @for (project of projects; track project.slug) {
@@ -21,7 +17,7 @@
 
         <figure class="projects__image">
           @if (project.cta === 'sticker') {
-            <a class="btn-details" [routerLink]="['/projects', project.slug]" (pointerdown)="startPress($event, project.slug)" (pointerleave)="cancelPress($event)" (pointercancel)="cancelPress($event)" (click)="blockClick($event)" [attr.aria-label]="'Open ' + project.title + ' project details'">
+            <a class="btn-details" [routerLink]="['/', lang(), 'projects', project.slug]" (pointerdown)="startPress($event, project.slug)" (pointerleave)="cancelPress($event)" (pointercancel)="cancelPress($event)" (click)="blockClick($event)" [attr.aria-label]="'projects.openDetails' | translate:{ title: project.title }">
               <img
                 class="btn-details__sticker"
                 src="/design-material/03_Stickers/00_Round/project-details.png"
@@ -33,65 +29,55 @@
           <img [class]="project.imageClass" [src]="project.image" [alt]="project.title + ' project preview'" />
         </figure>
 
-        <p>{{ project.description }}</p>
+        <p>{{ 'projectData.' + project.slug + '.description' | translate }}</p>
 
         @if (project.cta === 'button') {
-          <a class="btn-primary" [routerLink]="['/projects', project.slug]">Project Details</a>
+          <a class="btn-primary" [routerLink]="['/', lang(), 'projects', project.slug]">{{ 'projects.detailsButton' | translate }}</a>
         }
       </article>
     }
 
     <header class="recommendations__header">
-      <p class="recommendations__subtitle">IN THEIR WORDS</p>
+      <p class="recommendations__subtitle">{{ 'projects.recSubtitle' | translate }}</p>
       <h1 class="recommendations__title">
-        Colleague's
-        <span class="recommendations__title--right">Thoughts</span>
+        {{ 'projects.recTitlePre' | translate }}
+        <span class="recommendations__title--right">{{ 'projects.recTitleHighlight' | translate }}</span>
       </h1>
     </header>
 
     <blockquote class="recommendations__paper">
-      <p>
-        I got to know Patrick as a consistent and reliable developer.
-        He finds great solutions even when bugs come up and brings a high level of expertise,
-        especially in the area of databases.
-        His clear communication rounds off a very pleasant collaboration.
-      </p>
+      <p>{{ 'projects.rec1Text' | translate }}</p>
 
       <footer class="recommendations__footer">
         <cite class="recommendations__author">
           <span class="recommendations__name">Volker Derksen</span>
-          <span class="recommendations__role">Frontend-Developer</span>
+          <span class="recommendations__role">{{ 'projects.rec1Role' | translate }}</span>
         </cite>
         <nav class="recommendations__links" aria-label="Author links">
           <a class="recommendations__linkedin" href="https://www.linkedin.com/in/volker-derksen-2a340633a/" target="_blank" rel="noopener noreferrer">
             <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
           </a>
           <a class="recommendations__profile" href="https://umgestalt.de" target="_blank" rel="noopener noreferrer">
-            Profile
+            {{ 'projects.profile' | translate }}
           </a>
         </nav>
       </footer>
     </blockquote>
 
     <blockquote class="recommendations__paper recommendations__paper--b">
-      <p>
-        Patrick Schauer was a reliable and helpful team member on the 'Join' project.
-        He placed great importance on good team structure and fair task distribution,
-        ensuring everyone could take on suitable responsibilities. Particularly noteworthy are his supportive nature,
-        strong organisational skills, and the pleasant collaboration within the team.
-      </p>
+      <p>{{ 'projects.rec2Text' | translate }}</p>
 
       <footer class="recommendations__footer">
         <cite class="recommendations__author">
           <span class="recommendations__name">Mohamed Brohani</span>
-          <span class="recommendations__role">Frontend-Developer</span>
+          <span class="recommendations__role">{{ 'projects.rec2Role' | translate }}</span>
         </cite>
         <!-- <nav class="recommendations__links" aria-label="Author links">
           <a class="recommendations__linkedin" href="https://www.linkedin.com/in/volker-derksen-2a340633a/" target="_blank" rel="noopener noreferrer">
             <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
           </a>
           <a class="recommendations__profile" href="https://umgestalt.de" target="_blank" rel="noopener noreferrer">
-            Profile
+            {{ 'projects.profile' | translate }}
           </a>
         </nav> -->
       </footer>

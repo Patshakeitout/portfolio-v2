@@ -26,6 +26,20 @@
       max-width: 7.5rem;
       align-self: flex-end;
       transform: rotate(90deg);
+      cursor: pointer;
+
+      &--cw  { animation: sticker-cw  1.5s ease-out forwards; }
+      &--ccw { animation: sticker-ccw 1.5s ease-out forwards; }
+    }
+
+    @keyframes sticker-cw {
+      from { transform: rotate(90deg); }
+      to   { transform: rotate(450deg); }
+    }
+
+    @keyframes sticker-ccw {
+      from { transform: rotate(90deg); }
+      to   { transform: rotate(-270deg); }
     }
   }
 
@@ -73,6 +87,32 @@
     &:hover {
       border-color: #3355FF;
     }
+
+    &--error {
+      border-bottom-color: #FF3A00;
+
+      &::placeholder {
+        color: #FF3A00;
+      }
+    }
+  }
+
+  &__privacy-error {
+    color: #F87A55;
+    font-size: 0.875rem;
+    line-height: 1.2;
+    min-height: 1.2em;
+    margin: 0.5rem 0 0;
+    padding: 0;
+  }
+
+  &__error {
+    color: #FF3A00;
+    font-size: 0.875rem;
+    line-height: 1.2;
+    min-height: 1.2em; // reserve space so the layout doesn't shift when the message appears
+    margin: 0.375rem 0 0;
+    padding: 0 1.5rem;
   }
 
   &__privacy {
@@ -85,6 +125,10 @@
     color: vars.$base-white-option1;
     text-decoration: none;
     text-underline-offset: 0.15rem;
+
+    &:hover {
+      color: #E08C05;
+    }
   }
 
   &__privacy-label {
@@ -186,26 +230,32 @@
     margin-top: 0.5rem;
     background: transparent;
     color: vars.$base-white-option1;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem 2rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 
     &__top {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
     }
 
     &__logo {
       width: 3rem;
       height: auto;
+      transition: filter 300ms ease;
+
+      &:hover {
+        filter: brightness(0) saturate(100%) invert(78%) sepia(60%) saturate(600%) hue-rotate(5deg);
+      }
     }
 
     &__meta {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      justify-content: flex-end;
       gap: 0.25rem;
       font-style: normal;
     }
@@ -221,16 +271,24 @@
       font-weight: 700;
       color: vars.$base-white-option1;
       text-decoration: none;
-      transition: opacity 300ms ease;
+      display: inline-block;
+      background-image: url("/design-material/00_Hand-drawn lines/05_Contact/legal.png");
+      background-repeat: no-repeat;
+      background-position: left bottom;
+      padding-bottom: 0.5rem;
+      background-size: 0% 4rem;
+      transition: background-size 0.3s ease-out;
 
-      &:hover { opacity: 0.7; }
+      &:hover {
+        background-size: 100% 1.5rem;
+      }
     }
 
     &__bottom {
       display: flex;
       align-items: center;
       border-top: 1px solid rgba(248, 249, 250, 0.1);
-      padding-top: 1rem;
+      padding-top: 1.5rem;
     }
 
     &__links {
@@ -243,8 +301,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 3rem;
-        height: 3rem;
+        width: 2.25rem;
+        height: 2.25rem;
         border-radius: 50%;
         border: 1px solid #F8F9FA;
         isolation: isolate;
@@ -257,8 +315,8 @@
         }
 
         img {
-          width: 2rem;
-          height: 2rem;
+          width: 1.4rem;
+          height: 1.6rem;
           filter: brightness(0) invert(1);
         }
       }

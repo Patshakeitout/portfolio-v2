@@ -14,15 +14,15 @@
       </header>
 
       <article class="project-details__article">
-        <h4>Description</h4>
-        <p>{{ current.description }}</p>
+        <h4>{{ 'projectDetails.description' | translate }}</h4>
+        <p>{{ 'projectData.' + current.slug + '.description' | translate }}</p>
 
-        <h4>Implementation</h4>
-        <p>{{ current.implementationDetails }}</p>
+        <h4>{{ 'projectDetails.implementation' | translate }}</h4>
+        <p>{{ 'projectData.' + current.slug + '.implementation' | translate }}</p>
 
         <section class="project-details__duration">
-          <h4>Duration:</h4>
-          <p>{{ current.duration }}</p>
+          <h4>{{ 'projectDetails.duration' | translate }}</h4>
+          <p>{{ 'projectData.' + current.slug + '.duration' | translate }}</p>
         </section>
 
         @if (current.tech?.length) {
@@ -49,7 +49,7 @@
             [href]="current.repoUrl"
             target="_blank"
             rel="noopener noreferrer"
-            >GitHub</a
+            >{{ 'projectDetails.github' | translate }}</a
           >
         }
 
@@ -58,7 +58,7 @@
             class="btn-primary btn-primary--dark"
             [href]="current.liveUrl"
             rel="noopener noreferrer"
-            >Live Test</a
+            >{{ 'projectDetails.liveTest' | translate }}</a
           >
         }
       </nav>
@@ -67,14 +67,14 @@
         @if (prevSlug(); as prev) {
           <a
             class="project-details__arrow project-details__arrow--prev"
-            [routerLink]="['/projects', prev]"
+            [routerLink]="['/', lang(), 'projects', prev]"
             aria-label="Previous project"
           >
             <img
               src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png"
               alt=""
             />
-            Go Back
+            {{ 'projectDetails.goBack' | translate }}
           </a>
         } @else {
           <span
@@ -85,17 +85,17 @@
               src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png"
               alt=""
             />
-            Go Back
+            {{ 'projectDetails.goBack' | translate }}
           </span>
         }
 
         @if (nextSlug(); as next) {
           <a
             class="project-details__arrow project-details__arrow--next"
-            [routerLink]="['/projects', next]"
+            [routerLink]="['/', lang(), 'projects', next]"
             aria-label="Next project"
           >
-            Next Project
+            {{ 'projectDetails.nextProject' | translate }}
             <img
               src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/next-project-arrow-1.png"
               alt=""
@@ -106,7 +106,7 @@
             class="project-details__arrow project-details__arrow--next project-details__arrow--disabled"
             aria-disabled="true"
           >
-            Next Project
+            {{ 'projectDetails.nextProject' | translate }}
             <img
               src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/next-project-arrow-1.png"
               alt=""
@@ -117,8 +117,8 @@
     </main>
   } @else {
     <main class="project-details__content">
-      <p>Project not found.</p>
-      <a class="btn-primary" routerLink="/">Back home</a>
+      <p>{{ 'projectDetails.notFound' | translate }}</p>
+      <a class="btn-primary" [routerLink]="['/', lang()]">{{ 'projectDetails.backHome' | translate }}</a>
     </main>
   }
 </section>

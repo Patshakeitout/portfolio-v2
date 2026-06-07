@@ -5,6 +5,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map, startWith } from 'rxjs';
 import { HeaderColorService } from '../../services/header-color.service';
 import { MobileMenuService } from '../../services/mobile-menu.service';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -17,6 +18,7 @@ export class HeaderComponent {
   private headerColorService = inject(HeaderColorService);
   private mobileMenuService = inject(MobileMenuService);
   private router = inject(Router);
+  public lang = inject(LanguageService).lang;
   public isHeaderInverted = this.headerColorService.isHeaderInverted.asReadonly();
   public isInContactSection = this.headerColorService.isInContactSection.asReadonly();
   public isOnProjectDetails = toSignal(
@@ -52,6 +54,18 @@ export class HeaderComponent {
   }
 
   scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const start = window.scrollY;
+    const duration = 1200;
+    const startTime = performance.now();
+
+    const step = (currentTime: number) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      window.scrollTo(0, start * (1 - ease));
+      if (progress < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
   }
 }

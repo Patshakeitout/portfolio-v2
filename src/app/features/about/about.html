@@ -3,18 +3,14 @@
 <section class="about">
   <div class="about__content">
     <header class="about__header">
-      <p class="about__subtitle">WHO'S PATRICK</p>
-      <h1 class="about__title">About me</h1>
+      <p class="about__subtitle">{{ 'about.subtitle' | translate }}</p>
+      <h1 class="about__title">{{ 'about.title' | translate }}</h1>
 
       <article class="about__article">
-        <p>
-          Hi, I'm Patrick. My path from physics to QA engineering taught me to think precisely and
-          catch what others miss. Now in development — with frontend focus, I get to combine that
-          careful approach with creativity.
-        </p>
-        <p>Let's build value for others!</p>
+        <p>{{ 'about.paragraph1' | translate }}</p>
+        <p>{{ 'about.paragraph2' | translate }}</p>
 
-        <button class="btn-primary" (click)="scrollToContact()">Let's talk!</button>
+        <button class="btn-primary" (click)="scrollToContact()">{{ 'about.cta' | translate }}</button>
       </article>
     </header>
 
@@ -32,7 +28,7 @@
           alt=""
           aria-hidden="true"
         />
-        <span class="job-conditions__label">Location: Itzehoe (+ 40km radius)</span>
+        <span class="job-conditions__label">{{ 'about.location' | translate }}</span>
       </li>
       <li class="job-conditions__item">
         <img
@@ -47,7 +43,7 @@
           alt=""
           aria-hidden="true"
         />
-        <span class="job-conditions__label">On-site / Hybrid / Remote</span>
+        <span class="job-conditions__label">{{ 'about.workMode' | translate }}</span>
       </li>
     </ul>
   </div>

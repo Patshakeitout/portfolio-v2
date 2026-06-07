@@ -11,15 +11,12 @@
 
   <main class="skills__content">
     <header>
-      <h5>MY STACK</h5>
-      <h1>Skill Set</h1>
+      <h5>{{ 'skills.subtitle' | translate }}</h5>
+      <h1>{{ 'skills.title' | translate }}</h1>
     </header>
 
     <article class="skills__article">
-      <p>
-        I started dev in data with R and Python, but found more joy in creating UI/UX combined with
-        a solid backend. I chose the web stack for its constant learning and endless challenges even in AI age.
-      </p>
+      <p>{{ 'skills.intro' | translate }}</p>
     </article>
 
     <!-- Horizontally scrollable 2-row icon grid -->
@@ -29,7 +26,7 @@
         src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/Breadcrumb arrow 1.png"
         alt=""
       />
-      Swipe to see more
+      {{ 'skills.swipeHint' | translate }}
       <img
         class="skills__swipe-hint__arrow skills__swipe-hint__arrow--right"
         src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/Breadcrumb arrow 1.png"
@@ -146,7 +143,7 @@
             src="/design-material/03_Stickers/arrow.png"
             alt="Arrow to peel"
           />
-          <small class="peel__label__txt">{{ peelText() }}</small>
+          <small class="peel__label__txt">{{ peelTextKey() | translate }}</small>
           <div class="peel__label__frameworks">
             <img src="/icons/tech/react.svg" alt="React" />
             <img src="/icons/tech/vue.svg" alt="Vue" />

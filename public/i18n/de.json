@@ -1,0 +1,139 @@
+{
+  "common": {
+    "back": "Zurück"
+  },
+  "nav": {
+    "about": "Über mich",
+    "skills": "Skills",
+    "projects": "Projekte",
+    "contact": "Kontakt",
+    "switchToGerman": "Zu Deutsch wechseln",
+    "switchToEnglish": "Zu Englisch wechseln"
+  },
+  "hero": {
+    "helloWorld": "Hello, World!",
+    "name": "ICH BIN PATRICK SCHAUER",
+    "getInTouch": "Kontakt aufnehmen",
+    "polaroidCaption": "Patrick :D"
+  },
+  "about": {
+    "subtitle": "WER IST PATRICK",
+    "title": "Über mich",
+    "paragraph1": "Hi, ich bin Patrick. Mein Weg von der Physik zum QA-Engineering hat mir beigebracht, präzise zu denken und zu erkennen, was andere übersehen. Jetzt in der Entwicklung — mit Frontend-Fokus — verbinde ich diese sorgfältige Herangehensweise mit Kreativität.",
+    "paragraph2": "Lass uns Mehrwert für andere schaffen!",
+    "cta": "Lass uns reden!",
+    "location": "Standort: Itzehoe (+ 40 km Umkreis)",
+    "workMode": "Vor Ort / Hybrid / Remote"
+  },
+  "skills": {
+    "subtitle": "MEIN STACK",
+    "title": "Skill Set",
+    "intro": "Ich habe mit Daten in R und Python angefangen, aber mehr Freude daran gefunden, UI/UX in Kombination mit einem soliden Backend zu erstellen. Ich habe mich für den Web-Stack entschieden — wegen des ständigen Lernens und der endlosen Herausforderungen, selbst im KI-Zeitalter.",
+    "swipeHint": "Wischen für mehr",
+    "peel0": "Zum Abziehen ziehen!",
+    "peel1": "Weiter abziehen!!",
+    "peel2": "Lust, einzutauchen in:"
+  },
+  "projects": {
+    "subtitle": "MEIN HANDWERK",
+    "title": "Projekte",
+    "intro": "Neugierig? Tauch in die Projekte unten ein — jede Interaktion ist eine Designentscheidung, jedes Detail eine Wahl, die ich dir erklären kann. Frontend-fokussierte Projekte, mit Supabase, wenn ein Backend gebraucht wird.",
+    "detailsButton": "Projektdetails",
+    "openDetails": "Projektdetails zu {{title}} öffnen",
+    "recSubtitle": "IN IHREN WORTEN",
+    "recTitlePre": "Stimmen der",
+    "recTitleHighlight": "Kollegen",
+    "rec1Text": "Ich habe Patrick als beständigen und zuverlässigen Entwickler kennengelernt. Er findet gute Lösungen, selbst wenn Bugs auftauchen, und bringt ein hohes Maß an Fachwissen mit, besonders im Bereich Datenbanken. Seine klare Kommunikation rundet eine sehr angenehme Zusammenarbeit ab.",
+    "rec1Role": "Frontend-Entwickler",
+    "rec2Text": "Patrick Schauer war ein zuverlässiges und hilfsbereites Teammitglied im Projekt 'Join'. Er legte großen Wert auf eine gute Teamstruktur und faire Aufgabenverteilung, sodass jeder passende Verantwortung übernehmen konnte. Besonders hervorzuheben sind seine unterstützende Art, sein starkes Organisationstalent und die angenehme Zusammenarbeit im Team.",
+    "rec2Role": "Frontend-Entwickler",
+    "profile": "Profil"
+  },
+  "projectData": {
+    "join": {
+      "description": "Ein vom Kanban-Prinzip inspirierter Task-Manager 📌, der die Arbeit am Laufen hält — Aufgaben per Drag-and-drop zwischen Spalten verschieben, Teammitglieder zuweisen und alles nach Kategorien gruppieren, damit nichts durchrutscht.",
+      "implementation": "Umgesetzt als Single-Page-Angular-App mit Supabase als Backend für Authentifizierung und Daten. Aufgaben werden in Echtzeit gespeichert, Drag-and-drop ist mit dem Angular CDK umgesetzt, und die UI ist bis hinunter zum Smartphone vollständig responsiv.",
+      "duration": "1 Monat"
+    },
+    "epl": {
+      "description": "Ein 2D-Side-Scrolling-Jump-’n’-Run 🎮 in objektorientiertem JavaScript — führe Pepe durch die Wüste, sammle Münzen und Tabasco-Flaschen und besiege die Boss-Henne.",
+      "implementation": "Ein Side-Scrolling-Platformer, gerendert auf HTML5 Canvas. Die Architektur ist klassenbasiert: separate Entitäten für Spieler, Gegner, Sammelobjekte und die Welt, jede mit eigenem Update-/Draw-Zyklus, gesteuert von einer zentralen Game-Loop.",
+      "duration": "2,5 Monate"
+    }
+  },
+  "projectDetails": {
+    "description": "Beschreibung",
+    "implementation": "Umsetzung",
+    "duration": "Dauer:",
+    "github": "GitHub",
+    "liveTest": "Live-Test",
+    "goBack": "Zurück",
+    "nextProject": "Nächstes Projekt",
+    "notFound": "Projekt nicht gefunden.",
+    "backHome": "Zurück zur Startseite"
+  },
+  "contact": {
+    "eyebrow": "KONTAKTIERE MICH",
+    "heading": "Hast du ein Projekt?",
+    "intro": "Ich arbeite über den gesamten Stack hinweg und lege Wert auf das Handwerk — sauberer Code, solide Struktur und eine UI, die wirklich Sinn ergibt. Hast du ein Projekt? Ich bin dabei.",
+    "nameLabel": "Wie heißt du?",
+    "namePlaceholder": "Dein Name kommt hierhin",
+    "nameError": "Ups! Dein Name scheint zu fehlen.",
+    "emailLabel": "Wie ist deine E-Mail?",
+    "emailPlaceholder": "deineEmail@email.com",
+    "emailRequired": "Ups! Deine E-Mail wird benötigt.",
+    "emailInvalid": "Keine gültige E-Mail!",
+    "messageLabel": "Wie kann ich dir helfen?",
+    "messagePlaceholder": "Hallo Patrick, ich interessiere mich für ...",
+    "messageError": "Was möchtest du entwickeln lassen?",
+    "privacyConsentPre": "Ich habe die ",
+    "privacyConsentLink": "Datenschutzerklärung",
+    "privacyConsentPost": " gelesen und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+    "privacyError": "Bitte akzeptiere die Datenschutzerklärung.",
+    "send": "Senden",
+    "sending": "Wird gesendet...",
+    "success": "Nachricht gesendet — ich melde mich bald bei dir!",
+    "error": "Etwas ist schiefgelaufen. Bitte versuche es erneut."
+  },
+  "footer": {
+    "copyright": "© Patrick Schauer 2026",
+    "legalNotice": "Impressum"
+  },
+  "legalNotice": {
+    "title": "Impressum",
+    "imprintHeading": "Angaben gemäß § 5 TMG",
+    "imprintBody": "Patrick Schauer<br />Elbeblick 5<br />25524 Itzehoe",
+    "acceptanceHeading": "Annahme der Bedingungen",
+    "acceptanceBody": "Durch den Zugriff auf und die Nutzung von <em>Portfolio</em> (Produkt) erkennst du die folgenden Bedingungen sowie alle Richtlinien, Vorgaben oder Änderungen, die dir von Zeit zu Zeit vorgelegt werden können, an und stimmst ihnen zu. Wir können die Bedingungen jederzeit ohne Vorankündigung aktualisieren oder ändern.",
+    "scopeHeading": "Umfang und Eigentum am Produkt",
+    "scopeBody": "<em>Portfolio</em> wurde im Rahmen eines studentischen Gruppenprojekts in einem Webentwicklungs-Bootcamp an der <a class=\"DevAka\" href=\"\">Developer Akademie GmbH</a> entwickelt. Es dient Bildungszwecken und ist nicht für eine umfangreiche private &amp; geschäftliche Nutzung bestimmt. Daher können wir keine durchgängige Verfügbarkeit, Zuverlässigkeit, Genauigkeit oder sonstige Qualitätsmerkmale dieses Produkts garantieren. Das Design von Portfolio ist Eigentum der Developer Akademie GmbH. Eine unbefugte Nutzung, Vervielfältigung, Änderung, Verbreitung oder Reproduktion des Designs ist strengstens untersagt.",
+    "proprietaryHeading": "Schutzrechte",
+    "proprietaryBody": "Abgesehen von dem Design, das der Developer Akademie GmbH gehört, behalten wir uns alle Schutzrechte an Portfolio vor, einschließlich aller zugehörigen urheberrechtlich geschützten Materialien, Marken und sonstigen geschützten Informationen.",
+    "useHeading": "Nutzung des Produkts",
+    "useBody": "Portfolio darf ausschließlich für rechtmäßige Zwecke und in Übereinstimmung mit allen geltenden Gesetzen und Vorschriften genutzt werden. Jede Nutzung von Portfolio für illegale Aktivitäten oder zur Belästigung, Schädigung, Bedrohung oder Einschüchterung einer anderen Person ist strengstens untersagt. Du bist allein für deine Interaktionen mit anderen Nutzern von Portfolio verantwortlich.",
+    "disclaimerHeading": "Gewährleistungsausschluss und Haftungsbeschränkung",
+    "disclaimerBody": "Portfolio wird „wie besehen“ ohne jegliche ausdrückliche oder stillschweigende Gewährleistung bereitgestellt, einschließlich, aber nicht beschränkt auf die stillschweigenden Gewährleistungen der Marktgängigkeit, der Eignung für einen bestimmten Zweck und der Nichtverletzung von Rechten. In keinem Fall haften wir oder die Developer Akademie für direkte, indirekte, zufällige, besondere, Folge- oder exemplarische Schäden, einschließlich, aber nicht beschränkt auf Schäden durch entgangenen Gewinn, Goodwill, Nutzung, Datenverlust oder andere immaterielle Verluste, selbst wenn wir auf die Möglichkeit solcher Schäden hingewiesen wurden, die sich aus oder im Zusammenhang mit der Nutzung oder Leistung von Portfolio ergeben.",
+    "indemnityHeading": "Freistellung",
+    "indemnityBody": "Du verpflichtest dich, uns, die Developer Akademie sowie unsere verbundenen Unternehmen, Partner, leitenden Angestellten, Direktoren, Vertreter und Mitarbeiter von allen Ansprüchen, Forderungen, Verlusten, Schäden, Kosten oder Haftungen (einschließlich angemessener Anwaltskosten) freizustellen, zu verteidigen und schadlos zu halten, die sich aus oder im Zusammenhang mit deiner Nutzung von Portfolio und/oder deinem Verstoß gegen dieses Impressum ergeben.",
+    "contactBody": "Bei Fragen oder Mitteilungen kontaktiere uns bitte unter <a href=\"mailto:patrick_schauer@t-online.de\">patrick_schauer@t-online.de</a>.",
+    "date": "Stand: 02. Juni 2026"
+  },
+  "privacyPolicy": {
+    "title": "Datenschutzerklärung",
+    "controllerHeading": "1. Verantwortlicher",
+    "controllerBody": "Patrick Schauer<br />E-Mail: <a href=\"mailto:patrick_schauer@t-online.de\">patrick_schauer@t-online.de</a>",
+    "collectionHeading": "2. Erhebung und Verarbeitung personenbezogener Daten",
+    "collectionBody": "Personenbezogene Daten werden auf dieser Website nur in dem technisch notwendigen Umfang erhoben. Unter keinen Umständen werden erhobene Daten verkauft oder aus anderen Gründen an Dritte weitergegeben.",
+    "formHeading": "3. Kontaktformular",
+    "formBody": "Wenn du das Kontaktformular auf dieser Website nutzt, werden die von dir angegebenen Daten (Name, E-Mail-Adresse, Nachricht) zum Zweck der Bearbeitung deiner Anfrage verarbeitet. Diese Daten werden ausschließlich zur Beantwortung deiner Anfrage verwendet und danach gelöscht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung von Anfragen).",
+    "hostingHeading": "4. Hosting",
+    "hostingBody": "Diese Website wird von der netcup GmbH, Daimlerstraße 25, 76185 Karlsruhe, Deutschland gehostet. Beim Aufruf der Website speichert der Hosting-Anbieter automatisch Server-Logdateien, die deinen Browsertyp, dein Betriebssystem, die Referrer-URL, die IP-Adresse und die Zugriffszeit enthalten. Diese Daten sind technisch notwendig und werden nicht mit anderen Datenquellen zusammengeführt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.",
+    "cookiesHeading": "5. Keine Cookies, kein Tracking",
+    "cookiesBody": "Diese Website verwendet keine Cookies und setzt keine Tracking- oder Analyse-Tools ein. Es werden keine Nutzerprofile erstellt.",
+    "rightsHeading": "6. Deine Rechte",
+    "rightsBody1": "Du hast das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16 DSGVO), Löschung (Art. 17 DSGVO), Einschränkung der Verarbeitung (Art. 18 DSGVO) und Datenübertragbarkeit (Art. 20 DSGVO). Um deine Rechte auszuüben, kontaktiere bitte: <a href=\"mailto:patrick_schauer@t-online.de\">patrick_schauer@t-online.de</a>.",
+    "rightsBody2": "Du hast außerdem das Recht, dich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig ist der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg (LfDI BW).",
+    "statusHeading": "7. Aktualität",
+    "statusBody": "Diese Datenschutzerklärung ist aktuell gültig und datiert auf Juni 2026. Im Zuge der Weiterentwicklung der Website können Anpassungen dieser Erklärung erforderlich werden."
+  }
+}

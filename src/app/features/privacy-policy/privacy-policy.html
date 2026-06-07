@@ -1,75 +1,44 @@
 <div class="privacy__bg">
   <img src="/design-material/01_Background/design-size-relation/09_privacy_policy_legal_notice.webp" alt="" aria-hidden="true" />
-  <h1 class="privacy__title">Privacy Policy</h1>
+  <h1 class="privacy__title">{{ 'privacyPolicy.title' | translate }}</h1>
 </div>
 
-<a class="privacy__back-arrow" routerLink="/">
+<a class="privacy__back-arrow" [routerLink]="['/', lang()]">
   <img src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png" alt="Back" />
-  Back
+  {{ 'common.back' | translate }}
 </a>
 
 <main class="privacy">
 
-  <h2>1. Controller</h2>
-  <p>
-    Patrick Schauer<br />
-    Email: <a href="mailto:patrick_schauer@t-online.de">patrick_schauer@t-online.de</a>
-  </p>
+  <h2>{{ 'privacyPolicy.controllerHeading' | translate }}</h2>
+  <p [innerHTML]="'privacyPolicy.controllerBody' | translate"></p>
 
-  <h2>2. Collection and Processing of Personal Data</h2>
-  <p>
-    Personal data is only collected on this website to the extent technically necessary.
-    Under no circumstances will collected data be sold or passed on to third parties for any other reason.
-  </p>
+  <h2>{{ 'privacyPolicy.collectionHeading' | translate }}</h2>
+  <p>{{ 'privacyPolicy.collectionBody' | translate }}</p>
 
-  <h2>3. Contact Form</h2>
-  <p>
-    When you use the contact form on this website, the data you provide (name, email address, message)
-    will be processed for the purpose of handling your enquiry. This data is used solely to respond to
-    your request and will be deleted afterwards. The legal basis is Art. 6(1)(b) GDPR (pre-contractual
-    measures) or Art. 6(1)(f) GDPR (legitimate interest in responding to enquiries).
-  </p>
+  <h2>{{ 'privacyPolicy.formHeading' | translate }}</h2>
+  <p>{{ 'privacyPolicy.formBody' | translate }}</p>
 
-  <h2>4. Hosting</h2>
-  <p>
-    This website is hosted by netcup GmbH, Daimlerstraße 25, 76185 Karlsruhe, Germany.
-    When the website is accessed, the hosting provider automatically stores server log files containing
-    your browser type, operating system, referrer URL, IP address and access time. These data are
-    technically necessary and are not merged with other data sources. The legal basis is Art. 6(1)(f) GDPR.
-  </p>
+  <h2>{{ 'privacyPolicy.hostingHeading' | translate }}</h2>
+  <p>{{ 'privacyPolicy.hostingBody' | translate }}</p>
 
-  <h2>5. No Cookies, No Tracking</h2>
-  <p>
-    This website does not use cookies and does not deploy any tracking or analytics tools.
-    No user profiles are created.
-  </p>
+  <h2>{{ 'privacyPolicy.cookiesHeading' | translate }}</h2>
+  <p>{{ 'privacyPolicy.cookiesBody' | translate }}</p>
 
-  <h2>6. Your Rights</h2>
-  <p>
-    You have the right to access (Art. 15 GDPR), rectification (Art. 16 GDPR), erasure (Art. 17 GDPR),
-    restriction of processing (Art. 18 GDPR) and data portability (Art. 20 GDPR).
-    To exercise your rights please contact:
-    <a href="mailto:patrick_schauer@t-online.de">patrick_schauer@t-online.de</a>.
-  </p>
-  <p>
-    You also have the right to lodge a complaint with a data protection supervisory authority.
-    The competent authority is the State Commissioner for Data Protection and Freedom of Information
-    Baden-Württemberg (LfDI BW).
-  </p>
+  <h2>{{ 'privacyPolicy.rightsHeading' | translate }}</h2>
+  <p [innerHTML]="'privacyPolicy.rightsBody1' | translate"></p>
+  <p>{{ 'privacyPolicy.rightsBody2' | translate }}</p>
 
-  <h2>7. Up-to-date Status</h2>
-  <p>
-    This privacy policy is currently valid and dated June 2026.
-    As the website evolves, updates to this policy may become necessary.
-  </p>
+  <h2>{{ 'privacyPolicy.statusHeading' | translate }}</h2>
+  <p>{{ 'privacyPolicy.statusBody' | translate }}</p>
 </main>
 
 <footer class="footer">
   <section class="footer__top">
-    <a routerLink="/"><img class="footer__logo" src="/logo.webp" alt="Patrick Schauer Logo" /></a>
+    <a [routerLink]="['/', lang()]"><img class="footer__logo" src="/logo.webp" alt="Patrick Schauer Logo" /></a>
     <address class="footer__meta">
-      <small class="footer__copyright">© Patrick Schauer 2026</small>
-      <a class="footer__legal" routerLink="/legal-notice">Legal Notice</a>
+      <small class="footer__copyright">{{ 'footer.copyright' | translate }}</small>
+      <a class="footer__legal" [routerLink]="['/', lang(), 'legal-notice']">{{ 'footer.legalNotice' | translate }}</a>
     </address>
   </section>
 

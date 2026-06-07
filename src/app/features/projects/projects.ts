@@ -1,15 +1,18 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 import { PROJECTS } from '../project-details/projects-data';
+import { LanguageService } from '../../core/services/language.service';
 
 @Component({
   selector: 'app-projects',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './projects.html',
   styleUrl: './projects.scss',
 })
 export class ProjectsComponent {
   private router = inject(Router);
+  readonly lang = inject(LanguageService).lang;
   readonly projects = PROJECTS;
 
   private pressTimer: ReturnType<typeof setTimeout> | null = null;
@@ -21,7 +24,7 @@ export class ProjectsComponent {
     this.cancelPressTimer();
     this.pressTimer = setTimeout(() => {
       this.pressTimer = null;
-      this.router.navigate(['/projects', slug]);
+      this.router.navigate(['/', this.lang(), 'projects', slug]);
     }, 1400);
   }
 

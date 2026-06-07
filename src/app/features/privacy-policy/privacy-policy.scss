@@ -25,6 +25,10 @@
     height: 1.5rem;
     width: auto;
   }
+
+  &:hover {
+    color: #f87a55;
+  }
 }
 
 .privacy__bg {
@@ -70,6 +74,8 @@
     color: #3355FF;
     text-decoration: underline;
     text-underline-offset: 0.15rem;
+
+    &:hover { color: #1f3ad6; }
   }
 }
 
@@ -87,7 +93,15 @@
     justify-content: space-between;
   }
 
-  &__logo { width: 3rem; height: auto; }
+  &__logo {
+    width: 3rem;
+    height: auto;
+    transition: filter 300ms ease;
+
+    &:hover {
+      filter: brightness(0) saturate(100%) invert(78%) sepia(60%) saturate(600%) hue-rotate(5deg);
+    }
+  }
 
   &__meta {
     display: flex;
@@ -105,7 +119,15 @@
 
   &__legal {
     text-decoration: none;
-    &:hover { opacity: 0.7; }
+    display: inline-block;
+    background-image: url("/design-material/00_Hand-drawn lines/05_Contact/legal.png");
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    padding-bottom: 0.5rem;
+    background-size: 0% 1.5rem;
+    transition: background-size 0.3s ease-out;
+
+    &:hover { background-size: 100% 1.5rem; }
   }
 
   &__bottom {

@@ -11,8 +11,8 @@
   <div class="hero__content">
     <header class="hero__title">
       <button class="btn-primary btn-primary--world">
-        <span class="btn-primary__default">Hello, World!</span>
-        <span class="btn-primary__hover">I'M PATRICK SCHAUER</span>
+        <span class="btn-primary__default">{{ 'hero.helloWorld' | translate }}</span>
+        <span class="btn-primary__hover">{{ 'hero.name' | translate }}</span>
         <img class="btn-primary__wave" src="/design-material/03_Stickers/waving_hand.png" alt="Waving hand" />
       </button>
 
@@ -28,7 +28,7 @@
           </span>
           <a class="btn-primary btn-primary--talk"
              (click)="scrollToContact()">
-             Get in touch
+             {{ 'hero.getInTouch' | translate }}
           </a>
         </span>
       </h1>
@@ -40,7 +40,7 @@
         src="/design-material/03_Stickers/Behmer_0426.jpg"
         alt="Portrait photo"
       />
-      <figcaption class="hero__polaroid-caption">Patrick :D</figcaption>
+      <figcaption class="hero__polaroid-caption">{{ 'hero.polaroidCaption' | translate }}</figcaption>
       <img
         class="hero__polaroid-frame"
         src="/design-material/03_Stickers/polaroid-frame.webp"

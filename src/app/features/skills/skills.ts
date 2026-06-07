@@ -1,19 +1,18 @@
 import { Component, signal, computed, HostListener } from '@angular/core';
 import { NgOptimizedImage, NgClass } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-skills',
-  imports: [NgOptimizedImage, NgClass],
+  imports: [NgOptimizedImage, NgClass, TranslatePipe],
   templateUrl: './skills.html',
   styleUrl: './skills.scss',
 })
 export class SkillsComponent {
   peelState = signal<0 | 1 | 2>(0);
 
-  peelText = computed(() => {
-    const texts = ['Pull to peel!', 'Peel more!!', 'Keen to dive into:'];
-    return texts[this.peelState()];
-  });
+  /** Translation key for the peel label of the current peel state. */
+  peelTextKey = computed(() => `skills.peel${this.peelState()}`);
 
   peelClass = computed(() => {
     const classes = ['peel--a', 'peel--b', 'peel--c'];

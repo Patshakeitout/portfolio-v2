@@ -6,7 +6,10 @@
 
   <main class="contact__content">
     <header class="contact__header">
-      <svg class="sticker" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <svg class="sticker" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
+           (mouseenter)="onStickerEnter($event)" (mouseleave)="onStickerLeave()" (click)="onStickerEnter($event)"
+           [class.sticker--cw]="stickerDir() === 'cw'"
+           [class.sticker--ccw]="stickerDir() === 'ccw'">
         <defs>
           <clipPath id="sticker-clip">
             <circle cx="100" cy="100" r="99"/>
@@ -27,47 +30,56 @@
         </text>
       </svg>
 
-      <h5>CONTACT ME</h5>
-      <h1>Got a Project?</h1>
+      <h5>{{ 'contact.eyebrow' | translate }}</h5>
+      <h1>{{ 'contact.heading' | translate }}</h1>
     </header>
 
     <article class="contact__text">
-      <p>
-        I work across the full stack and I care about the craft — clean code, solid structure,
-        and a UI that actually makes sense. Got a project? I'm in.
-      </p>
+      <p>{{ 'contact.intro' | translate }}</p>
     </article>
 
     <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
-      <label class="contact__label" for="contact-name">What's your name?</label>
-      <input class="contact__input" id="contact-name" formControlName="name" type="text" placeholder="Your name goes here" />
+      <label class="contact__label" for="contact-name">{{ 'contact.nameLabel' | translate }}</label>
+      <input class="contact__input" id="contact-name" formControlName="name" type="text"
+             [placeholder]="namePlaceholder() | translate"
+             [class.contact__input--error]="form.get('name')?.touched && form.get('name')?.invalid"
+             (focus)="resetTouched('name')" (blur)="markTouched('name')" />
 
-      <label class="contact__label" for="contact-email">What's your email?</label>
-      <input class="contact__input" id="contact-email" formControlName="email" type="email" placeholder="youremail@email.com" />
+      <label class="contact__label" for="contact-email">{{ 'contact.emailLabel' | translate }}</label>
+      <input class="contact__input" id="contact-email" formControlName="email" type="email"
+             [placeholder]="emailPlaceholder() | translate"
+             [class.contact__input--error]="form.get('email')?.touched && form.get('email')?.invalid"
+             (focus)="resetTouched('email')" (blur)="markTouched('email')" />
+      <p class="contact__error" role="alert">{{ emailError() | translate }}</p>
 
-      <label class="contact__label" for="contact-message">How can I help you?</label>
-      <textarea class="contact__input" id="contact-message" formControlName="message" rows="4" placeholder="Hello Patrick, I am interested in ..."></textarea>
+      <label class="contact__label" for="contact-message">{{ 'contact.messageLabel' | translate }}</label>
+      <textarea class="contact__input" id="contact-message" formControlName="message" rows="4"
+                [placeholder]="messagePlaceholder() | translate"
+                [class.contact__input--error]="form.get('message')?.touched && form.get('message')?.invalid"
+                (focus)="resetTouched('message')" (blur)="markTouched('message')" >
+      </textarea>
 
       <fieldset class="contact__privacy">
         <label class="contact__privacy-label">
-          <input type="checkbox" formControlName="privacy" />
-          <span>I've read the <a class="contact__privacy-link" routerLink="/privacy-policy">privacy policy</a> and agree to the processing of my data as outlined.</span>
+          <input type="checkbox" formControlName="privacy" (change)="submitted.set(false)" />
+          <span>{{ 'contact.privacyConsentPre' | translate }}<a class="contact__privacy-link" [routerLink]="['/', lang(), 'privacy-policy']">{{ 'contact.privacyConsentLink' | translate }}</a>{{ 'contact.privacyConsentPost' | translate }}</span>
         </label>
+        <p class="contact__privacy-error" role="alert">{{ privacyError() | translate }}</p>
       </fieldset>
 
       <div class="contact__actions">
         <img class="contact__arrow" src="/design-material/00_Hand-drawn lines/05_Contact/contact-arrow.png" alt="" />
         <button class="btn-primary btn-primary--ghost" type="submit" [disabled]="status() === 'sending'">
-          @if (status() === 'sending') { Sending... }
-          @else { Send }
+          @if (status() === 'sending') { {{ 'contact.sending' | translate }} }
+          @else { {{ 'contact.send' | translate }} }
         </button>
       </div>
 
       @if (status() === 'success') {
-        <p class="contact__feedback contact__feedback--success">Message sent — I'll get back to you soon!</p>
+        <p class="contact__feedback contact__feedback--success">{{ 'contact.success' | translate }}</p>
       }
       @if (status() === 'error') {
-        <p class="contact__feedback contact__feedback--error">Something went wrong. Please try again.</p>
+        <p class="contact__feedback contact__feedback--error">{{ 'contact.error' | translate }}</p>
       }
     </form>
 
@@ -75,10 +87,10 @@
 
   <footer class="footer">
     <section class="footer__top">
-      <img class="footer__logo" src="/logo.webp" alt="Patrick Schauer Logo" />
+      <a [routerLink]="['/', lang()]" (click)="scrollToTop()"><img class="footer__logo" src="/logo.webp" alt="Patrick Schauer Logo" /></a>
       <address class="footer__meta">
-        <small class="footer__copyright">© Patrick Schauer 2026</small>
-        <a class="footer__legal" routerLink="/legal-notice">Legal Notice</a>
+        <small class="footer__copyright">{{ 'footer.copyright' | translate }}</small>
+        <a class="footer__legal" [routerLink]="['/', lang(), 'legal-notice']">{{ 'footer.legalNotice' | translate }}</a>
       </address>
     </section>
 

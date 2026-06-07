@@ -1,1 +1,74 @@
-<p>legal-notice works!</p>
+<div class="legal__bg">
+  <img src="/design-material/01_Background/design-size-relation/09_privacy_policy_legal_notice.webp" alt="" aria-hidden="true" />
+  <h1 class="legal__title">{{ 'legalNotice.title' | translate }}</h1>
+</div>
+
+<a class="legal__back-arrow" [routerLink]="['/', lang()]">
+  <img src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png" alt="Back" />
+  {{ 'common.back' | translate }}
+</a>
+
+<main class="legal">
+
+  <section class="legal__section">
+    <h2>{{ 'legalNotice.imprintHeading' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.imprintBody' | translate"></p>
+  </section>
+
+  <section class="legal__section">
+    <h2>{{ 'legalNotice.acceptanceHeading' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.acceptanceBody' | translate"></p>
+  </section>
+
+  <section class="legal__section">
+    <h2>{{ 'legalNotice.scopeHeading' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.scopeBody' | translate"></p>
+  </section>
+
+  <section class="legal__section">
+    <h2>{{ 'legalNotice.proprietaryHeading' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.proprietaryBody' | translate"></p>
+  </section>
+
+  <section class="legal__section">
+    <h2>{{ 'legalNotice.useHeading' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.useBody' | translate"></p>
+  </section>
+
+  <section class="legal__section">
+    <h2>{{ 'legalNotice.disclaimerHeading' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.disclaimerBody' | translate"></p>
+  </section>
+
+  <section class="legal__section">
+    <h2>{{ 'legalNotice.indemnityHeading' | translate }}</h2>
+    <p [innerHTML]="'legalNotice.indemnityBody' | translate"></p>
+    <p [innerHTML]="'legalNotice.contactBody' | translate"></p>
+    <p>{{ 'legalNotice.date' | translate }}</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <section class="footer__top">
+    <a [routerLink]="['/', lang()]"><img class="footer__logo" src="/logo.webp" alt="Patrick Schauer Logo" /></a>
+    <address class="footer__meta">
+      <small class="footer__copyright">{{ 'footer.copyright' | translate }}</small>
+      <a class="footer__legal" [routerLink]="['/', lang(), 'legal-notice']">{{ 'footer.legalNotice' | translate }}</a>
+    </address>
+  </section>
+
+  <section class="footer__bottom">
+    <nav class="footer__links" aria-label="Footer navigation">
+      <a href="https://github.com/Patshakeitout" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+        <img src="/icons/contact/github.svg" alt="GitHub" />
+      </a>
+      <a href="https://www.linkedin.com/in/patrick-schauer-5a369322a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
+      </a>
+      <a href="mailto:patrick_schauer@t-online.de" aria-label="Email">
+        <img src="/icons/contact/mail.svg" alt="Email" />
+      </a>
+    </nav>
+  </section>
+</footer>
