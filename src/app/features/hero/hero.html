@@ -1,4 +1,4 @@
-<!-- Hero component/section ------------------------------------------------------------------------->
+<!-- Hero component/section ------------------------------------------------------------------------------------------------->
 
 <section class="hero">
   <img
@@ -12,32 +12,46 @@
     <button class="btn-primary btn-primary--world">
       <span class="btn-primary__default">{{ 'hero.helloWorld' | translate }}</span>
       <span class="btn-primary__hover">{{ 'hero.name' | translate }}</span>
-
       <img class="btn-primary__wave" src="/design-material/03_Stickers/waving_hand.png" alt="Waving hand" />
     </button>
 
-    <span class="hero__text hero__text--frontend">
-      @for (item of frontendLetters; track $index) {<span
+    <h1 class="visually-hidden">Frontend Developer</h1>
+
+    <span class="hero__text hero__text--frontend" aria-hidden="true">
+      @for (item of frontendLetters(); track $index) {<span
         [attr.data-word]="item.word"
         [attr.data-hover]="$first ? item.letter.toLowerCase() : item.letter.toUpperCase()">{{ item.letter }}</span>}
     </span>
 
-    <span class="hero__developer-row">
-      <span class="hero__text hero__text--developer">
-        @for (item of developerLetters; track $index) {<span
+    <div class="hero__developer-row">
+      <span class="hero__text hero__text--developer" aria-hidden="true">
+        @for (item of developerLetters(); track $index) {<span
           [attr.data-word]="item.word"
           [attr.data-hover]="item.letter.toLowerCase()">{{ item.letter }}</span>}
       </span>
-      <a class="btn-primary btn-primary--talk" (click)="scrollToContact()">
+      <button class="btn-primary btn-primary--talk" (click)="scrollToContact()">
         {{ 'hero.getInTouch' | translate }}
-      </a>
+      </button>
 
       <figure class="hero__polaroid" aria-label="Polaroid photo">
         <img class="hero__polaroid-frame" src="/design-material/03_Stickers/polaroid-frame.webp" alt="" aria-hidden="true"/>
         <img class="hero__polaroid-photo" src="/design-material/03_Stickers/Behmer_0426.jpg" alt="Portrait photo"/>
-
         <figcaption class="hero__polaroid-caption">{{ 'hero.polaroidCaption' | translate }}</figcaption>
       </figure>
-    </span>
+    </div>
   </header>
+
+  <footer>
+    <nav class="contact">
+      <a class="contact__link" href="https://www.linkedin.com/in/patrick-schauer-5a369322a">
+        <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
+      </a>
+      <a class="contact__link" href="https://github.com/Patshakeitout">
+        <img src="/icons/contact/github.svg" alt="GitHub" />
+      </a>
+      <a class="contact__link" href="mailto:patrick_schauer@t-online.de">
+        <img src="/icons/contact/mail.svg" alt="Email" />
+      </a>
+    </nav>
+  </footer>
 </section>

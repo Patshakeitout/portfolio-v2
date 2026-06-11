@@ -14,7 +14,9 @@
     "helloWorld": "Hello, World!",
     "name": "ICH BIN PATRICK SCHAUER",
     "getInTouch": "Kontakt aufnehmen",
-    "polaroidCaption": "Patrick :D"
+    "polaroidCaption": "Patrick :D",
+    "frontendWords": ["Fokussiert", "Routiniert", "Organisiert", "Neugierig", "Tatkräftig", "Effizient", "Nahbar", "Durchdacht"],
+    "developerWords": ["Detailverliebt", "Exakt", "Vielseitig", "Empathisch", "Logisch", "Offen", "Präzise", "Engagiert", "Resilient"]
   },
   "about": {
     "subtitle": "WER IST PATRICK",

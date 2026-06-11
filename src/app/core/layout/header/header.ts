@@ -70,14 +70,14 @@ export class HeaderComponent {
 
   scrollToTop() {
     const start = window.scrollY;
-    const duration = 1200;
+    const duration = 1800;
     const startTime = performance.now();
 
     const step = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const ease = 1 - Math.pow(1 - progress, 3);
-      window.scrollTo(0, start * (1 - ease));
+      window.scrollTo({ top: start * (1 - ease), behavior: 'instant' });
       if (progress < 1) requestAnimationFrame(step);
     };
 

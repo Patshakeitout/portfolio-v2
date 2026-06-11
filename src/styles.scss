@@ -43,11 +43,27 @@
 }
 
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
   font-family: var(--font-main);
   background-color: vars.$base-white-option1;
+}
+
+// Hides content visually while keeping it readable for screen readers & SEO
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 @keyframes draw-erase-rtl {

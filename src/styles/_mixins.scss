@@ -1,5 +1,17 @@
 /* _mixins.scss */
 
+@use 'variables' as vars;
+
+// Horizontal content padding: 1rem on mobile; on desktop it ramps
+// fluidly from 1rem at 855px viewport up to 4.5rem from 952px on.
+@mixin content-padding {
+  padding-inline: 1rem;
+
+  @media (min-width: vars.$breakpoint-desktop) {
+    padding-inline: clamp(1rem, calc(57.73vw - 29.85rem), 4.5rem);
+  }
+}
+
 // Clip-path animation directions
 $clip-top-to-bottom: inset(0 0 100% 0);
 $clip-left-to-right: inset(0 100% 0 0);
@@ -8,7 +20,7 @@ $clip-right-to-left: inset(0 0 0 100%);
 $clip-bottom-right-to-top-left: inset(100% 0 0 100%);
 
 // Mixin for nav link hover effect with hand-drawn images
-@mixin nav-link-hover($image, $clip-start, $top: 50%, $color-option: 1, $width: 130%, $height: 200%) {
+@mixin nav-link-hover($image, $clip-start, $top: 50%, $color-option: 1, $width: 110%, $height: 160%) {
   position: relative;
   isolation: isolate;
 

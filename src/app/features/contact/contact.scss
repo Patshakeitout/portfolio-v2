@@ -1,6 +1,7 @@
 /* Contact component scss */
 
 @use 'variables' as vars;
+@use 'mixins' as mix;
 
 .contact {
   position: relative;
@@ -13,7 +14,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 5.5rem 1rem 0;
+    padding: 5.5rem 0 0;
+    @include mix.content-padding;
   }
 
   &__header {

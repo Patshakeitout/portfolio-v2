@@ -1,6 +1,7 @@
 /* About component scss */
 
 @use 'variables' as vars;
+@use 'mixins' as mix;
 
 .about {
   position: relative;
@@ -15,7 +16,8 @@
     align-items: flex-start;
     gap: 40px;
     height: 100%;
-    padding: 88px 16px 0px 16px;
+    padding: 5.5rem 0 0;
+    @include mix.content-padding;
     box-sizing: border-box;
   }
 

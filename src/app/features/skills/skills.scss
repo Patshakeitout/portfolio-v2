@@ -1,6 +1,7 @@
 /* skills.scss */
 
 @use 'variables' as vars;
+@use 'mixins' as mix;
 
 .skills {
   position: relative;

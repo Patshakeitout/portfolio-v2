@@ -1,6 +1,7 @@
 /* Hero component scss */
 
 @use 'variables' as vars;
+@use 'mixins' as mix;
 
 @keyframes wave-roll-brake {
   0% {
@@ -77,22 +78,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 48px;
+  gap: 3rem;
   align-items: center;
-  padding: 16px;
   box-sizing: border-box;
+  @include mix.content-padding;
 
   @media (min-width: vars.$breakpoint-desktop) {
     display: grid;
-    grid-template-columns: 1fr minmax(0, 832.54px) 1fr;
+    grid-template-columns: 1fr minmax(0, 52.034rem) 1fr;
     align-content: center;
     align-items: start;
   }
 
   &__polaroid {
     position: relative;
-    width: 203.57px;
-    height: 244px;
+    width: 12.723rem;
+    height: 15.25rem;
     transform: rotate(8deg);
     margin: 0;
 
@@ -141,7 +142,7 @@
     width: 100%;
     text-align: center;
     font-family: 'Kalam-bold', cursive;
-    font-size: clamp(20px, 3.5vw, 18px);
+    font-size: clamp(1.125rem, 3.5vw, 1.25rem);
     color: #333;
     z-index: 3;
     pointer-events: none;
@@ -151,9 +152,22 @@
     filter: grayscale(0%);
   }
 
+  footer {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    @include mix.content-padding;
+
+    @media (max-width: 430px) {
+      display: none;
+    }
+  }
+
   &__title {
     position: relative;
-    top: 8px;
+    top: 0.5rem;
     width: 100%;
     align-self: flex-start;
     display: flex;
@@ -180,8 +194,8 @@
         display: inline-block;
         text-align: center;
         cursor: pointer;
-        padding: 0 3px;
-        margin: 0 -3px;
+        padding: 0 0.1875rem;
+        margin: 0 -0.1875rem;
         transition: color 0.4s ease-out 0.1s;
 
         &::before {
@@ -199,12 +213,12 @@
           top: 0;
           left: 50%;
           transform: translate(-50%, -50%);
-          padding: 6px 14px;
+          padding: 0.4em 0.9em;
           background-color: vars.$base-black-option1;
           border: 1px solid vars.$base-white-option1;
           border-radius: 100px;
           color: vars.$highlight1-option1;
-          font-size: 16px;
+          font-size: clamp(0.5625rem, 2.5vw, 1rem);
           font-weight: 500;
           line-height: 1;
           white-space: nowrap;
@@ -261,10 +275,10 @@
       align-items: center;
       background-color: vars.$base-black-option1;
       color: vars.$base-white-option1;
-      padding: clamp(10px, 3.1vw, 12px) clamp(18px, 6.2vw, 24px);
+      padding: clamp(0.625rem, 3.1vw, 0.75rem) clamp(1.125rem, 6.2vw, 1.5rem);
       border-radius: 100px;
       border: 1px solid vars.$base-white-option1;
-      font-size: clamp(16px, 4.6vw, 18px);
+      font-size: clamp(1rem, 4.6vw, 1.125rem);
       font-weight: 500;
       white-space: nowrap;
       cursor: pointer;
@@ -291,7 +305,7 @@
       }
 
       &__default {
-        max-width: 200px;
+        max-width: 12.5rem;
         overflow: hidden;
         transition:
           max-width 0.6s ease-out,
@@ -310,10 +324,9 @@
       &__wave {
         position: absolute;
         right: 0;
-        top: -40px;
-        width: 40px;
-        height: 40px;
-        transform: rotate(0deg);
+        top: -2.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
         opacity: 0;
         z-index: 2;
       }
@@ -337,7 +350,7 @@
           }
 
           .btn-primary__hover {
-            max-width: 300px;
+            max-width: 18.75rem;
             opacity: 1;
           }
 
@@ -347,10 +360,9 @@
         }
       }
 
-      // Talk button (contact link)
+      // Talk button (scrolls to contact section)
       &--talk {
-        text-decoration: none;
-        box-shadow: 2px 4px 0px 0px vars.$base-white-option1;
+        box-shadow: 0.125rem 0.25rem 0 0 vars.$base-white-option1;
         transition:
           transform 0.3s ease-out,
           box-shadow 0.3s ease-out,
@@ -362,11 +374,50 @@
 
         &:hover,
         &:active {
-          transform: translate(2px, 4px);
-          box-shadow: 0px 0px 0px 0px vars.$base-white-option1;
+          transform: translate(0.125rem, 0.25rem);
+          box-shadow: 0 0 0 0 vars.$base-white-option1;
           background-color: vars.$highlight3-option2;
         }
       }
     }
+  }
+
+  footer {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    @include mix.content-padding;
+  }
+}
+
+.contact {
+  display: block;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 4rem;
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid vars.$base-white-option1;
+    border-radius: 50%;
+    padding: 0.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.3s ease-out;
+
+    &:hover {
+      background-color: vars.$highlight2-option1;
+    }
+  }
+
+  img {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 }

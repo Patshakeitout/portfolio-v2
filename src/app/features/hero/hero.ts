@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { NgOptimizedImage } from '@angular/common';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-hero',
@@ -9,18 +11,21 @@ import { TranslatePipe } from '@ngx-translate/core';
   styleUrl: './hero.scss',
 })
 export class HeroComponent {
-  readonly frontendLetters = this.lettersWithWords('Frontend', [
-    'Focused', 'Reliable', 'Organized', 'Neat', 'Thorough', 'Efficient', 'Nimble', 'Deliberate',
-  ]);
-  readonly developerLetters = this.lettersWithWords('DEVELOPER', [
-    'Detail-oriented', 'Exacting', 'Versatile', 'Empathetic', 'Logical', 'Observant', 'Precise', 'Eager', 'Resilient',
-  ]);
+  private readonly translate = inject(TranslateService);
+
+  readonly frontendLetters = this.lettersWithWords('Frontend', 'hero.frontendWords');
+  readonly developerLetters = this.lettersWithWords('DEVELOPER', 'hero.developerWords');
 
   /**
-   * Pairs each letter of a word with the trait shown on hover.
+   * Pairs each letter of a word with the translated trait shown on hover.
    */
-  private lettersWithWords(text: string, words: string[]) {
-    return [...text].map((letter, i) => ({ letter, word: words[i] }));
+  private lettersWithWords(text: string, key: string) {
+    return toSignal(
+      this.translate.stream(key).pipe(
+        map((words: string[]) => [...text].map((letter, i) => ({ letter, word: words[i] })))
+      ),
+      { initialValue: [] as { letter: string; word: string }[] }
+    );
   }
 
   scrollToContact() {

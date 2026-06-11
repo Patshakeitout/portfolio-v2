@@ -1,4 +1,5 @@
 @use 'variables' as vars;
+@use 'mixins' as mix;
 
 .projects {
   position: relative;
