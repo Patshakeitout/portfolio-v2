@@ -82,43 +82,43 @@
   padding: 16px;
   box-sizing: border-box;
 
-  @media (min-width: 720px) {
-    padding-top: 11.5rem;
+  @media (min-width: vars.$breakpoint-desktop) {
     display: grid;
-    grid-template-columns: 1fr minmax(0, 628.97px) minmax(0, 203.57px) 1fr;
+    grid-template-columns: 1fr minmax(0, 832.54px) 1fr;
     align-content: center;
     align-items: start;
   }
 
   &__polaroid {
     position: relative;
-    height: 36dvh;
-    max-height: 320px;
-    width: auto;
-    aspect-ratio: 184.8 / 220;
+    width: 203.57px;
+    height: 244px;
     transform: rotate(8deg);
     margin: 0;
 
-    @media (min-width: 720px) {
-      grid-column: 3;
-      width: 203.57px;
-      height: 244px;
+    @media (min-width: vars.$breakpoint-desktop) {
+      position: absolute;
+      right: 0;
+      bottom: calc(100% + 0.6rem);
     }
 
-    @media (max-width: 719px) {
-      height: 28dvh;
-      max-height: 220px;
-      margin-top: 2.5rem;
-    }
-
-    @media (max-width: 309px) {
-      height: 22dvh;
-      max-height: 180px;
+    @media (max-width: #{vars.$breakpoint-desktop - 1px}) {
+      order: 1;
+      align-self: center;
+      margin-top: 3rem;
     }
 
     @media (max-height: 550px) {
       display: none;
     }
+  }
+
+  &__polaroid-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   &__polaroid-photo {
@@ -134,10 +134,6 @@
     transition: filter 0.4s ease-out;
   }
 
-  &__polaroid:hover &__polaroid-photo {
-    filter: grayscale(0%);
-  }
-
   &__polaroid-caption {
     position: absolute;
     bottom: 4%;
@@ -151,13 +147,8 @@
     pointer-events: none;
   }
 
-  &__polaroid-frame {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    z-index: 2;
+  &__polaroid:hover &__polaroid-photo {
+    filter: grayscale(0%);
   }
 
   &__title {
@@ -167,24 +158,13 @@
     align-self: flex-start;
     display: flex;
     flex-direction: column;
+    font-size: clamp(2.5rem, 12vw, 6rem);
+    line-height: 1.2;
+    font-weight: 700;
+    text-align: left;
 
-    @media (min-width: 720px) {
+    @media (min-width: vars.$breakpoint-desktop) {
       grid-column: 2;
-      margin-right: 32px;
-    }
-
-    .hero__heading {
-      font-size: clamp(2.5rem, 16.5vw, 4rem);
-      line-height: 1.2;
-      font-weight: 700;
-      text-align: left;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-
-      @media (min-width: 385px) {
-        font-size: clamp(4rem, 12vw, 6rem);
-      }
     }
 
     // Letter hover effects: ::before is a zero-height in-flow block holding
@@ -194,6 +174,7 @@
     // word (data-word) as a small pill above the hovered letter.
     .hero__text {
       display: block;
+      white-space: nowrap;
       span {
         position: relative;
         display: inline-block;
@@ -248,18 +229,29 @@
       &--frontend span::after {
         top: 100%;
       }
-
     }
 
+    // Anchor for the polaroid: on desktop the figure hangs above this row,
+    // right-aligned with it, so DEVELOPER and polaroid share the same edge.
     .hero__developer-row {
+      position: relative;
       display: inline-flex;
       flex-direction: column;
       align-items: flex-end;
       align-self: flex-start;
-      gap: 16px;
 
       @media (min-width: 385px) {
         align-self: flex-end;
+      }
+
+      @media (max-width: #{vars.$breakpoint-desktop - 1px}) {
+        width: 100%;
+      }
+
+      @media (max-width: 567px) {
+        .hero__text--developer {
+          align-self: flex-start;
+        }
       }
     }
 
@@ -301,16 +293,18 @@
       &__default {
         max-width: 200px;
         overflow: hidden;
-        transition: max-width 0.6s ease-out,
-                    opacity 0.6s ease-out;
+        transition:
+          max-width 0.6s ease-out,
+          opacity 0.6s ease-out;
       }
 
       &__hover {
         max-width: 0;
         overflow: hidden;
         opacity: 0;
-        transition: max-width 0.6s ease-out,
-                    opacity 0.6s ease-out;
+        transition:
+          max-width 0.6s ease-out,
+          opacity 0.6s ease-out;
       }
 
       &__wave {
@@ -357,9 +351,10 @@
       &--talk {
         text-decoration: none;
         box-shadow: 2px 4px 0px 0px vars.$base-white-option1;
-        transition: transform 0.3s ease-out,
-                    box-shadow 0.3s ease-out,
-                    background-color 0.3s ease-out;
+        transition:
+          transform 0.3s ease-out,
+          box-shadow 0.3s ease-out,
+          background-color 0.3s ease-out;
 
         &::before {
           display: none;
@@ -374,5 +369,4 @@
       }
     }
   }
-
 }

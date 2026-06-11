@@ -12,33 +12,32 @@
     <button class="btn-primary btn-primary--world">
       <span class="btn-primary__default">{{ 'hero.helloWorld' | translate }}</span>
       <span class="btn-primary__hover">{{ 'hero.name' | translate }}</span>
+
       <img class="btn-primary__wave" src="/design-material/03_Stickers/waving_hand.png" alt="Waving hand" />
     </button>
 
-    <h1 class="hero__heading">
-      <span class="hero__text hero__text--frontend">
-        @for (item of frontendLetters; track $index) {<span
+    <span class="hero__text hero__text--frontend">
+      @for (item of frontendLetters; track $index) {<span
+        [attr.data-word]="item.word"
+        [attr.data-hover]="$first ? item.letter.toLowerCase() : item.letter.toUpperCase()">{{ item.letter }}</span>}
+    </span>
+
+    <span class="hero__developer-row">
+      <span class="hero__text hero__text--developer">
+        @for (item of developerLetters; track $index) {<span
           [attr.data-word]="item.word"
-          [attr.data-hover]="$first ? item.letter.toLowerCase() : item.letter.toUpperCase()">{{ item.letter }}</span>}
+          [attr.data-hover]="item.letter.toLowerCase()">{{ item.letter }}</span>}
       </span>
+      <a class="btn-primary btn-primary--talk" (click)="scrollToContact()">
+        {{ 'hero.getInTouch' | translate }}
+      </a>
 
-      <span class="hero__developer-row">
-        <span class="hero__text hero__text--developer">
-          @for (item of developerLetters; track $index) {<span
-            [attr.data-word]="item.word"
-            [attr.data-hover]="item.letter.toLowerCase()">{{ item.letter }}</span>}
-        </span>
-        <a class="btn-primary btn-primary--talk" (click)="scrollToContact()">
-          {{ 'hero.getInTouch' | translate }}
-        </a>
-      </span>
-    </h1>
+      <figure class="hero__polaroid" aria-label="Polaroid photo">
+        <img class="hero__polaroid-frame" src="/design-material/03_Stickers/polaroid-frame.webp" alt="" aria-hidden="true"/>
+        <img class="hero__polaroid-photo" src="/design-material/03_Stickers/Behmer_0426.jpg" alt="Portrait photo"/>
+
+        <figcaption class="hero__polaroid-caption">{{ 'hero.polaroidCaption' | translate }}</figcaption>
+      </figure>
+    </span>
   </header>
-
-  <figure class="hero__polaroid" aria-label="Polaroid photo">
-    <img class="hero__polaroid-frame" src="/design-material/03_Stickers/polaroid-frame.webp" alt="" aria-hidden="true"/>
-    <img class="hero__polaroid-photo" src="/design-material/03_Stickers/Behmer_0426.jpg" alt="Portrait photo"/>
-
-    <figcaption class="hero__polaroid-caption">{{ 'hero.polaroidCaption' | translate }}</figcaption>
-  </figure>
 </section>

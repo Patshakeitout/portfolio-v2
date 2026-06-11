@@ -13,7 +13,7 @@
 }
 
 .mobile-menu {
-  @media (min-width: 720px) {
+  @media (min-width: vars.$breakpoint-desktop) {
     display: none;
   }
 
