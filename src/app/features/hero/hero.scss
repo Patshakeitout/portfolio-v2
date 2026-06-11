@@ -187,25 +187,68 @@
       }
     }
 
-    // Text with individual letter hover effects
+    // Letter hover effects: ::before is a zero-height in-flow block holding
+    // the case-flipped twin (data-hover) — it reserves the twin's width and
+    // renders exactly on the letter's line, so on hover the letter fades out
+    // and the twin fades in with zero layout shift. ::after shows the trait
+    // word (data-word) as a small pill above the hovered letter.
     .hero__text {
       display: block;
       span {
         position: relative;
+        display: inline-block;
+        text-align: center;
         cursor: pointer;
         padding: 0 3px;
         margin: 0 -3px;
         transition: color 0.4s ease-out 0.1s;
 
-        &:hover {
+        &::before {
+          content: attr(data-hover);
+          display: block;
+          height: 0;
           color: vars.$highlight1-option1;
+          opacity: 0;
+          transition: opacity 0.4s ease-out 0.1s;
+        }
+
+        &::after {
+          content: attr(data-word);
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          padding: 6px 14px;
+          background-color: vars.$base-black-option1;
+          border: 1px solid vars.$base-white-option1;
+          border-radius: 100px;
+          color: vars.$highlight1-option1;
+          font-size: 16px;
+          font-weight: 500;
+          line-height: 1;
+          white-space: nowrap;
+          pointer-events: none;
+          opacity: 0;
+          transition: opacity 0.4s ease-out 0.1s;
+          z-index: 2;
+        }
+
+        &:hover {
+          color: transparent;
           transition-delay: 0s;
+
+          &::before,
+          &::after {
+            opacity: 1;
+            transition-delay: 0s;
+          }
         }
       }
 
-      &--frontend span:hover           { text-transform: uppercase; }
-      &--frontend span.uppercase:hover { text-transform: lowercase; }
-      &--developer span:hover          { text-transform: lowercase; }
+      &--frontend span::after {
+        top: 100%;
+      }
+
     }
 
     .hero__developer-row {

@@ -17,14 +17,16 @@
 
     <h1 class="hero__heading">
       <span class="hero__text hero__text--frontend">
-        <span class="uppercase">F</span><span>r</span><span>o</span><span>n</span><span>t</span
-        ><span>e</span><span>n</span><span>d</span>
+        @for (item of frontendLetters; track $index) {<span
+          [attr.data-word]="item.word"
+          [attr.data-hover]="$first ? item.letter.toLowerCase() : item.letter.toUpperCase()">{{ item.letter }}</span>}
       </span>
 
       <span class="hero__developer-row">
         <span class="hero__text hero__text--developer">
-          <span>D</span><span>E</span><span>V</span><span>E</span><span>L</span><span>O</span
-          ><span>P</span><span>E</span><span>R</span>
+          @for (item of developerLetters; track $index) {<span
+            [attr.data-word]="item.word"
+            [attr.data-hover]="item.letter.toLowerCase()">{{ item.letter }}</span>}
         </span>
         <a class="btn-primary btn-primary--talk" (click)="scrollToContact()">
           {{ 'hero.getInTouch' | translate }}
