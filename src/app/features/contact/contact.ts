@@ -8,6 +8,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { firstValueFrom } from 'rxjs';
 import { LanguageService } from '../../core/services/language.service';
 
+
 @Component({
   selector: 'app-contact',
   imports: [NgOptimizedImage, ReactiveFormsModule, RouterLink, TranslatePipe],
@@ -26,6 +27,11 @@ export class ContactComponent implements OnInit, OnDestroy {
   submitted = signal(false);
   private touchTick = signal(0);
 
+
+  /**
+   * Spins the sticker clockwise or counter-clockwise based on the cursor entry side.
+   * @param event - The mouse enter event used to read the cursor position.
+   */
   onStickerEnter(event: MouseEvent) {
     const rect = (event.currentTarget as Element).getBoundingClientRect();
     const dir = event.clientX < rect.left + rect.width / 2 ? 'cw' : 'ccw';
@@ -33,7 +39,9 @@ export class ContactComponent implements OnInit, OnDestroy {
     setTimeout(() => this.stickerDir.set(dir));
   }
 
-  onStickerLeave() {
+
+  /** Stops the sticker animation when the cursor leaves. */
+  onStickerLeave(): void {
     this.stickerDir.set(null);
   }
 
@@ -44,17 +52,31 @@ export class ContactComponent implements OnInit, OnDestroy {
     privacy: new FormControl(false, Validators.requiredTrue),
   });
 
-  resetTouched(controlName: string) {
+
+  /**
+   * Marks the given control as untouched and refreshes placeholder/error state.
+   * @param controlName - The form control name to reset.
+   */
+  resetTouched(controlName: string): void {
     this.form.get(controlName)?.markAsUntouched();
     this.touchTick.update(v => v + 1);
   }
 
-  markTouched(controlName: string) {
+
+  /**
+   * Marks the given control as touched and refreshes placeholder/error state.
+   * @param controlName - The form control name to mark as touched.
+   */
+  markTouched(controlName: string): void {
     this.form.get(controlName)?.markAsTouched();
     this.touchTick.update(v => v + 1);
   }
 
-  /** Translation key for the name placeholder, or its required-error variant. */
+
+  /**
+   * Resolves the name field's placeholder key.
+   * @returns Translation key for the name placeholder, or its required-error variant.
+   */
   namePlaceholder(): string {
     this.touchTick();
     const c = this.form.get('name');
@@ -62,7 +84,11 @@ export class ContactComponent implements OnInit, OnDestroy {
     return 'contact.namePlaceholder';
   }
 
-  /** Translation key for the email placeholder, or its required-error variant. */
+
+  /**
+   * Resolves the email field's placeholder key.
+   * @returns Translation key for the email placeholder, or its required-error variant.
+   */
   emailPlaceholder(): string {
     this.touchTick();
     const c = this.form.get('email');
@@ -70,7 +96,11 @@ export class ContactComponent implements OnInit, OnDestroy {
     return 'contact.emailPlaceholder';
   }
 
-  /** Translation key for the email-format error shown below the field, or empty. */
+
+  /**
+   * Resolves the email field's format-error key.
+   * @returns Translation key for the email-format error shown below the field, or empty.
+   */
   emailError(): string {
     this.touchTick();
     const c = this.form.get('email');
@@ -78,14 +108,22 @@ export class ContactComponent implements OnInit, OnDestroy {
     return '';
   }
 
-  /** Translation key for the privacy-consent error, or empty when valid. */
+
+  /**
+   * Resolves the privacy-consent error key after a submit attempt.
+   * @returns Translation key for the privacy-consent error, or empty when valid.
+   */
   privacyError(): string {
     const c = this.form.get('privacy');
     if (this.submitted() && c?.hasError('required')) return 'contact.privacyError';
     return '';
   }
 
-  /** Translation key for the message placeholder, or its required-error variant. */
+
+  /**
+   * Resolves the message field's placeholder key.
+   * @returns Translation key for the message placeholder, or its required-error variant.
+   */
   messagePlaceholder(): string {
     this.touchTick();
     const c = this.form.get('message');
@@ -93,7 +131,11 @@ export class ContactComponent implements OnInit, OnDestroy {
     return 'contact.messagePlaceholder';
   }
 
-  async submit() {
+  /**
+   * Validates the form and posts the contact message to the backend.
+   * @returns A promise that resolves once the send attempt has settled.
+   */
+  async submit(): Promise<void> {
     this.submitted.set(true);
     this.form.markAllAsTouched();
     this.touchTick.update(v => v + 1);
@@ -114,7 +156,8 @@ export class ContactComponent implements OnInit, OnDestroy {
     }
   }
 
-  ngOnInit() {
+  /** Observes the section's visibility to toggle the header colour on intersection. */
+  ngOnInit(): void {
     this.observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -129,7 +172,8 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.observer.observe(this.elementRef.nativeElement);
   }
 
-  scrollToTop() {
+  /** Smoothly animates the window scroll position back to the top. */
+  scrollToTop(): void {
     const start = window.scrollY;
     const duration = 1200;
     const startTime = performance.now();
@@ -145,7 +189,8 @@ export class ContactComponent implements OnInit, OnDestroy {
     requestAnimationFrame(step);
   }
 
-  ngOnDestroy() {
+  /** Disconnects the intersection observer to avoid leaks. */
+  ngOnDestroy(): void {
     this.observer?.disconnect();
   }
 }

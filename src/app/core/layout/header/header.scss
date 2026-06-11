@@ -42,6 +42,44 @@
     transition: filter 0.2s ease-in-out;
   }
 
+  &__nav-link {
+    display: none;
+    text-decoration: none;
+    color: vars.$base-white-option1;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px 16px;
+
+    @media (min-width: 720px) {
+      display: inline-block;
+    }
+
+    &--about    { @include mix.nav-link-hover(1, mix.$clip-top-to-bottom); }
+    &--skills   { @include mix.nav-link-hover(2, mix.$clip-left-to-right); }
+    &--projects { @include mix.nav-link-hover(3, mix.$clip-left-to-right); }
+    &--contact  { @include mix.nav-link-hover(4, mix.$clip-left-to-right, 75%); }
+  }
+
+  &__lang-toggle {
+    @include mix.nav-link-hover(Toggle, mix.$clip-bottom-right-to-top-left, 50%, 2, 40%, 80%);
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    @media (min-width: 720px) {
+      display: inline-block;
+      padding: 5px;
+    }
+
+    &::before {
+      top: 45%;
+    }
+
+    &--english::before { left: 80%; }
+    &:not(&--english)::before { left: 18%; }
+  }
+
   &__toggle {
     background: none;
     border: none;
@@ -51,6 +89,10 @@
     align-items: center;
     position: relative;
     isolation: isolate;
+
+    @media (min-width: 720px) {
+      display: none;
+    }
 
     &::before {
       content: '';

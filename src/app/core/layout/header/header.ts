@@ -1,15 +1,15 @@
-import { MobileMenuComponent } from './../../../features/mobile-menu/mobile-menu';
-import { Component, inject, ChangeDetectionStrategy, signal, HostListener } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy, signal, HostListener, computed } from '@angular/core';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { filter, map, startWith } from 'rxjs';
+import { TranslatePipe } from '@ngx-translate/core';
 import { HeaderColorService } from '../../services/header-color.service';
 import { MobileMenuService } from '../../services/mobile-menu.service';
 import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, TranslatePipe],
   templateUrl: './header.html',
   styleUrls: ['./header.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,8 +17,10 @@ import { LanguageService } from '../../services/language.service';
 export class HeaderComponent {
   private headerColorService = inject(HeaderColorService);
   private mobileMenuService = inject(MobileMenuService);
+  private languageService = inject(LanguageService);
   private router = inject(Router);
-  public lang = inject(LanguageService).lang;
+  public lang = this.languageService.lang;
+  public isEnglish = computed(() => this.languageService.lang() === 'en');
   public isHeaderInverted = this.headerColorService.isHeaderInverted.asReadonly();
   public isInContactSection = this.headerColorService.isInContactSection.asReadonly();
   public isOnProjectDetails = toSignal(
@@ -51,6 +53,19 @@ export class HeaderComponent {
 
   toggleMenu() {
     this.mobileMenuService.toggle();
+  }
+
+  /** Switches the active language. */
+  toggleLanguage() {
+    this.languageService.toggle();
+  }
+
+  /** Smooth-scrolls to a named section, accounting for the fixed header. */
+  scrollToSection(fragment: string) {
+    const element = document.getElementById(fragment);
+    if (!element) return;
+    const offsetPosition = element.getBoundingClientRect().top + window.scrollY - 4;
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
   }
 
   scrollToTop() {

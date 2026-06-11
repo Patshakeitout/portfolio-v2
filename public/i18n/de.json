@@ -19,7 +19,7 @@
   "about": {
     "subtitle": "WER IST PATRICK",
     "title": "Über mich",
-    "paragraph1": "Hi, ich bin Patrick. Mein Weg von der Physik zum QA-Engineering hat mir beigebracht, präzise zu denken und zu erkennen, was andere übersehen. Jetzt in der Entwicklung — mit Frontend-Fokus — verbinde ich diese sorgfältige Herangehensweise mit Kreativität.",
+    "paragraph1": "Hey, ich bin Patrick. Nach meinem Physikstudium habe ich mehrere Jahre als Prozess- und Qualitätsingenieur gearbeitet. Das hat mir eine präzise Denkweise und den Blick für Dinge mitgegeben, die andere übersehen. Diese sorgfältige und zugleich kreative Herangehensweise bringe ich jetzt in die Entwicklung ein - Full-Stack mit Frontend-Fokus.",
     "paragraph2": "Lass uns Mehrwert für andere schaffen!",
     "cta": "Lass uns reden!",
     "location": "Standort: Itzehoe (+ 40 km Umkreis)",
@@ -28,16 +28,16 @@
   "skills": {
     "subtitle": "MEIN STACK",
     "title": "Skill Set",
-    "intro": "Ich habe mit Daten in R und Python angefangen, aber mehr Freude daran gefunden, UI/UX in Kombination mit einem soliden Backend zu erstellen. Ich habe mich für den Web-Stack entschieden — wegen des ständigen Lernens und der endlosen Herausforderungen, selbst im KI-Zeitalter.",
+    "intro": "Ich habe mit R/R-Shiny in die Entwicklung gestartet, dann Python, aber mehr Freude daran gefunden, UI/UX in Kombination mit einem soliden Backend zu erstellen. Ich wählte den Web-Stack entschieden - wegen der Flexibilität und den Herausforderungen, selbst im KI-Zeitalter.",
     "swipeHint": "Wischen für mehr",
-    "peel0": "Zum Abziehen ziehen!",
-    "peel1": "Weiter abziehen!!",
-    "peel2": "Lust, einzutauchen in:"
+    "peel0": "Abziehen!",
+    "peel1": "Weiter!",
+    "peel2": "Ebenso neugierig auf:"
   },
   "projects": {
     "subtitle": "MEIN HANDWERK",
     "title": "Projekte",
-    "intro": "Neugierig? Tauch in die Projekte unten ein — jede Interaktion ist eine Designentscheidung, jedes Detail eine Wahl, die ich dir erklären kann. Frontend-fokussierte Projekte, mit Supabase, wenn ein Backend gebraucht wird.",
+    "intro": "Neugierig? Schau dir die Projekte unten an - jede Interaktion ist eine Designentscheidung, jedes Detail eine gewählte Entscheidung. Frontend-fokussierte Projekte, mit Supabase, wenn ein Backend gebraucht wird.",
     "detailsButton": "Projektdetails",
     "openDetails": "Projektdetails zu {{title}} öffnen",
     "recSubtitle": "IN IHREN WORTEN",
@@ -56,7 +56,7 @@
       "duration": "1 Monat"
     },
     "epl": {
-      "description": "Ein 2D-Side-Scrolling-Jump-’n’-Run 🎮 in objektorientiertem JavaScript — führe Pepe durch die Wüste, sammle Münzen und Tabasco-Flaschen und besiege die Boss-Henne.",
+      "description": "Ein 2D-Side-Scrolling-Jump-’n’-Run 🎮 in objektorientiertem JavaScript — führe Pepe durch die Wüste, sammle Münzen und Tabasco-Flaschen und besiege den Endboss.",
       "implementation": "Ein Side-Scrolling-Platformer, gerendert auf HTML5 Canvas. Die Architektur ist klassenbasiert: separate Entitäten für Spieler, Gegner, Sammelobjekte und die Welt, jede mit eigenem Update-/Draw-Zyklus, gesteuert von einer zentralen Game-Loop.",
       "duration": "2,5 Monate"
     }
@@ -75,7 +75,7 @@
   "contact": {
     "eyebrow": "KONTAKTIERE MICH",
     "heading": "Hast du ein Projekt?",
-    "intro": "Ich arbeite über den gesamten Stack hinweg und lege Wert auf das Handwerk — sauberer Code, solide Struktur und eine UI, die wirklich Sinn ergibt. Hast du ein Projekt? Ich bin dabei.",
+    "intro": "Ich arbeite über den gesamten Stack hinweg und lege Wert auf das Handwerk — sauberer Code, solide Struktur und eine sinnvolle UI mit einer fluiden UX. Hast du ein Projekt? Ich unterstütze gerne.",
     "nameLabel": "Wie heißt du?",
     "namePlaceholder": "Dein Name kommt hierhin",
     "nameError": "Ups! Dein Name scheint zu fehlen.",

@@ -80,12 +80,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 24px;
+    gap: 48px;
     align-items: center;
     height: 100%;
+    max-width: 864.54px;
     padding: 16px;
     box-sizing: border-box;
     z-index: 1;
+
+    @media (min-width: 720px) {
+      margin-top: 11.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-content: center;
+      align-items: start;
+      gap: 0 32px;
+    }
+
   }
 
   &__polaroid {
@@ -97,9 +108,20 @@
     transform: rotate(8deg);
     margin: 0;
 
-    @media (max-width: 309px) {
+    @media (min-width: 720px) {
+      width: 203.57px;
+      height: 244px;
+    }
+
+    @media (max-width: 719px) {
       height: 28dvh;
       max-height: 220px;
+      margin-top: 2.5rem;
+    }
+
+    @media (max-width: 309px) {
+      height: 22dvh;
+      max-height: 180px;
     }
 
     @media (max-height: 550px) {
@@ -148,7 +170,7 @@
 
   &__title {
     position: relative;
-    top: 12px;
+    top: 8px;
     width: 100%;
     align-self: flex-start;
     display: flex;
@@ -164,7 +186,7 @@
       flex-direction: column;
 
       @media (min-width: 385px) {
-        font-size: clamp(4rem, 12vw, 6rem); // Larger on bigger screens
+        font-size: clamp(4rem, 12vw, 6rem);
       }
     }
 
@@ -184,30 +206,20 @@
         }
       }
 
-      // Frontend: lowercase → uppercase on hover, uppercase → lowercase
-      &--frontend span:hover {
-        text-transform: uppercase;
-      }
-
-      &--frontend span.uppercase:hover {
-        text-transform: lowercase;
-      }
-
-      // DEVELOPER: uppercase → lowercase on hover
-      &--developer span:hover {
-        text-transform: lowercase;
-      }
+      &--frontend span:hover           { text-transform: uppercase; }
+      &--frontend span.uppercase:hover { text-transform: lowercase; }
+      &--developer span:hover          { text-transform: lowercase; }
     }
 
     .hero__developer-row {
       display: inline-flex;
       flex-direction: column;
       align-items: flex-end;
-      align-self: flex-start; // Keep row at 16px left margin
+      align-self: flex-start;
       gap: 16px;
 
       @media (min-width: 385px) {
-        align-self: flex-end; // Move to right on larger screens
+        align-self: flex-end;
       }
     }
 

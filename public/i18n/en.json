@@ -19,16 +19,16 @@
   "about": {
     "subtitle": "WHO'S PATRICK",
     "title": "About me",
-    "paragraph1": "Hi, I'm Patrick. My path from physics to QA engineering taught me to think precisely and catch what others miss. Now in development — with frontend focus, I get to combine that careful approach with creativity.",
+    "paragraph1": "Hey, I'm Patrick. After my physics degree, I spent several years working as a process and quality engineer. That gave me a precise way of thinking and an eye for the things others overlook. I now bring this careful yet creative approach to development - full-stack with a frontend focus.",
     "paragraph2": "Let's build value for others!",
     "cta": "Let's talk!",
-    "location": "Location: Itzehoe (+ 40km radius)",
+    "location": "Location: Itzehoe (+ 50km radius)",
     "workMode": "On-site / Hybrid / Remote"
   },
   "skills": {
     "subtitle": "MY STACK",
     "title": "Skill Set",
-    "intro": "I started dev in data with R and Python, but found more joy in creating UI/UX combined with a solid backend. I chose the web stack for its constant learning and endless challenges even in AI age.",
+    "intro": "I started dev with R/R-Shiny, then Python, but found more joy in creating UI/UX combined with a solid backend. I chose the web stack for its constant learning and endless challenges even in AI age.",
     "swipeHint": "Swipe to see more",
     "peel0": "Pull to peel!",
     "peel1": "Peel more!!",
@@ -37,7 +37,7 @@
   "projects": {
     "subtitle": "MY CRAFT",
     "title": "Projects",
-    "intro": "Curious? Dive into the projects below — every interaction is a design decision, every detail a choice I can walk you through. Frontend-focused builds, with Supabase stepping in when a backend is needed.",
+    "intro": "Curious? Take a look at the projects below - every interaction is a design decision, every detail a deliberate choice. Frontend-focused builds, with Supabase when a backend is needed.",
     "detailsButton": "Project Details",
     "openDetails": "Open {{title}} project details",
     "recSubtitle": "IN THEIR WORDS",
@@ -75,7 +75,7 @@
   "contact": {
     "eyebrow": "CONTACT ME",
     "heading": "Got a Project?",
-    "intro": "I work across the full stack and I care about the craft — clean code, solid structure, and a UI that actually makes sense. Got a project? I'm in.",
+    "intro": "I work across the full stack and care about the craft — clean code, solid structure, and a meaningful UI with a fluid UX. Got a project? I'd love to help.",
     "nameLabel": "What's your name?",
     "namePlaceholder": "Your name goes here",
     "nameError": "Oops! It seems your name is missing.",

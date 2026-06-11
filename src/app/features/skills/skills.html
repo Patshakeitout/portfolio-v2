@@ -23,13 +23,13 @@
     <small class="skills__swipe-hint">
       <img
         class="skills__swipe-hint__arrow skills__swipe-hint__arrow--left"
-        src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/Breadcrumb arrow 1.png"
+        src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png"
         alt=""
       />
       {{ 'skills.swipeHint' | translate }}
       <img
         class="skills__swipe-hint__arrow skills__swipe-hint__arrow--right"
-        src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/Breadcrumb arrow 1.png"
+        src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-2.png"
         alt=""
       />
     </small>
@@ -145,8 +145,14 @@
           />
           <small class="peel__label__txt">{{ peelTextKey() | translate }}</small>
           <div class="peel__label__frameworks">
-            <img src="/icons/tech/react.svg" alt="React" />
-            <img src="/icons/tech/vue.svg" alt="Vue" />
+            <span class="peel__label__framework">
+              <img src="/icons/tech/react.svg" alt="React" />
+              <label>React</label>
+            </span>
+            <span class="peel__label__framework">
+              <img src="/icons/tech/vue.svg" alt="Vue" />
+              <label>Vue</label>
+            </span>
           </div>
         </figcaption>
       </figure>

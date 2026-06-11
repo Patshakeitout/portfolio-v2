@@ -13,6 +13,10 @@
 }
 
 .mobile-menu {
+  @media (min-width: 720px) {
+    display: none;
+  }
+
   position: fixed;
   top: 0;
   left: 0;
@@ -39,16 +43,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 105px;
-    height: 328px;
+    height: 364px;
 
     a {
       text-decoration: none;
       color: vars.$base-white-option1;
       font-size: 18px;
       font-weight: 700;
-      padding: 16px 0px;
+      padding: 24px 0px;
     }
 
     &--about    { @include mix.nav-link-hover(1, mix.$clip-top-to-bottom); }
@@ -66,14 +70,14 @@
         top: 45%;
       }
 
-      // When English is active, highlight DE side (left)
+      // When English is active, highlight EN side (right)
       &--english::before {
-        left: 18%;
+        left: 80%;
       }
 
-      // When German is active (default), highlight EN side (right)
+      // When German is active (default), highlight DE side (left)
       &:not(&--english)::before {
-        left: 80%;
+        left: 18%;
       }
     }
   }

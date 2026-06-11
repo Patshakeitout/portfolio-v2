@@ -3,6 +3,31 @@
     <img class="header__logo" src="logo.webp" alt="Logo" />
   </a>
 
+  <a class="header__nav-link header__nav-link--about"
+     [routerLink]="['/', lang()]" fragment="about"
+     (click)="scrollToSection('about')">{{ 'nav.about' | translate }}</a>
+  <a class="header__nav-link header__nav-link--skills"
+     [routerLink]="['/', lang()]" fragment="skills"
+     (click)="scrollToSection('skills')">{{ 'nav.skills' | translate }}</a>
+  <a class="header__nav-link header__nav-link--projects"
+     [routerLink]="['/', lang()]" fragment="projects"
+     (click)="scrollToSection('projects')">{{ 'nav.projects' | translate }}</a>
+  <a class="header__nav-link header__nav-link--contact"
+     [routerLink]="['/', lang()]" fragment="contact"
+     (click)="scrollToSection('contact')">{{ 'nav.contact' | translate }}</a>
+
+  <button
+    class="header__lang-toggle"
+    [class.header__lang-toggle--english]="isEnglish()"
+    (click)="toggleLanguage()"
+    [attr.aria-label]="(isEnglish() ? 'nav.switchToGerman' : 'nav.switchToEnglish') | translate"
+  >
+    <img
+      [src]="isEnglish() ? '/icons/ui/toggle-lg-left.png' : '/icons/ui/toggle-lg-right.png'"
+      [alt]="(isEnglish() ? 'nav.switchToGerman' : 'nav.switchToEnglish') | translate"
+    />
+  </button>
+
   <button class="header__toggle" (click)="toggleMenu()" aria-label="Toggle Menu">
     @if (isMenuOpen()) {
       <img
