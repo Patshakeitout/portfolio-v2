@@ -21,6 +21,11 @@ export class HeaderComponent {
   private router = inject(Router);
   public lang = this.languageService.lang;
   public isEnglish = computed(() => this.languageService.lang() === 'en');
+  public toggleIcon = computed(() => {
+    const side = this.isEnglish() ? 'left' : 'right';
+    const theme = this.isHeaderInverted() ? '-dark' : '';
+    return `/icons/ui/toggle-lg-${side}${theme}.png`;
+  });
   public isHeaderInverted = this.headerColorService.isHeaderInverted.asReadonly();
   public isInContactSection = this.headerColorService.isInContactSection.asReadonly();
   public isOnProjectDetails = toSignal(

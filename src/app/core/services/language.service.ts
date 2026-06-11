@@ -59,12 +59,16 @@ export class LanguageService {
 
   /**
    * Switches to the other language by navigating to the same page with its
-   * first URL segment swapped. The guard then applies the change.
+   * first URL segment swapped, keeping the current scroll position.
+   * The guard then applies the change.
    */
   toggle(): void {
     const next: Lang = this._lang() === 'en' ? 'de' : 'en';
     const swapped = this.swapLang(this.router.parseUrl(this.router.url), next);
-    this.router.navigateByUrl(swapped);
+    const scrollY = window.scrollY;
+    this.router.navigateByUrl(swapped).then(() =>
+      setTimeout(() => window.scrollTo({ top: scrollY, behavior: 'instant' }))
+    );
   }
 
   /**

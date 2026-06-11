@@ -23,7 +23,7 @@
     [attr.aria-label]="(isEnglish() ? 'nav.switchToGerman' : 'nav.switchToEnglish') | translate"
   >
     <img
-      [src]="isEnglish() ? '/icons/ui/toggle-lg-left.png' : '/icons/ui/toggle-lg-right.png'"
+      [src]="toggleIcon()"
       [alt]="(isEnglish() ? 'nav.switchToGerman' : 'nav.switchToEnglish') | translate"
     />
   </button>
