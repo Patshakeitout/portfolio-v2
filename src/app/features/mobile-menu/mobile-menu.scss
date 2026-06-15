@@ -13,10 +13,6 @@
 }
 
 .mobile-menu {
-  @media (min-width: vars.$breakpoint-desktop) {
-    display: none;
-  }
-
   position: fixed;
   top: 0;
   left: 0;
@@ -29,6 +25,10 @@
   align-items: center;
   z-index: 10;
   animation: rollo-down 0.6s ease-out forwards;
+
+  @media (min-width: vars.$breakpoint-desktop) {
+    display: none;
+  }
 
   .bg {
     position: absolute;

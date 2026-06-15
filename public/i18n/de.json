@@ -19,13 +19,15 @@
     "developerWords": ["Detailverliebt", "Exakt", "Vielseitig", "Empathisch", "Logisch", "Offen", "Präzise", "Engagiert", "Resilient"]
   },
   "about": {
-    "subtitle": "WER IST PATRICK",
+    "subtitle": "WER IST PATRICK?",
     "title": "Über mich",
-    "paragraph1": "Hey, ich bin Patrick. Nach meinem Physikstudium habe ich mehrere Jahre als Prozess- und Qualitätsingenieur gearbeitet. Das hat mir eine präzise Denkweise und den Blick für Dinge mitgegeben, die andere übersehen. Diese sorgfältige und zugleich kreative Herangehensweise bringe ich jetzt in die Entwicklung ein - Full-Stack mit Frontend-Fokus.",
-    "paragraph2": "Lass uns Mehrwert für andere schaffen!",
-    "cta": "Lass uns reden!",
-    "location": "Standort: Itzehoe (+ 40 km Umkreis)",
-    "workMode": "Vor Ort / Hybrid / Remote"
+    "paragraph1": "Moin, ich bin Patrick.  Ich wollte schon immer herausfinden, wie Sachen funktionieren und mit der Erkenntnis daraus neue Dinge gestalten. Das kann ich in der Softwareentwicklung und beim Coden. Systeme und Logiken verstehen und daraus dann Praktikables entwickeln, ist Antreiber, mich stetig zur geeignetesten Lösung zu verbessern, neue Technologien zu lernen und Projekte umzusetzen.",
+    "paragraph2": "Lassen Sie uns zusammenarbeiten und etwas Bedeutsames mit Mehrwert für andere schaffen!",
+    "cta": "Schnacken wir miteinander",
+    "location": "Ansässig in Itzehoe",
+    "workMode1": "Vor Ort: max. 40 km Anfahrt",
+    "workMode2": "Hybrid: im Tagespendelbereich idealerweise 3 Tage vor Ort / 2 Tage remote (flexibel nach Absprache). Außerhalb der Pendeldistanz 1–2 mehrtägige Vor-Ort-Einsätze pro Monat mit Übernachtung — nur nicht montags.",
+    "workmode3": "Offen für Remote-Arbeit"
   },
   "skills": {
     "subtitle": "MEIN STACK",

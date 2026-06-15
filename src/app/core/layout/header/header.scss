@@ -10,12 +10,12 @@
   width: 100%;
   z-index: 100;
   padding: 1rem;
-  @include mix.content-padding;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
   transition: top 0.3s ease-in-out;
+  @include mix.content-padding;
 
   &__logo {
     width: 40px;

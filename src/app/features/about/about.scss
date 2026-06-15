@@ -8,23 +8,29 @@
   min-height: 100dvh;
   width: 100%;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 
   &__content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 40px;
-    height: 100%;
-    padding: 5.5rem 0 0;
+    gap: 3rem;
     @include mix.content-padding;
-    box-sizing: border-box;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      flex-direction: row-reverse;
+    }
   }
 
   &__header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      width: 50%;
+    }
   }
 
   &__subtitle {
@@ -61,80 +67,90 @@
   &__article {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    width: 50%;
+    gap: 48px;
     color: vars.$base-black-option1;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
 
     p {
       width: 100%;
+      margin: 0;
+      text-align: justify;
+    }
 
-      + p {
-        margin-top: 0;
-      }
+    button {
+      align-self: flex-end;
     }
   }
-}
 
-.job-conditions {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  &__conditions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-  &__item {
+    @media (min-width: vars.$breakpoint-desktop) {
+      width: 50%;
+    }
+  }
+
+  &__conditions-item {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 16px 24px 16px 32px;
-    width: calc(100vw - 32px);
-    aspect-ratio: 343 / 128;
-    gap: 12px;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+    min-height: 140px;
+    padding: 2.5rem 5rem;
     box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
 
     &:nth-child(1) {
       transform: rotate(-4deg);
-      z-index: 2;
+      z-index: 4;
+      background-image: url('/design-material/02_ripped-paper/Option 3/aqua.png');
     }
 
     &:nth-child(2) {
+      margin-top: -47px;
+      z-index: 3;
+      background-image: url('/design-material/02_ripped-paper/Option 1/orange.png');
+    }
+
+    &:nth-child(3) {
+      margin-top: -99px;
       transform: rotate(4deg);
-      margin-top: -24px;
+      z-index: 2;
+      background-image: url('/design-material/02_ripped-paper/Option 1/blue.png');
+      padding: 6.2rem 5rem;
+    }
+
+    &:nth-child(4) {
+      margin-top: -80px;
       z-index: 1;
+      background-image: url('/design-material/02_ripped-paper/Option 2/purple.png');
     }
   }
 
-  &__paper {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    z-index: 1;
-  }
-
-  &__icon {
-    position: absolute;
-    left: 60px;
-    top: 46%;
-    transform: translateY(-50%);
+  &__conditions-icon {
+    flex-shrink: 0;
     width: 40px;
     height: 40px;
     z-index: 2;
   }
 
-  &__label {
-    position: absolute;
-    left: 115px;
-    top: 45%;
-    transform: translateY(-50%);
-    font-size: 20px;
+  &__conditions-label {
+    font-size: 24px;
     font-weight: 400;
+    line-height: 120%;
     color: #fff;
     text-align: left;
     z-index: 2;

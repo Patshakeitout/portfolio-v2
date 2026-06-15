@@ -19,13 +19,15 @@
     "developerWords": ["Detail-oriented", "Exacting", "Versatile", "Empathetic", "Logical", "Observant", "Precise", "Eager", "Resilient"]
   },
   "about": {
-    "subtitle": "WHO'S PATRICK",
+    "subtitle": "WHO'S PATRICK?",
     "title": "About me",
-    "paragraph1": "Hey, I'm Patrick. After my physics degree, I spent several years working as a process and quality engineer. That gave me a precise way of thinking and an eye for the things others overlook. I now bring this careful yet creative approach to development - full-stack with a frontend focus.",
-    "paragraph2": "Let's build value for others!",
-    "cta": "Let's talk!",
-    "location": "Location: Itzehoe (+ 50km radius)",
-    "workMode": "On-site / Hybrid / Remote"
+    "paragraph1": "Hi, I'm Patrick. I've always wanted to figure out how things work and use that insight to shape new things. Software development and coding let me do exactly that. Understanding systems and logic and then building something practical from them is what drives me to keep improving toward the best-fitting solution, learn new technologies, and bring projects to life.",
+    "paragraph2": "Let's work together and create something meaningful that brings value to others!",
+    "cta": "Let's have a chat",
+    "location": "Based in Itzehoe",
+    "workMode1": "On-site: max. 40 km commute",
+    "workMode2": "Hybrid: within daily commuting range, ideally 3 days on-site / 2 remote (flexible by arrangement). Beyond commuting distance, 1–2 multi-day on-site visits per month with overnight stay — just not on Mondays.",
+    "workmode3": "Open to work remote"
   },
   "skills": {
     "subtitle": "MY STACK",

@@ -1,49 +1,55 @@
-<!-- About component / section --------------------------------------------------------->
+<!-- About component / section ------------------------------------------------------------------------->
 
 <section class="about">
   <div class="about__content">
-    <header class="about__header">
-      <p class="about__subtitle">{{ 'about.subtitle' | translate }}</p>
-      <h1 class="about__title">{{ 'about.title' | translate }}</h1>
+    <article class="about__article">
+      <header class="about__header">
+        <p class="about__subtitle">{{ 'about.subtitle' | translate }}</p>
+        <h1 class="about__title">{{ 'about.title' | translate }}</h1>
+      </header>
 
-      <article class="about__article">
-        <p>{{ 'about.paragraph1' | translate }}</p>
-        <p>{{ 'about.paragraph2' | translate }}</p>
+      <p>{{ 'about.paragraph1' | translate }}</p>
+      <p>{{ 'about.paragraph2' | translate }}</p>
 
-        <button class="btn-primary" (click)="scrollToContact()">{{ 'about.cta' | translate }}</button>
-      </article>
-    </header>
+      <button class="btn-primary" (click)="scrollToContact()">{{ 'about.cta' | translate }}</button>
+    </article>
 
-    <ul class="job-conditions" aria-label="Job conditions">
-      <li class="job-conditions__item">
+    <ul class="about__conditions" aria-label="Job conditions">
+      <li class="about__conditions-item">
         <img
-          class="job-conditions__icon"
-          src="icons/work-cond/relocation.svg"
+          class="about__conditions-icon"
+          src="icons/work-cond/location.svg"
           alt=""
           aria-hidden="true"
         />
-        <img
-          class="job-conditions__paper"
-          src="design-material/02_Ripped Paper/Option 3/Mobile/About me 6.png"
-          alt=""
-          aria-hidden="true"
-        />
-        <span class="job-conditions__label">{{ 'about.location' | translate }}</span>
+        <label class="about__conditions-label">{{ 'about.location' | translate }}</label>
       </li>
-      <li class="job-conditions__item">
+      <li class="about__conditions-item">
         <img
-          class="job-conditions__icon"
-          src="icons/work-cond/hybrid-remote-onsite.svg"
+          class="about__conditions-icon"
+          src="icons/work-cond/onsite-hybride.svg"
           alt=""
           aria-hidden="true"
         />
+        <label class="about__conditions-label">{{ 'about.workMode1' | translate }}</label>
+      </li>
+      <li class="about__conditions-item">
         <img
-          class="job-conditions__paper"
-          src="design-material/02_Ripped Paper/Option 3/Mobile/About me 4.png"
+          class="about__conditions-icon"
+          src="icons/work-cond/onsite-hybride.svg"
           alt=""
           aria-hidden="true"
         />
-        <span class="job-conditions__label">{{ 'about.workMode' | translate }}</span>
+        <label class="about__conditions-label">{{ 'about.workMode2' | translate }}</label>
+      </li>
+      <li class="about__conditions-item">
+        <img
+          class="about__conditions-icon"
+          src="icons/work-cond/remote.svg"
+          alt=""
+          aria-hidden="true"
+        />
+        <label class="about__conditions-label">{{ 'about.workmode3' | translate }}</label>
       </li>
     </ul>
   </div>
