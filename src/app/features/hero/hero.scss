@@ -78,98 +78,22 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 3rem;
   align-items: center;
+  gap: 3rem;
   box-sizing: border-box;
-  padding-inline: 1rem;
 
   @media (min-width: vars.$breakpoint-desktop) {
     display: grid;
     grid-template-columns: 1fr minmax(0, 52.034rem) 1fr;
     align-content: center;
     align-items: start;
-  }
-
-  &__polaroid {
-    position: relative;
-    width: 12.723rem;
-    height: 15.25rem;
-    transform: rotate(8deg);
-    margin: 0;
-
-    @media (min-width: vars.$breakpoint-desktop) {
-      position: absolute;
-      right: 0;
-      bottom: calc(100% + 0.6rem);
-    }
-
-    @media (max-width: #{vars.$breakpoint-desktop - 1px}) {
-      order: 1;
-      align-self: center;
-      margin-top: 3rem;
-    }
-
-    @media (max-height: 550px) {
-      display: none;
-    }
-  }
-
-  &__polaroid-frame {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-  }
-
-  &__polaroid-photo {
-    position: absolute;
-    top: 6.4%;
-    left: 7.5%;
-    width: 85%;
-    height: 72%;
-    object-fit: cover;
-    object-position: center 20%;
-    z-index: 1;
-    filter: grayscale(100%);
-    transition: filter 0.4s ease-out;
-  }
-
-  &__polaroid-caption {
-    position: absolute;
-    bottom: 4%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    font-family: 'Kalam-bold', cursive;
-    font-size: clamp(1.125rem, 3.5vw, 1.25rem);
-    color: #333;
-    z-index: 3;
-    pointer-events: none;
-  }
-
-  &__polaroid:hover &__polaroid-photo {
-    filter: grayscale(0%);
-  }
-
-  footer {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 0;
-    right: 0;
-    box-sizing: border-box;
-    @include mix.content-bounds;
-
-    @media (max-width: 430px) {
-      display: none;
-    }
+    padding-inline: 4.5rem;
   }
 
   &__title {
     position: relative;
     top: 0.5rem;
-    width: 100%;
-    align-self: flex-start;
+
     display: flex;
     flex-direction: column;
     font-size: clamp(2.5rem, 12vw, 6rem);
@@ -382,42 +306,80 @@
     }
   }
 
-  footer {
+  &__polaroid {
+    position: relative;
+    width: 12.723rem;
+    height: 15.25rem;
+    transform: rotate(8deg);
+    margin: 0;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      position: absolute;
+      right: 0;
+      bottom: calc(100% + 0.6rem);
+    }
+
+    @media (max-width: #{vars.$breakpoint-desktop - 1px}) {
+      order: 1;
+      align-self: center;
+      margin-top: 3rem;
+    }
+
+    @media (max-height: 550px) {
+      display: none;
+    }
+  }
+
+  &__polaroid-frame {
     position: absolute;
-    bottom: 1.5rem;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__polaroid-photo {
+    position: absolute;
+    top: 6.4%;
+    left: 7.5%;
+    width: 85%;
+    height: 72%;
+    object-fit: cover;
+    object-position: center 20%;
+    z-index: 1;
+    filter: grayscale(100%);
+    transition: filter 0.4s ease-out;
+  }
+
+  &__polaroid-caption {
+    position: absolute;
+    bottom: 4%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Kalam-bold', cursive;
+    font-size: clamp(1.125rem, 3.5vw, 1.25rem);
+    color: #333;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  &__polaroid:hover &__polaroid-photo {
+    filter: grayscale(0%);
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 5.5rem;
     left: 0;
     right: 0;
     box-sizing: border-box;
     @include mix.content-bounds;
-  }
-}
 
-.contact {
-  display: block;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin-bottom: 4rem;
-
-  &__link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    border: 1px solid vars.$base-white-option1;
-    border-radius: 50%;
-    padding: 0.25rem;
-    width: 2.5rem;
-    height: 2.5rem;
-    margin-bottom: 0.5rem;
-    transition: background-color 0.3s ease-out;
-
-    &:hover {
-      background-color: vars.$highlight2-option1;
+    @media (max-width: 430px) {
+      display: none;
     }
-  }
-
-  img {
-    width: 1.5rem;
-    height: 1.5rem;
   }
 }
