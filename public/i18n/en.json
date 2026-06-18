@@ -32,7 +32,7 @@
   "skills": {
     "subtitle": "MY STACK",
     "title": "Skill Set",
-    "intro": "I started dev with R/R-Shiny, then Python, but found more joy in creating UI/UX combined with a solid backend. I chose the web stack for its constant learning and endless challenges even in AI age.",
+    "intro": "I started out in development with R/R-Shiny, which is where I found my enthusiasm for web technologies. Python and the web stack (HTML, CSS, JS) followed, and I went on to build web apps with PHP. I've since worked my way into Angular, and I'm always open to picking up new technologies — React, Vue, or whatever comes next.",
     "swipeHint": "Swipe to see more",
     "peel0": "Pull to peel!",
     "peel1": "Peel more!!",
