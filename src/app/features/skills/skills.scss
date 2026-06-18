@@ -16,6 +16,10 @@
   .bg-image {
     object-fit: cover;
     z-index: -1;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      object-position: center bottom;
+    }
   }
 
   &__content {

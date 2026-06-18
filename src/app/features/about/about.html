@@ -1,56 +1,54 @@
 <!-- About component / section ------------------------------------------------------------------------->
 
 <section class="about">
-  <div class="about__content">
-    <article class="about__article">
-      <header class="about__header">
-        <p class="about__subtitle">{{ 'about.subtitle' | translate }}</p>
-        <h1 class="about__title">{{ 'about.title' | translate }}</h1>
-      </header>
+  <article class="about__article">
+    <header class="about__header">
+      <p class="about__subtitle">{{ 'about.subtitle' | translate }}</p>
+      <h1 class="about__title">{{ 'about.title' | translate }}</h1>
+    </header>
 
-      <p>{{ 'about.paragraph1' | translate }}</p>
-      <p>{{ 'about.paragraph2' | translate }}</p>
+    <p>{{ 'about.paragraph1' | translate }}</p>
+    <p>{{ 'about.paragraph2' | translate }}</p>
 
-      <button class="btn-primary" (click)="scrollToContact()">{{ 'about.cta' | translate }}</button>
-    </article>
+    <button class="btn-primary" (click)="scrollToContact()">{{ 'about.cta' | translate }}</button>
+  </article>
 
-    <ul class="about__conditions" aria-label="Job conditions">
-      <li class="about__conditions-item">
-        <img
-          class="about__conditions-icon"
-          src="icons/work-cond/location.svg"
-          alt=""
-          aria-hidden="true"
-        />
-        <label class="about__conditions-label">{{ 'about.location' | translate }}</label>
-      </li>
-      <li class="about__conditions-item">
-        <img
-          class="about__conditions-icon"
-          src="icons/work-cond/onsite-hybride.svg"
-          alt=""
-          aria-hidden="true"
-        />
-        <label class="about__conditions-label">{{ 'about.workMode1' | translate }}</label>
-      </li>
-      <li class="about__conditions-item">
-        <img
-          class="about__conditions-icon"
-          src="icons/work-cond/onsite-hybride.svg"
-          alt=""
-          aria-hidden="true"
-        />
-        <label class="about__conditions-label">{{ 'about.workMode2' | translate }}</label>
-      </li>
-      <li class="about__conditions-item">
-        <img
-          class="about__conditions-icon"
-          src="icons/work-cond/remote.svg"
-          alt=""
-          aria-hidden="true"
-        />
-        <label class="about__conditions-label">{{ 'about.workmode3' | translate }}</label>
-      </li>
-    </ul>
-  </div>
+  <ul class="about__conditions" aria-label="Job conditions">
+    <li class="about__conditions-item">
+      <img
+        class="about__conditions-icon"
+        src="icons/work-cond/location.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <label class="about__conditions-label">{{ 'about.location' | translate }}</label>
+    </li>
+    <li class="about__conditions-item">
+      <img
+        class="about__conditions-icon"
+        src="icons/work-cond/onsite-hybride.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <label class="about__conditions-label">{{ 'about.workMode1' | translate }}</label>
+    </li>
+    <li class="about__conditions-item">
+      <img
+        class="about__conditions-icon"
+        src="icons/work-cond/onsite-hybride.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <label class="about__conditions-label">{{ 'about.workMode2' | translate }}</label>
+    </li>
+    <li class="about__conditions-item">
+      <img
+        class="about__conditions-icon"
+        src="icons/work-cond/remote.svg"
+        alt=""
+        aria-hidden="true"
+      />
+      <label class="about__conditions-label">{{ 'about.workmode3' | translate }}</label>
+    </li>
+  </ul>
 </section>
