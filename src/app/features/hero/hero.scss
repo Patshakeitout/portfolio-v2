@@ -81,7 +81,7 @@
   gap: 3rem;
   align-items: center;
   box-sizing: border-box;
-  @include mix.content-padding;
+  padding-inline: 1rem;
 
   @media (min-width: vars.$breakpoint-desktop) {
     display: grid;
@@ -156,9 +156,9 @@
     position: absolute;
     bottom: 1.5rem;
     left: 0;
-    width: 100%;
+    right: 0;
     box-sizing: border-box;
-    @include mix.content-padding;
+    @include mix.content-bounds;
 
     @media (max-width: 430px) {
       display: none;
@@ -386,9 +386,9 @@
     position: absolute;
     bottom: 1.5rem;
     left: 0;
-    width: 100%;
+    right: 0;
     box-sizing: border-box;
-    @include mix.content-padding;
+    @include mix.content-bounds;
   }
 }
 
