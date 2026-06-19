@@ -150,10 +150,6 @@
       scroll-behavior: auto;
     }
 
-    // ul {
-    //   padding: 0;
-    // }
-
     // Icon tiles
     li {
       display: flex;
@@ -173,6 +169,12 @@
         height: 56px;
         object-fit: contain;
         -webkit-user-drag: none;
+        filter: grayscale(100%);
+
+        &:hover {
+          transform: scale(0.75);
+          filter: unset;
+        }
       }
 
       figcaption {
@@ -191,6 +193,11 @@
       figure figcaption {
         font-size: 18px;
       }
+
+      figure img:hover {
+        transform: scale(0.75);
+        filter: unset;
+      }
     }
 
     // ── Desktop: fixed 5-icon window, 72px icons, 40px gaps ──
@@ -201,6 +208,12 @@
       figure img {
         width: 72px;
         height: 72px;
+        transition: 0.3s ease-out;
+
+        &:hover {
+          transform: scale(0.75);
+          filter: unset;
+        }
       }
     }
   }

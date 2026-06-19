@@ -15,7 +15,7 @@
     "name": "I'M PATRICK SCHAUER",
     "getInTouch": "Get in touch",
     "polaroidCaption": "Patrick :D",
-    "frontendWords": ["Focused", "Reliable", "Organized", "Neat", "Thorough", "Efficient", "Nimble", "Deliberate"],
+    "frontendWords": ["Fullstack", "R-Shiny", "OOP", "Normalization", "TypeScript", "Endpoints", "Navigation", "Django"],
     "developerWords": ["Detail-oriented", "Exacting", "Versatile", "Empathetic", "Logical", "Observant", "Precise", "Eager", "Resilient"]
   },
   "about": {
@@ -32,7 +32,7 @@
   "skills": {
     "subtitle": "MY STACK",
     "title": "Skill Set",
-    "intro": "I started out in development with R/R-Shiny, which is where I found my enthusiasm for web technologies. Python and the web stack (HTML, CSS, JS) followed, and I went on to build web apps with PHP. I've since worked my way into Angular, and I'm always open to picking up new technologies — React, Vue, or whatever comes next.",
+    "intro": "I started out in development with R/R-Shiny, which is where I found my enthusiasm for web technologies. Python and the web stack (HTML, CSS, JS) followed. I extended production web apps with PHP, which I enjoyed. I've since worked my way into Angular, and I'm always open to picking up new technologies — React, Vue, or whatever comes next.",
     "swipeHint": "Swipe to see more",
     "peel0": "Pull to peel!",
     "peel1": "Peel!",
