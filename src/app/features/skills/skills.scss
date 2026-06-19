@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-block: 88px 12px;
+    padding-block: 144px 144px;
     gap: 16px;
     @include mix.content-bounds;
   }
@@ -73,12 +73,13 @@
   &__intro {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 48px;
 
     @media (min-width: vars.$breakpoint-desktop) {
-      flex-direction: row;
-      align-self: flex-start;
-      width: 75%;
+      display: grid;
+      grid-template-columns: 1fr 50% 1fr; // mirror the stack: article in the centre column
+      align-items: center;
+      width: 100%;
     }
   }
 
@@ -86,32 +87,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 48px;
 
     @media (min-width: vars.$breakpoint-desktop) {
-      flex-direction: row;
-      align-items: flex-start;
-      justify-content: space-evenly;
-      align-self: flex-end;
-      width: 75%;
+      display: grid;
+      grid-template-columns: 1fr 50% 1fr; // carousel exactly centered in the middle 50%
+      align-items: center;
+      width: 100%;
     }
   }
 
   &__article {
     background: url('/design-material/02_ripped-paper/skills-desktop-alt.webp') no-repeat center /
       100% 100%;
-    padding: 18px 16px;
+    padding: 16px 16px;
     color: vars.$base-black-option1;
     font-size: 18px;
     font-weight: 400;
+
+    p {
+      margin: 1rem 0.5rem 1.5rem 0.5rem;
+    }
   }
 
   /* ── Icon Carousel ─────────────────────────────────────────
    * Horizontally scrollable 2-row grid.
    * Items flow column-first → fills top-to-bottom, then scrolls right.
    * On mobile: 4 visible columns × 2 rows (8 icons visible).
-   * On wider phones (≥ 400px): 5 visible columns × 2 rows.
-   * On tablets+ (≥ 768px): all icons fit, no scroll needed.
+   * On wider phones / tablets (≥ 400px): 5 visible columns × 2 rows.
+   * On desktop (≥ 960px): 5-column window filling the centered carousel, rest swiped.
    * ──────────────────────────────────────────────────────────── */
 
   &__icons {
@@ -124,17 +128,27 @@
     list-style: none;
     padding: 16px 0;
     margin: 0;
-    width: 85dvw;
+    width: 100%;
 
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-x;
 
     // Hide scrollbar but keep functionality
     scrollbar-width: none; // Firefox
     &::-webkit-scrollbar {
       display: none; // Chrome / Safari
+    }
+
+    // Click-and-drag (mouse/pointer) scrolling — snap off mid-drag
+    &.is-dragging {
+      cursor: grabbing;
+      scroll-snap-type: none;
+      scroll-behavior: auto;
     }
 
     // Icon tiles
@@ -155,8 +169,7 @@
         width: 40px;
         height: 40px;
         object-fit: contain;
-
-
+        -webkit-user-drag: none;
       }
 
       figcaption {
@@ -176,24 +189,15 @@
       }
 
       figure figcaption {
-        font-size: 14px;
+        font-size: 18px;
       }
     }
 
-    // ── Tablets+: everything fits, no scroll ──
-    @media (min-width: 768px) {
-      grid-auto-columns: 1fr;
-      overflow-x: visible;
-      scroll-snap-type: none;
-      width: 100dvw;
-    }
-
-    // ── Desktop: content-width so the stack row can sit right & slide left ──
+    // ── Desktop: fluid 5-column window filling the carousel, rest swiped ──
     @media (min-width: vars.$breakpoint-desktop) {
-      grid-auto-columns: 48px;
+      grid-auto-columns: calc((100% - 4 * 40px) / 5); // 5 columns stretch to fill; 56px icons centered
       column-gap: 40px;
-      width: max-content;
-      max-width: 100%;
+      width: 100%;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
     }
@@ -206,8 +210,11 @@
     margin: 0;
 
     @media (min-width: vars.$breakpoint-desktop) {
-      flex: 0 1 auto;
-      width: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      grid-column: 2;
+      width: 100%;
       min-width: 0;
     }
   }
@@ -219,10 +226,6 @@
     gap: 8px;
     font-size: 14px;
     opacity: 0.7;
-
-    @media (min-width: 768px) {
-      display: none;
-    }
 
     &__arrow {
       width: 24px;
@@ -264,6 +267,12 @@
     align-self: center;
     margin: 0;
     flex-shrink: 0;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      grid-column: 3;
+      justify-self: start;
+      align-self: center;
+    }
   }
 
   /* ── Peel Sticker ─────────────────────────────────────── */
@@ -286,8 +295,7 @@
       animation: peel-fade 0.4s ease;
 
       .peel__label {
-        top: 65%;
-        left: 10%;
+        top: 70%;
       }
 
       .peel__label__arrow {
@@ -304,8 +312,7 @@
 
       .peel__label {
         top: 10%;
-        left: 14%;
-        gap: 9px;
+        gap: 8px;
       }
 
       .peel__label__arrow {
@@ -325,23 +332,24 @@
     }
 
     &__label {
+      width: 100%;
       position: absolute;
-      top: 28%;
-      left: 16%;
+      top: 18%;
       gap: 16px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
 
       &__arrow {
-        width: clamp(32px, 8vw, 64px);
-        height: auto;
+        width: 51.06px;
+        height: 40px;
       }
 
       &__txt {
+        text-align: center;
         font-family: var(--font-second);
-        font-size: clamp(22px, 5vw, 40px);
+        font-size: 40px;
+        line-height: 40px;
       }
 
       &__frameworks {
@@ -354,7 +362,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 6px;
 
         img {
           width: clamp(40px, 7vw, 48px);

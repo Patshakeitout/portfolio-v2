@@ -31,4 +31,32 @@ export class SkillsComponent {
       this.peelState.set(0);
     }
   }
+
+  isDragging = signal(false);
+  private dragStartX = 0;
+  private dragStartScroll = 0;
+
+  /** Start click-and-drag scrolling (mouse/pen only; touch scrolls natively). */
+  onDragStart(event: PointerEvent) {
+    if (event.pointerType === 'touch') return;
+    const el = event.currentTarget as HTMLElement;
+    this.isDragging.set(true);
+    this.dragStartX = event.clientX;
+    this.dragStartScroll = el.scrollLeft;
+    el.setPointerCapture(event.pointerId);
+  }
+
+  /** Scroll the carousel by the pointer delta while dragging. */
+  onDragMove(event: PointerEvent) {
+    if (!this.isDragging()) return;
+    const el = event.currentTarget as HTMLElement;
+    el.scrollLeft = this.dragStartScroll - (event.clientX - this.dragStartX);
+  }
+
+  /** End click-and-drag scrolling and release the pointer. */
+  onDragEnd(event: PointerEvent) {
+    if (!this.isDragging()) return;
+    this.isDragging.set(false);
+    (event.currentTarget as HTMLElement).releasePointerCapture(event.pointerId);
+  }
 }

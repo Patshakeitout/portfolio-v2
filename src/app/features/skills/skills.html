@@ -38,7 +38,14 @@
           />
         </figcaption>
 
-        <ul class="skills__icons">
+        <ul
+          class="skills__icons"
+          [class.is-dragging]="isDragging()"
+          (pointerdown)="onDragStart($event)"
+          (pointermove)="onDragMove($event)"
+          (pointerup)="onDragEnd($event)"
+          (pointercancel)="onDragEnd($event)"
+        >
           <li>
             <figure>
               <img src="/icons/tech/r.svg" alt="R" />
@@ -134,6 +141,20 @@
             <figure>
               <img src="/icons/tech/git.svg" alt="Git" />
               <figcaption>Git</figcaption>
+            </figure>
+          </li>
+
+          <li>
+            <figure>
+              <img src="/icons/tech/scrum.svg" alt="Scrum" />
+              <figcaption>Scrum</figcaption>
+            </figure>
+          </li>
+
+          <li>
+            <figure>
+              <img src="/icons/tech/supabase.svg" alt="Supabase" />
+              <figcaption>Supabase</figcaption>
             </figure>
           </li>
         </ul>
