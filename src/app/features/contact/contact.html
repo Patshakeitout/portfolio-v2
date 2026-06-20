@@ -69,7 +69,7 @@
 
       <div class="contact__actions">
         <img class="contact__arrow" src="/design-material/00_Hand-drawn lines/05_Contact/contact-arrow.png" alt="" />
-        <button class="btn-primary btn-primary--ghost" type="submit" [disabled]="status() === 'sending'">
+        <button class="btn-primary btn-primary--ghost btn-primary--grey" type="submit" [disabled]="status() === 'sending'">
           @if (status() === 'sending') { {{ 'contact.sending' | translate }} }
           @else { {{ 'contact.send' | translate }} }
         </button>

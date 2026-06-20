@@ -11,37 +11,44 @@
       <p>{{ 'projects.intro' | translate }}</p>
     </article>
 
-    @for (project of projects; track project.slug) {
-      <article class="projects__article">
-        <h4>{{ project.title }}</h4>
+    <ul class="projects__grid">
+      @for (project of projects; track project.slug) {
+        <li class="projects__item">
+          <article class="projects__article">
+            <h4>{{ project.title }}</h4>
 
-        <figure class="projects__image">
-          @if (project.cta === 'sticker') {
-            <a class="btn-details" [routerLink]="['/', lang(), 'projects', project.slug]" (pointerdown)="startPress($event, project.slug)" (pointerleave)="cancelPress($event)" (pointercancel)="cancelPress($event)" (click)="blockClick($event)" [attr.aria-label]="'projects.openDetails' | translate:{ title: project.title }">
+            <figure class="projects__image">
+              @if (project.cta === 'sticker') {
+                <img
+                  class="projects__sticker"
+                  src="/design-material/03_Stickers/00_Round/project-details.png"
+                  alt=""
+                />
+              }
               <img
-                class="btn-details__sticker"
-                src="/design-material/03_Stickers/00_Round/project-details.png"
-                alt=""
+                [class]="project.imageClass"
+                [src]="project.image"
+                [alt]="project.title + ' project preview'"
               />
+            </figure>
+
+            <p>{{ 'projectData.' + project.slug + '.description' | translate }}</p>
+
+            <a class="btn-primary" [routerLink]="['/', lang(), 'projects', project.slug]">
+              {{ 'projects.detailsButton' | translate }}
             </a>
-          }
-
-          <img [class]="project.imageClass" [src]="project.image" [alt]="project.title + ' project preview'" />
-        </figure>
-
-        <p>{{ 'projectData.' + project.slug + '.description' | translate }}</p>
-
-        @if (project.cta === 'button') {
-          <a class="btn-primary" [routerLink]="['/', lang(), 'projects', project.slug]">{{ 'projects.detailsButton' | translate }}</a>
-        }
-      </article>
-    }
+          </article>
+        </li>
+      }
+    </ul>
 
     <header class="recommendations__header">
       <p class="recommendations__subtitle">{{ 'projects.recSubtitle' | translate }}</p>
       <h1 class="recommendations__title">
         {{ 'projects.recTitlePre' | translate }}
-        <span class="recommendations__title--right">{{ 'projects.recTitleHighlight' | translate }}</span>
+        <span class="recommendations__title--right">{{
+          'projects.recTitleHighlight' | translate
+        }}</span>
       </h1>
     </header>
 
@@ -54,10 +61,20 @@
           <span class="recommendations__role">{{ 'projects.rec1Role' | translate }}</span>
         </cite>
         <nav class="recommendations__links" aria-label="Author links">
-          <a class="recommendations__linkedin" href="https://www.linkedin.com/in/volker-derksen-2a340633a/" target="_blank" rel="noopener noreferrer">
+          <a
+            class="recommendations__linkedin"
+            href="https://www.linkedin.com/in/volker-derksen-2a340633a/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
           </a>
-          <a class="recommendations__profile" href="https://umgestalt.de" target="_blank" rel="noopener noreferrer">
+          <a
+            class="recommendations__profile"
+            href="https://umgestalt.de"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             {{ 'projects.profile' | translate }}
           </a>
         </nav>
@@ -82,6 +99,5 @@
         </nav> -->
       </footer>
     </blockquote>
-
   </main>
 </section>

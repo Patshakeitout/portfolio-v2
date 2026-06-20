@@ -187,8 +187,6 @@
         color: #F8F9FA;
         border: 1px solid #F8F9FA;
         box-shadow: 2px 4px 0 #F8F9FA;
-        mix-blend-mode: exclusion;
-        opacity: 0.5;
         width: 11rem;
         height: 2.75rem;
         transition: transform 0.3s ease-out,
@@ -199,7 +197,6 @@
           transform: translate(2px, 4px);
           box-shadow: 0 0 0 0 #F8F9FA;
           background-color: #E08C05;
-          opacity: 1;
         }
       }
     }
