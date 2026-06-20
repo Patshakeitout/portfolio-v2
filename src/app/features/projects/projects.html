@@ -44,63 +44,65 @@
       </ul>
     </section>
 
-    <section class="project_recommendations">
+    <section class="recommendations">
       <header class="recommendations__header">
         <p class="recommendations__subtitle">{{ 'projects.recSubtitle' | translate }}</p>
         <h1 class="recommendations__title">
           {{ 'projects.recTitlePre' | translate }}
-          <span class="recommendations__title--right">{{
-            'projects.recTitleHighlight' | translate
-          }}</span>
+          <span class="recommendations__title--right"
+            >{{ 'projects.recTitleHighlight' | translate }}
+          </span>
         </h1>
       </header>
 
-      <blockquote class="recommendations__paper">
-        <p>{{ 'projects.rec1Text' | translate }}</p>
+      <div class="recommendations__list">
+        <blockquote class="recommendations__paper">
+          <p>{{ 'projects.rec1Text' | translate }}</p>
 
-        <footer class="recommendations__footer">
-          <cite class="recommendations__author">
-            <span class="recommendations__name">Volker Derksen</span>
-            <span class="recommendations__role">{{ 'projects.rec1Role' | translate }}</span>
-          </cite>
-          <nav class="recommendations__links" aria-label="Author links">
-            <a
-              class="recommendations__linkedin"
-              href="https://www.linkedin.com/in/volker-derksen-2a340633a/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
-            </a>
-            <a
-              class="recommendations__profile"
-              href="https://umgestalt.de"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {{ 'projects.profile' | translate }}
-            </a>
-          </nav>
-        </footer>
-      </blockquote>
-      <blockquote class="recommendations__paper recommendations__paper--b">
-        <p>{{ 'projects.rec2Text' | translate }}</p>
+          <footer class="recommendations__footer">
+            <cite class="recommendations__author">
+              <span class="recommendations__name">Volker Derksen</span>
+              <span class="recommendations__role">{{ 'projects.rec1Role' | translate }}</span>
+            </cite>
+            <nav class="recommendations__links" aria-label="Author links">
+              <a
+                class="recommendations__linkedin"
+                href="https://www.linkedin.com/in/volker-derksen-2a340633a/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
+              </a>
+              <a
+                class="recommendations__profile"
+                href="https://umgestalt.de"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ 'projects.profile' | translate }}
+              </a>
+            </nav>
+          </footer>
+        </blockquote>
+        <blockquote class="recommendations__paper recommendations__paper--b">
+          <p>{{ 'projects.rec2Text' | translate }}</p>
 
-        <footer class="recommendations__footer">
-          <cite class="recommendations__author">
-            <span class="recommendations__name">Mohamed Brohani</span>
-            <span class="recommendations__role">{{ 'projects.rec2Role' | translate }}</span>
-          </cite>
-          <!-- <nav class="recommendations__links" aria-label="Author links">
-          <a class="recommendations__linkedin" href="https://www.linkedin.com/in/volker-derksen-2a340633a/" target="_blank" rel="noopener noreferrer">
-            <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
-          </a>
-          <a class="recommendations__profile" href="https://umgestalt.de" target="_blank" rel="noopener noreferrer">
-            {{ 'projects.profile' | translate }}
-          </a>
-        </nav> -->
-        </footer>
-      </blockquote>
+          <footer class="recommendations__footer">
+            <cite class="recommendations__author">
+              <span class="recommendations__name">Mohamed Brohani</span>
+              <span class="recommendations__role">{{ 'projects.rec2Role' | translate }}</span>
+            </cite>
+            <!-- <nav class="recommendations__links" aria-label="Author links">
+        <a class="recommendations__linkedin" href="https://www.linkedin.com/in/volker-derksen-2a340633a/" target="_blank" rel="noopener noreferrer">
+          <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
+        </a>
+        <a class="recommendations__profile" href="https://umgestalt.de" target="_blank" rel="noopener noreferrer">
+          {{ 'projects.profile' | translate }}
+        </a>
+      </nav> -->
+          </footer>
+        </blockquote>
+      </div>
     </section>
   </main>
 </section>

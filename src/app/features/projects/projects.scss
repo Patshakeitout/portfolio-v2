@@ -29,6 +29,10 @@
     font-weight: 500;
     margin: 0;
     margin-bottom: 4px;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      font-size: 20px;
+    }
   }
 
   &__title {
@@ -65,56 +69,81 @@
     width: 100%;
 
     @media (min-width: vars.$breakpoint-desktop) {
-      align-items: flex-start;
       grid-template-columns: 1fr 1fr;
       column-gap: 2rem;
+      row-gap: 0;
     }
   }
 
   &__item {
     display: flex;
-    align-self: flex-start;
 
     .projects__article {
       margin-top: 0;
       width: 100%;
     }
 
-    // Desktop: stack the button onto the image (same grid cell) so it
-    // overlays the image's bottom-right; mobile keeps the flex flow.
+    // Reveal scrim + button and zoom the image while the card is hovered/focused.
+    &:hover,
+    &:focus-within {
+      .projects__image::after {
+        opacity: 1;
+      }
+
+      .projects__image .laptop,
+      .projects__image .epl {
+        scale: 1.05;
+      }
+
+      .projects__image .laptop {
+        animation-play-state: paused;
+      }
+    }
+
+    // Desktop: the card adopts the outer grid's rows via subgrid, so headings,
+    // images and descriptions line up across both cards. The image row sizes to
+    // the taller image (shorter image sits bottom-aligned); the description
+    // starts at a shared top and grows downward.
     @media (min-width: vars.$breakpoint-desktop) {
+      grid-row: span 3;
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-template-areas:
+        'head'
+        'media'
+        'desc';
+
       .projects__article {
-        grid-template-columns: 1fr;
-        grid-template-areas:
-          'head'
-          'media'
-          'desc';
+        display: contents;
+      }
 
-        > h4 {
-          grid-area: head;
-        }
+      h4 {
+        grid-area: head;
+        align-self: start;
+      }
 
-        > .projects__image {
-          grid-area: media;
-        }
+      .projects__image {
+        grid-area: media;
+        align-self: end;
+      }
 
-        > p {
-          grid-area: desc;
-        }
+      p {
+        grid-area: desc;
+        align-self: start;
+      }
 
-        > .btn-primary {
-          grid-area: media;
-          align-self: end;
-          justify-self: end;
-          z-index: 3;
-          margin: 0 4% 11% 0;
-          opacity: 0;
-        }
+      .btn-primary {
+        grid-area: media;
+        align-self: end;
+        justify-self: end;
+        z-index: 3;
+        margin: 0 4% 11% 0;
+        opacity: 0;
+      }
 
-        &:hover > .btn-primary,
-        &:focus-within > .btn-primary {
-          opacity: 1;
-        }
+      &:hover .btn-primary,
+      &:focus-within .btn-primary {
+        opacity: 1;
       }
     }
   }
@@ -170,25 +199,6 @@
         box-shadow: 0 0 0 0;
         background-color: vars.$highlight3-option1;
         color: vars.$base-white-option1;
-      }
-    }
-
-    // Reveal scrim + button and zoom the image while the card is hovered/focused.
-    // Triggered on the article (the common ancestor) so moving onto the button
-    // keeps everything visible and clickable.
-    &:hover,
-    &:focus-within {
-      .projects__image::after {
-        opacity: 1;
-      }
-
-      .projects__image .laptop,
-      .projects__image .epl {
-        scale: 1.05;
-      }
-
-      .projects__image .laptop {
-        animation-play-state: paused;
       }
     }
   }
@@ -266,19 +276,18 @@
 }
 
 .recommendations {
+  width: 100%;
+  padding-block: 88px;
+
+  @media (min-width: vars.$breakpoint-desktop) {
+    padding-block: 144px;
+  }
+
   &__header {
-    margin-top: 5.5rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     align-self: stretch;
-  }
-
-  &__subtitle {
-    color: vars.$base-black-option1;
-    font-weight: 500;
-    margin: 0;
-    margin-bottom: 4px;
   }
 
   &__title {
@@ -290,6 +299,10 @@
     font-size: 48px;
     font-weight: 700;
     align-self: flex-end;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      white-space: nowrap;
+    }
 
     &::before {
       content: '';
@@ -309,35 +322,82 @@
     &--right {
       display: block;
       text-align: right;
+
+      @media (min-width: vars.$breakpoint-desktop) {
+        display: inline;
+      }
+    }
+  }
+
+  &__subtitle {
+    color: vars.$base-black-option1;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 4px;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      font-size: 20px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-inline: 1rem;
+    margin-top: 2rem;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      margin-top: 48px;
+      flex-direction: row;
+      justify-content: center;
     }
   }
 
   &__paper {
-    margin: 2rem 16px 0;
-    width: calc(100% - 32px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 1rem;
+    margin: 0;
+    min-height: 320px;
+    width: 311px;
     transform: rotate(-4deg);
     background-image: url('/design-material/03_Stickers/02_Testimonials/color-option-3/A.png');
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    padding: 2rem;
     box-sizing: border-box;
     position: relative;
+    isolation: isolate;
+    z-index: 2;
 
     @media (min-width: vars.$breakpoint-desktop) {
       width: 512px;
-      height: 368px;
+      aspect-ratio: 512 / 368;
+      padding: 48px 40px;
     }
 
     &::after {
       content: '';
       position: absolute;
       inset: 0;
+      z-index: -1;
       background: url('/design-material/03_Stickers/02_Testimonials/color-option-3/Line.png')
         center / cover no-repeat;
       transform: rotate(-180deg);
       opacity: 0;
       transition: opacity 0.4s ease-in-out;
       pointer-events: none;
+    }
+
+    &:hover {
+      z-index: 3;
+
+      .recommendations__name,
+      .recommendations__role {
+        color: vars.$base-white-option1;
+      }
     }
 
     &:hover::after {
@@ -347,9 +407,14 @@
     &--b {
       background-image: url('/design-material/03_Stickers/02_Testimonials/color-option-3/B.png');
       transform: none;
-      margin-top: -0.3rem;
       position: relative;
-      z-index: -1;
+      z-index: 0;
+      margin-top: -16px;
+
+      @media (min-width: vars.$breakpoint-desktop) {
+        margin-top: 0;
+        margin-left: calc(-200px - 0.3 * clamp(0px, 1440px - 100vw, 480px));
+      }
 
       &::after {
         transform: rotate(0deg);
@@ -361,6 +426,7 @@
       margin: 0;
       color: vars.$base-black-option1;
       font-size: 18px;
+      text-align: justify;
     }
   }
 
@@ -368,7 +434,6 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin-top: 4rem;
   }
 
   &__author {
@@ -380,6 +445,7 @@
   &__name {
     margin: 0;
     font-weight: 700;
+    font-size: 18px;
     color: vars.$base-black-option1;
   }
 
@@ -402,7 +468,12 @@
     img {
       width: 24px;
       height: 24px;
-      filter: invert(1);
+      filter: brightness(0);
+      transition: filter 0.3s ease;
+    }
+
+    &:hover img {
+      filter: brightness(0) invert(1);
     }
   }
 
@@ -411,6 +482,10 @@
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
+
+    &:hover {
+      color: vars.$base-white-option1;
+    }
   }
 }
 
