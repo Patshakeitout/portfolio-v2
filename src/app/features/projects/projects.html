@@ -2,94 +2,96 @@
 
 <section class="projects">
   <main class="projects__content">
-    <header class="projects__header">
-      <p class="projects__subtitle">{{ 'projects.subtitle' | translate }}</p>
-      <h1 class="projects__title">{{ 'projects.title' | translate }}</h1>
-    </header>
+    <section class="project__overview">
+      <header class="projects__header">
+        <p class="projects__subtitle">{{ 'projects.subtitle' | translate }}</p>
+        <h1 class="projects__title">{{ 'projects.title' | translate }}</h1>
+      </header>
 
-    <article class="projects__article">
-      <p>{{ 'projects.intro' | translate }}</p>
-    </article>
+      <article class="projects__article">
+        <p>{{ 'projects.intro' | translate }}</p>
+      </article>
 
-    <ul class="projects__grid">
-      @for (project of projects; track project.slug) {
-        <li class="projects__item">
-          <article class="projects__article">
-            <h4>{{ project.title }}</h4>
+      <ul class="projects__grid">
+        @for (project of projects; track project.slug) {
+          <li class="projects__item">
+            <article class="projects__article">
+              <h4>{{ project.title }}</h4>
 
-            <figure class="projects__image">
-              @if (project.cta === 'sticker') {
+              <figure class="projects__image">
+                @if (project.cta === 'sticker') {
+                  <img
+                    class="projects__sticker"
+                    src="/design-material/03_Stickers/00_Round/project-details.png"
+                    alt=""
+                  />
+                }
                 <img
-                  class="projects__sticker"
-                  src="/design-material/03_Stickers/00_Round/project-details.png"
-                  alt=""
+                  [class]="project.imageClass"
+                  [src]="project.image"
+                  [alt]="project.title + ' project preview'"
                 />
-              }
-              <img
-                [class]="project.imageClass"
-                [src]="project.image"
-                [alt]="project.title + ' project preview'"
-              />
-            </figure>
+              </figure>
 
-            <p>{{ 'projectData.' + project.slug + '.description' | translate }}</p>
+              <p>{{ 'projectData.' + project.slug + '.description' | translate }}</p>
 
-            <a class="btn-primary" [routerLink]="['/', lang(), 'projects', project.slug]">
-              {{ 'projects.detailsButton' | translate }}
+              <a class="btn-primary" [routerLink]="['/', lang(), 'projects', project.slug]">
+                {{ 'projects.detailsButton' | translate }}
+              </a>
+            </article>
+          </li>
+        }
+      </ul>
+    </section>
+
+    <section class="project_recommendations">
+      <header class="recommendations__header">
+        <p class="recommendations__subtitle">{{ 'projects.recSubtitle' | translate }}</p>
+        <h1 class="recommendations__title">
+          {{ 'projects.recTitlePre' | translate }}
+          <span class="recommendations__title--right">{{
+            'projects.recTitleHighlight' | translate
+          }}</span>
+        </h1>
+      </header>
+
+      <blockquote class="recommendations__paper">
+        <p>{{ 'projects.rec1Text' | translate }}</p>
+
+        <footer class="recommendations__footer">
+          <cite class="recommendations__author">
+            <span class="recommendations__name">Volker Derksen</span>
+            <span class="recommendations__role">{{ 'projects.rec1Role' | translate }}</span>
+          </cite>
+          <nav class="recommendations__links" aria-label="Author links">
+            <a
+              class="recommendations__linkedin"
+              href="https://www.linkedin.com/in/volker-derksen-2a340633a/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
             </a>
-          </article>
-        </li>
-      }
-    </ul>
+            <a
+              class="recommendations__profile"
+              href="https://umgestalt.de"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ 'projects.profile' | translate }}
+            </a>
+          </nav>
+        </footer>
+      </blockquote>
+      <blockquote class="recommendations__paper recommendations__paper--b">
+        <p>{{ 'projects.rec2Text' | translate }}</p>
 
-    <header class="recommendations__header">
-      <p class="recommendations__subtitle">{{ 'projects.recSubtitle' | translate }}</p>
-      <h1 class="recommendations__title">
-        {{ 'projects.recTitlePre' | translate }}
-        <span class="recommendations__title--right">{{
-          'projects.recTitleHighlight' | translate
-        }}</span>
-      </h1>
-    </header>
-
-    <blockquote class="recommendations__paper">
-      <p>{{ 'projects.rec1Text' | translate }}</p>
-
-      <footer class="recommendations__footer">
-        <cite class="recommendations__author">
-          <span class="recommendations__name">Volker Derksen</span>
-          <span class="recommendations__role">{{ 'projects.rec1Role' | translate }}</span>
-        </cite>
-        <nav class="recommendations__links" aria-label="Author links">
-          <a
-            class="recommendations__linkedin"
-            href="https://www.linkedin.com/in/volker-derksen-2a340633a/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
-          </a>
-          <a
-            class="recommendations__profile"
-            href="https://umgestalt.de"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {{ 'projects.profile' | translate }}
-          </a>
-        </nav>
-      </footer>
-    </blockquote>
-
-    <blockquote class="recommendations__paper recommendations__paper--b">
-      <p>{{ 'projects.rec2Text' | translate }}</p>
-
-      <footer class="recommendations__footer">
-        <cite class="recommendations__author">
-          <span class="recommendations__name">Mohamed Brohani</span>
-          <span class="recommendations__role">{{ 'projects.rec2Role' | translate }}</span>
-        </cite>
-        <!-- <nav class="recommendations__links" aria-label="Author links">
+        <footer class="recommendations__footer">
+          <cite class="recommendations__author">
+            <span class="recommendations__name">Mohamed Brohani</span>
+            <span class="recommendations__role">{{ 'projects.rec2Role' | translate }}</span>
+          </cite>
+          <!-- <nav class="recommendations__links" aria-label="Author links">
           <a class="recommendations__linkedin" href="https://www.linkedin.com/in/volker-derksen-2a340633a/" target="_blank" rel="noopener noreferrer">
             <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
           </a>
@@ -97,7 +99,8 @@
             {{ 'projects.profile' | translate }}
           </a>
         </nav> -->
-      </footer>
-    </blockquote>
+        </footer>
+      </blockquote>
+    </section>
   </main>
 </section>

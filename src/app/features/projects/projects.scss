@@ -65,28 +65,26 @@
     width: 100%;
 
     @media (min-width: vars.$breakpoint-desktop) {
+      align-items: flex-start;
       grid-template-columns: 1fr 1fr;
       column-gap: 2rem;
-      align-items: stretch;
     }
   }
 
   &__item {
     display: flex;
+    align-self: flex-start;
 
     .projects__article {
       margin-top: 0;
       width: 100%;
-      height: 100%;
     }
 
     // Desktop: stack the button onto the image (same grid cell) so it
     // overlays the image's bottom-right; mobile keeps the flex flow.
     @media (min-width: vars.$breakpoint-desktop) {
       .projects__article {
-        display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr auto;
         grid-template-areas:
           'head'
           'media'
