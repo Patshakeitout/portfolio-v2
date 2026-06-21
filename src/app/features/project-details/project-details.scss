@@ -1,4 +1,7 @@
+/* About component scss ----------------------------------------------------------------------------------- */
+
 @use 'variables' as vars;
+@use 'mixins' as mix;
 
 .project-details {
   position: relative;
@@ -6,14 +9,14 @@
   width: 100%;
   overflow: hidden;
   background-color: vars.$base-black-option1;
+  background-image: url('/design-material/01_Background/design-size-relation/08_project-view-mobile.png');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100% auto;
+  @include mix.content-bounds;
 
-  &__background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    display: block;
+  @media (min-width: vars.$breakpoint-desktop) {
+    background-image: url('/design-material/01_Background/design-size-relation/project-details.webp');
   }
 
   &__content {

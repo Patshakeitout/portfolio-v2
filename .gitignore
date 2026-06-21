@@ -23,6 +23,7 @@ npm-debug.log
 Thumbs.db
 
 # Local notes (not for the repo)
+/docs
 learning.md
 learning/
 CLAUDE.md
