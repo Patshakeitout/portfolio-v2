@@ -31,10 +31,10 @@ export class HeaderComponent {
   public isOnProjectDetails = toSignal(
     this.router.events.pipe(
       filter((event): event is NavigationEnd => event instanceof NavigationEnd),
-      map(event => event.urlAfterRedirects.startsWith('/projects/')),
-      startWith(this.router.url.startsWith('/projects/'))
+      map(event => event.urlAfterRedirects.includes('/projects/')),
+      startWith(this.router.url.includes('/projects/'))
     ),
-    { initialValue: this.router.url.startsWith('/projects/') }
+    { initialValue: this.router.url.includes('/projects/') }
   );
 
   isMenuOpen = this.mobileMenuService.isOpen;

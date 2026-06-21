@@ -162,5 +162,10 @@
     .header--invert {
       filter: brightness(0) invert(1) brightness(0.974);
     }
+
+    .header__nav-link--about,
+    .header__nav-link--skills {
+      color: vars.$base-black-option1;
+    }
   }
 }

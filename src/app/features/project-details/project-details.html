@@ -25,37 +25,39 @@
               <li>{{ item }}</li>
             }
           </ul>
-
-          <figure class="project-details__image">
-            <img
-              [class]="current.imageClass"
-              [src]="current.imageDetails"
-              [alt]="current.title + ' preview'"
-            />
-          </figure>
         }
       </article>
 
-      <nav class="project-details__links" aria-label="Project links">
-        @if (current.repoUrl) {
-          <a
-            class="btn-primary btn-primary--dark"
-            [href]="current.repoUrl"
-            target="_blank"
-            rel="noopener noreferrer"
-            >{{ 'projectDetails.github' | translate }}</a
-          >
-        }
+      @if (current.tech?.length) {
+        <figure class="project-details__image">
+          <img
+            [class]="current.imageClass"
+            [src]="current.imageDetails"
+            [alt]="current.title + ' preview'"
+          />
 
-        @if (current.liveUrl) {
-          <a
-            class="btn-primary btn-primary--dark"
-            [href]="current.liveUrl"
-            rel="noopener noreferrer"
-            >{{ 'projectDetails.liveTest' | translate }}</a
-          >
-        }
-      </nav>
+          <nav class="project-details__links" aria-label="Project links">
+            @if (current.repoUrl) {
+              <a
+                class="btn-primary btn-primary--dark"
+                [href]="current.repoUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                >{{ 'projectDetails.github' | translate }}</a
+              >
+            }
+
+            @if (current.liveUrl) {
+              <a
+                class="btn-primary btn-primary--dark"
+                [href]="current.liveUrl"
+                rel="noopener noreferrer"
+                >{{ 'projectDetails.liveTest' | translate }}</a
+              >
+            }
+          </nav>
+        </figure>
+      }
 
       <nav class="project-details__nav" aria-label="Project navigation">
         @if (prevSlug(); as prev) {

@@ -4,19 +4,32 @@
 @use 'mixins' as mix;
 
 .project-details {
+  margin: 0;
   position: relative;
   min-height: 100dvh;
   width: 100%;
   overflow: hidden;
   background-color: vars.$base-black-option1;
-  background-image: url('/design-material/01_Background/design-size-relation/08_project-view-mobile.png');
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-size: 100% auto;
-  @include mix.content-bounds;
 
   @media (min-width: vars.$breakpoint-desktop) {
-    background-image: url('/design-material/01_Background/design-size-relation/project-details.webp');
+    .project-details__content {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-areas:
+        'header  header'
+        'article image'
+        'nav     nav';
+      align-items: start;
+      column-gap: 32px;
+      min-height: 100dvh;
+      background-image: url('/design-material/01_Background/design-size-relation/project-details.webp');
+      background-size: cover;
+    }
+
+    .project-details__header { grid-area: header; }
+    .project-details__article { grid-area: article; }
+    .project-details__image { grid-area: image; }
+    .project-details__nav { grid-area: nav; }
   }
 
   &__content {
@@ -25,8 +38,12 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding: 88px 16px 32px;
-    box-sizing: border-box;
+    padding: 88px 32px;
+    background-image: url('/design-material/01_Background/design-size-relation/08_project-view-mobile.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: contain;
+    @include mix.content-bounds;
   }
 
   &__header {
@@ -84,6 +101,8 @@
   &__image {
     margin: 0;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 
     img {
