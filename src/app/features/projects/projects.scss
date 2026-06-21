@@ -245,7 +245,7 @@
     }
 
     .laptop {
-      max-width: 100%;
+      width: 100%;
       height: auto;
       display: block;
       animation: laptop-bob 3s ease-in-out infinite;
@@ -253,7 +253,7 @@
     }
 
     .epl {
-      max-width: 100%;
+      width: 100%;
       height: auto;
       display: block;
       transition: scale 250ms ease-out;
@@ -307,8 +307,8 @@
     &::before {
       content: '';
       position: absolute;
-      right: 37%;
-      top: -2rem;
+      right: 53%;
+      top: -1.8rem;
       width: 100px;
       height: 36px;
       background-image: url('/design-material/00_Hand-drawn lines/04_Testimonials/color-option-3.png');
@@ -317,6 +317,11 @@
       background-position: right center;
       clip-path: inset(0 0 0 100%);
       animation: draw-erase-rtl 3s ease-in-out infinite;
+
+      @media (min-width: vars.$breakpoint-desktop) {
+        right: 37%;
+        top: -2rem;
+      }
     }
 
     &--right {
