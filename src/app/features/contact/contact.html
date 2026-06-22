@@ -111,11 +111,6 @@
 
       <fieldset class="contact__privacy">
         <label class="contact__privacy-label">
-          <img
-            class="contact__arrow"
-            src="/design-material/00_Hand-drawn lines/05_Contact/contact-arrow.png"
-            alt=""
-          />
           <input type="checkbox" formControlName="privacy" (change)="submitted.set(false)" />
           <span
             >{{ 'contact.privacyConsentPre' | translate
@@ -129,6 +124,11 @@
       </fieldset>
 
       <div class="contact__actions">
+        <img
+          class="contact__arrow"
+          src="/design-material/00_Hand-drawn lines/05_Contact/contact-arrow.png"
+          alt=""
+        />
         <button
           class="btn-primary btn-primary--ghost btn-primary--grey"
           type="submit"
