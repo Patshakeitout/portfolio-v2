@@ -346,6 +346,10 @@
         justify-content: space-between;
       }
 
+      &__meta .footer__legal {
+        display: none;
+      }
+
       &__legal--bottom {
         display: inline-block;
       }
@@ -377,7 +381,7 @@
         transition: color 300ms ease;
       }
 
-      &__links a:hover &__link-text {
+      &__links a:hover .footer__link-text {
         color: #3355FF;
       }
     }

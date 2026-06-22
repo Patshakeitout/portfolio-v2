@@ -209,6 +209,10 @@
       justify-content: space-around;
     }
 
+    &__meta &__legal {
+      display: none;
+    }
+
     &__legal--bottom {
       display: inline;
     }

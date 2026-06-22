@@ -52,10 +52,10 @@
 <footer class="footer">
   <section class="footer__top">
     <a [routerLink]="['/', lang()]"><img class="footer__logo" src="/logo.webp" alt="Patrick Schauer Logo" /></a>
-    <address class="footer__meta">
+    <div class="footer__meta">
       <small class="footer__copyright">{{ 'footer.copyright' | translate }}</small>
       <a class="footer__legal" [routerLink]="['/', lang(), 'legal-notice']">{{ 'footer.legalNotice' | translate }}</a>
-    </address>
+    </div>
   </section>
 
   <section class="footer__bottom">
