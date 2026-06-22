@@ -2,6 +2,10 @@
   "common": {
     "back": "Zurück"
   },
+  "rotateDevice": {
+    "title": "Gerät drehen",
+    "message": "Bitte wechsle ins Querformat für die beste Darstellung."
+  },
   "nav": {
     "about": "Über mich",
     "skills": "Skills",

@@ -22,7 +22,12 @@
         @if (current.tech?.length) {
           <ul class="project-details__tech">
             @for (item of current.tech; track item) {
-              <li>{{ item }}</li>
+              <li>
+                @if (techIcon(item); as icon) {
+                  <img [src]="icon" [alt]="item + ' icon'" />
+                }
+                {{ item }}
+              </li>
             }
           </ul>
         }
@@ -30,11 +35,32 @@
 
       @if (current.tech?.length) {
         <figure class="project-details__image">
-          <img
-            [class]="current.imageClass"
-            [src]="current.imageDetails"
-            [alt]="current.title + ' preview'"
-          />
+          <div class="project-details__media">
+            <img
+              [class]="current.imageClass"
+              [src]="current.imageDetails"
+              [alt]="current.title + ' preview'"
+            />
+            <svg class="project-details__sticker" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <clipPath id="details-sticker-clip">
+                  <circle cx="100" cy="100" r="99" />
+                </clipPath>
+                <path id="details-sticker-text-path"
+                  d="M 100,100 m -50.5,65.9 a 83,83 0 1,1 101,-131.8 a 83,83 0 1,1 -101,131.8" />
+              </defs>
+              <image href="/design-material/03_Stickers/00_Round/gold.webp"
+                x="0" y="0" width="200" height="200" clip-path="url(#details-sticker-clip)" />
+              <image href="/logo.webp"
+                x="52" y="52" width="96" height="96"
+                filter="brightness(0)" />
+              <text font-size="12" font-family="sans-serif" fill="#0E1013" font-weight="700">
+                <textPath href="#details-sticker-text-path" startOffset="0%" textLength="509" lengthAdjust="spacing">
+                  Patrick Schauer ● Frontend Developer ● Engineering &amp; Design ●
+                </textPath>
+              </text>
+            </svg>
+          </div>
 
           <nav class="project-details__links" aria-label="Project links">
             @if (current.repoUrl) {
@@ -60,30 +86,18 @@
       }
 
       <nav class="project-details__nav" aria-label="Project navigation">
-        @if (prevSlug(); as prev) {
-          <a
-            class="project-details__arrow project-details__arrow--prev"
-            [routerLink]="['/', lang(), 'projects', prev]"
-            aria-label="Previous project"
-          >
-            <img
-              src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png"
-              alt=""
-            />
-            {{ 'projectDetails.goBack' | translate }}
-          </a>
-        } @else {
-          <span
-            class="project-details__arrow project-details__arrow--prev project-details__arrow--disabled"
-            aria-disabled="true"
-          >
-            <img
-              src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png"
-              alt=""
-            />
-            {{ 'projectDetails.goBack' | translate }}
-          </span>
-        }
+        <a
+          class="project-details__arrow project-details__arrow--prev"
+          [routerLink]="['/', lang()]"
+          fragment="projects"
+          aria-label="Back to projects"
+        >
+          <img
+            src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-2.png"
+            alt=""
+          />
+          {{ 'projectDetails.goBack' | translate }}
+        </a>
 
         @if (nextSlug(); as next) {
           <a
@@ -114,7 +128,9 @@
   } @else {
     <main class="project-details__content">
       <p>{{ 'projectDetails.notFound' | translate }}</p>
-      <a class="btn-primary" [routerLink]="['/', lang()]">{{ 'projectDetails.backHome' | translate }}</a>
+      <a class="btn-primary" [routerLink]="['/', lang()]">
+        {{ 'projectDetails.backHome' | translate }}
+      </a>
     </main>
   }
 </section>

@@ -1,7 +1,5 @@
 import { Component, inject, ChangeDetectionStrategy, signal, HostListener, computed } from '@angular/core';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { filter, map, startWith } from 'rxjs';
+import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { HeaderColorService } from '../../services/header-color.service';
 import { MobileMenuService } from '../../services/mobile-menu.service';
@@ -18,7 +16,6 @@ export class HeaderComponent {
   private headerColorService = inject(HeaderColorService);
   private mobileMenuService = inject(MobileMenuService);
   private languageService = inject(LanguageService);
-  private router = inject(Router);
   public lang = this.languageService.lang;
   public isEnglish = computed(() => this.languageService.lang() === 'en');
   public toggleIcon = computed(() => {
@@ -28,14 +25,6 @@ export class HeaderComponent {
   });
   public isHeaderInverted = this.headerColorService.isHeaderInverted.asReadonly();
   public isInContactSection = this.headerColorService.isInContactSection.asReadonly();
-  public isOnProjectDetails = toSignal(
-    this.router.events.pipe(
-      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
-      map(event => event.urlAfterRedirects.includes('/projects/')),
-      startWith(this.router.url.includes('/projects/'))
-    ),
-    { initialValue: this.router.url.includes('/projects/') }
-  );
 
   isMenuOpen = this.mobileMenuService.isOpen;
   isHeaderHidden = signal(false);

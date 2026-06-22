@@ -2,6 +2,10 @@
   "common": {
     "back": "Back"
   },
+  "rotateDevice": {
+    "title": "Rotate your device",
+    "message": "Please switch to landscape for the best experience."
+  },
   "nav": {
     "about": "About me",
     "skills": "Skills",

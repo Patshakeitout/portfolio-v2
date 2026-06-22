@@ -18,15 +18,24 @@ export class ProjectDetails {
     PROJECTS.find(project => project.slug === this.slug())
   );
 
-  readonly prevSlug = computed(() => {
-    const index = PROJECTS.findIndex(project => project.slug === this.slug());
-    if (index <= 0) return null;
-    return PROJECTS[index - 1].slug;
-  });
-
   readonly nextSlug = computed(() => {
     const index = PROJECTS.findIndex(project => project.slug === this.slug());
     if (index === -1 || index >= PROJECTS.length - 1) return null;
     return PROJECTS[index + 1].slug;
   });
+
+  private readonly techIcons: Record<string, string> = {
+    Angular: 'ng',
+    TypeScript: 'ts',
+    SCSS: 'css',
+    Supabase: 'supabase',
+    'HTML5 Canvas': 'html',
+    JavaScript: 'js',
+  };
+
+  /** Returns the icon path for a tech name, or null when none exists. */
+  techIcon(tech: string): string | null {
+    const name = this.techIcons[tech];
+    return name ? `/icons/tech/${name}.svg` : null;
+  }
 }
