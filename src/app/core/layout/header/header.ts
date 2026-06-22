@@ -25,6 +25,7 @@ export class HeaderComponent {
   });
   public isHeaderInverted = this.headerColorService.isHeaderInverted.asReadonly();
   public isInContactSection = this.headerColorService.isInContactSection.asReadonly();
+  public isProjectDetails = this.headerColorService.isProjectDetails.asReadonly();
 
   isMenuOpen = this.mobileMenuService.isOpen;
   isHeaderHidden = signal(false);

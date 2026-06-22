@@ -14,7 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 5.5rem 0 0;
+    padding-top: 9rem;
     @include mix.content-padding;
   }
 
@@ -136,6 +136,7 @@
   &__privacy-label {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 0.5rem;
     font-size: 0.9375rem;
     color: vars.$base-white-option1;
@@ -174,7 +175,7 @@
   &__actions {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 1rem;
     margin-top: 1rem;
 
@@ -204,15 +205,24 @@
 
   &__arrow {
     max-width: 9.56rem;
-    animation: arrow-fly 4s linear infinite;
+    pointer-events: none;
+    animation: arrow-fly 4s ease-out infinite;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      animation-name: arrow-fly-wide;
+    }
   }
 
   @keyframes arrow-fly {
-    0%     { transform: translateX(0); }
-    12%    { transform: translateX(-120%); }
-    86.9%  { transform: translateX(-120%); }
-    87%    { transform: translateX(0); }
-    100%   { transform: translateX(0); }
+    0%   { transform: translateX(-120%); }
+    25%  { transform: translateX(0); }
+    100% { transform: translateX(0); }
+  }
+
+  @keyframes arrow-fly-wide {
+    0%   { transform: translateX(-100vw); }
+    25%  { transform: translateX(0); }
+    100% { transform: translateX(0); }
   }
 
   &__feedback {
@@ -229,10 +239,12 @@
     margin-top: 0.5rem;
     background: transparent;
     color: vars.$base-white-option1;
-    padding: 1rem 1rem 2rem;
+    padding-block: 1rem 2rem;
+    @include mix.content-bounds;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    @include mix.content-padding;
 
     &__top {
       display: flex;
@@ -318,6 +330,55 @@
           height: 1.6rem;
           filter: brightness(0) invert(1);
         }
+      }
+    }
+
+    &__link-text {
+      display: none;
+    }
+
+    &__legal--bottom {
+      display: none;
+    }
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      &__bottom {
+        justify-content: space-between;
+      }
+
+      &__legal--bottom {
+        display: inline-block;
+      }
+
+      &__links {
+        display: contents;
+
+        a {
+          width: auto;
+          height: auto;
+          border: none;
+          border-radius: 0;
+
+          &:hover {
+            background: transparent;
+          }
+
+          img {
+            display: none;
+          }
+        }
+      }
+
+      &__link-text {
+        display: inline;
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: vars.$base-white-option1;
+        transition: color 300ms ease;
+      }
+
+      &__links a:hover &__link-text {
+        color: #3355FF;
       }
     }
   }

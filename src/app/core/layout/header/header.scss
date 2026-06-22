@@ -53,9 +53,17 @@
     @media (min-width: vars.$breakpoint-desktop) {
       display: inline-block;
 
-      &--about,
-      &--skills {
+      .header--project-details &--about {
         color: vars.$base-black-option1;
+      }
+
+      .header--project-details &--skills {
+        color: vars.$base-grey-option1;
+      }
+
+      .header--project-details &--projects,
+      .header--project-details &--contact {
+        color: vars.$base-white-option1;
       }
     }
 
@@ -139,6 +147,10 @@
     .header--invert {
       filter: brightness(0) invert(1) brightness(0.06);
     }
+  }
+
+  &--project-details &__menu-icon.header--invert {
+    filter: brightness(0) invert(1) brightness(0.06);
   }
 
   &--hidden {

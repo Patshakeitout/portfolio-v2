@@ -1,4 +1,5 @@
 @use '../../../styles/variables' as vars;
+@use '../../../styles/mixins' as mix;
 
 .legal__title {
   position: absolute;
@@ -108,7 +109,8 @@
 
 .footer {
   background: transparent;
-  padding: 2rem 1rem;
+  padding-block: 2rem;
+  @include mix.content-bounds;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -189,6 +191,57 @@
       &:hover img {
         filter: brightness(0) invert(1);
       }
+    }
+  }
+
+  &__link-text {
+    display: none;
+  }
+
+  &__legal--bottom {
+    display: none;
+  }
+
+  @media (min-width: vars.$breakpoint-desktop) {
+    &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    &__legal--bottom {
+      display: inline;
+    }
+
+    &__links {
+      display: contents;
+
+      a {
+        width: auto;
+        height: auto;
+        border: none;
+        border-radius: 0;
+
+        &:hover {
+          background: transparent;
+        }
+
+        img {
+          display: none;
+        }
+      }
+    }
+
+    &__link-text {
+      display: inline;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: vars.$base-black-option1;
+      transition: color 300ms ease;
+    }
+
+    &__links a:hover &__link-text {
+      color: #3355FF;
     }
   }
 }
