@@ -15,7 +15,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding-top: 9rem;
-    @include mix.content-padding;
+    @include mix.content-bounds;
   }
 
   &__header {
@@ -236,15 +236,14 @@
   .footer {
     position: relative;
     z-index: 1;
+    width: 100%;
     margin-top: 0.5rem;
     background: transparent;
     color: vars.$base-white-option1;
     padding-block: 1rem 2rem;
-    @include mix.content-bounds;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    @include mix.content-padding;
 
     &__top {
       display: flex;

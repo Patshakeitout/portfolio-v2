@@ -1,30 +1,58 @@
 <!-- Contact component/section --------------------------------------------------------------------------->
 
 <section class="contact">
-  <img ngSrc="design-material/01_Background/design-size-relation/06_Contact_mobile.webp"
-       fill loading="lazy" alt="Background" />
+  <img
+    ngSrc="design-material/01_Background/design-size-relation/06_Contact_mobile.webp"
+    fill
+    loading="lazy"
+    alt="Background"
+  />
 
   <main class="contact__content">
     <header class="contact__header">
-      <svg class="sticker" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"
-           (mouseenter)="onStickerEnter($event)" (mouseleave)="onStickerLeave()" (click)="onStickerEnter($event)"
-           [class.sticker--cw]="stickerDir() === 'cw'"
-           [class.sticker--ccw]="stickerDir() === 'ccw'">
+      <svg
+        class="sticker"
+        viewBox="0 0 200 200"
+        xmlns="http://www.w3.org/2000/svg"
+        (mouseenter)="onStickerEnter($event)"
+        (mouseleave)="onStickerLeave()"
+        (click)="onStickerEnter($event)"
+        [class.sticker--cw]="stickerDir() === 'cw'"
+        [class.sticker--ccw]="stickerDir() === 'ccw'"
+      >
         <defs>
           <clipPath id="sticker-clip">
-            <circle cx="100" cy="100" r="99"/>
+            <circle cx="100" cy="100" r="99" />
           </clipPath>
-          <path id="sticker-text-path"
-            d="M 100,100 m -50.5,65.9 a 83,83 0 1,1 101,-131.8 a 83,83 0 1,1 -101,131.8"/>
+          <path
+            id="sticker-text-path"
+            d="M 100,100 m -50.5,65.9 a 83,83 0 1,1 101,-131.8 a 83,83 0 1,1 -101,131.8"
+          />
         </defs>
-        <image href="/design-material/03_Stickers/00_Round/blue.png"
-          x="0" y="0" width="200" height="200" clip-path="url(#sticker-clip)"/>
-        <image href="/logo.webp"
-          x="52" y="52" width="96" height="96"
+        <image
+          href="/design-material/03_Stickers/00_Round/blue.png"
+          x="0"
+          y="0"
+          width="200"
+          height="200"
+          clip-path="url(#sticker-clip)"
+        />
+        <image
+          href="/logo.webp"
+          x="52"
+          y="52"
+          width="96"
+          height="96"
           transform="rotate(-75, 100, 100)"
-          filter="brightness(0)"/>
+          filter="brightness(0)"
+        />
         <text font-size="12" font-family="sans-serif" fill="#0E1013" font-weight="700">
-          <textPath href="#sticker-text-path" startOffset="0%" textLength="509" lengthAdjust="spacing">
+          <textPath
+            href="#sticker-text-path"
+            startOffset="0%"
+            textLength="509"
+            lengthAdjust="spacing"
+          >
             Patrick Schauer ● Frontend Developer ● Engineering &amp; Design ●
           </textPath>
         </text>
@@ -40,77 +68,134 @@
 
     <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
       <label class="contact__label" for="contact-name">{{ 'contact.nameLabel' | translate }}</label>
-      <input class="contact__input" id="contact-name" formControlName="name" type="text"
-             [placeholder]="namePlaceholder() | translate"
-             [class.contact__input--error]="form.get('name')?.touched && form.get('name')?.invalid"
-             (focus)="resetTouched('name')" (blur)="markTouched('name')" />
+      <input
+        class="contact__input"
+        id="contact-name"
+        formControlName="name"
+        type="text"
+        [placeholder]="namePlaceholder() | translate"
+        [class.contact__input--error]="form.get('name')?.touched && form.get('name')?.invalid"
+        (focus)="resetTouched('name')"
+        (blur)="markTouched('name')"
+      />
 
-      <label class="contact__label" for="contact-email">{{ 'contact.emailLabel' | translate }}</label>
-      <input class="contact__input" id="contact-email" formControlName="email" type="email"
-             [placeholder]="emailPlaceholder() | translate"
-             [class.contact__input--error]="form.get('email')?.touched && form.get('email')?.invalid"
-             (focus)="resetTouched('email')" (blur)="markTouched('email')" />
+      <label class="contact__label" for="contact-email">{{
+        'contact.emailLabel' | translate
+      }}</label>
+      <input
+        class="contact__input"
+        id="contact-email"
+        formControlName="email"
+        type="email"
+        [placeholder]="emailPlaceholder() | translate"
+        [class.contact__input--error]="form.get('email')?.touched && form.get('email')?.invalid"
+        (focus)="resetTouched('email')"
+        (blur)="markTouched('email')"
+      />
       <p class="contact__error" role="alert">{{ emailError() | translate }}</p>
 
-      <label class="contact__label" for="contact-message">{{ 'contact.messageLabel' | translate }}</label>
-      <textarea class="contact__input" id="contact-message" formControlName="message" rows="4"
-                [placeholder]="messagePlaceholder() | translate"
-                [class.contact__input--error]="form.get('message')?.touched && form.get('message')?.invalid"
-                (focus)="resetTouched('message')" (blur)="markTouched('message')" >
+      <label class="contact__label" for="contact-message">{{
+        'contact.messageLabel' | translate
+      }}</label>
+      <textarea
+        class="contact__input"
+        id="contact-message"
+        formControlName="message"
+        rows="4"
+        [placeholder]="messagePlaceholder() | translate"
+        [class.contact__input--error]="form.get('message')?.touched && form.get('message')?.invalid"
+        (focus)="resetTouched('message')"
+        (blur)="markTouched('message')"
+      >
       </textarea>
 
       <fieldset class="contact__privacy">
         <label class="contact__privacy-label">
-          <img class="contact__arrow" src="/design-material/00_Hand-drawn lines/05_Contact/contact-arrow.png" alt="" />
+          <img
+            class="contact__arrow"
+            src="/design-material/00_Hand-drawn lines/05_Contact/contact-arrow.png"
+            alt=""
+          />
           <input type="checkbox" formControlName="privacy" (change)="submitted.set(false)" />
-          <span>{{ 'contact.privacyConsentPre' | translate }}<a class="contact__privacy-link" [routerLink]="['/', lang(), 'privacy-policy']">{{ 'contact.privacyConsentLink' | translate }}</a>{{ 'contact.privacyConsentPost' | translate }}</span>
+          <span
+            >{{ 'contact.privacyConsentPre' | translate
+            }}<a class="contact__privacy-link" [routerLink]="['/', lang(), 'privacy-policy']">{{
+              'contact.privacyConsentLink' | translate
+            }}</a
+            >{{ 'contact.privacyConsentPost' | translate }}</span
+          >
         </label>
         <p class="contact__privacy-error" role="alert">{{ privacyError() | translate }}</p>
       </fieldset>
 
       <div class="contact__actions">
-        <button class="btn-primary btn-primary--ghost btn-primary--grey" type="submit" [disabled]="status() === 'sending'">
-          @if (status() === 'sending') { {{ 'contact.sending' | translate }} }
-          @else { {{ 'contact.send' | translate }} }
+        <button
+          class="btn-primary btn-primary--ghost btn-primary--grey"
+          type="submit"
+          [disabled]="status() === 'sending'"
+        >
+          @if (status() === 'sending') {
+            {{ 'contact.sending' | translate }}
+          } @else {
+            {{ 'contact.send' | translate }}
+          }
         </button>
       </div>
 
       @if (status() === 'success') {
-        <p class="contact__feedback contact__feedback--success">{{ 'contact.success' | translate }}</p>
+        <p class="contact__feedback contact__feedback--success">
+          {{ 'contact.success' | translate }}
+        </p>
       }
       @if (status() === 'error') {
         <p class="contact__feedback contact__feedback--error">{{ 'contact.error' | translate }}</p>
       }
     </form>
 
+    <footer class="footer">
+      <section class="footer__top">
+        <a [routerLink]="['/', lang()]" (click)="scrollToTop()"
+          ><img class="footer__logo" src="/logo.webp" alt="Patrick Schauer Logo"
+        /></a>
+        <div class="footer__meta">
+          <small class="footer__copyright">{{ 'footer.copyright' | translate }}</small>
+          <a class="footer__legal" [routerLink]="['/', lang(), 'legal-notice']">{{
+            'footer.legalNotice' | translate
+          }}</a>
+        </div>
+      </section>
+
+      <section class="footer__bottom">
+        <a
+          class="footer__legal footer__legal--bottom"
+          [routerLink]="['/', lang(), 'legal-notice']"
+          >{{ 'footer.legalNotice' | translate }}</a
+        >
+        <nav class="footer__links" aria-label="Footer navigation">
+          <a
+            href="https://github.com/Patshakeitout"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <img src="/icons/contact/github.svg" alt="GitHub" />
+            <span class="footer__link-text">GitHub</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/patrick-schauer-5a369322a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
+            <span class="footer__link-text">LinkedIn</span>
+          </a>
+          <a href="mailto:patrick_schauer@t-online.de" aria-label="Email">
+            <img src="/icons/contact/mail.svg" alt="Email" />
+            <span class="footer__link-text">Email</span>
+          </a>
+        </nav>
+      </section>
+    </footer>
   </main>
-
-  <footer class="footer">
-    <section class="footer__top">
-      <a [routerLink]="['/', lang()]" (click)="scrollToTop()"><img class="footer__logo" src="/logo.webp" alt="Patrick Schauer Logo" /></a>
-      <div class="footer__meta">
-        <small class="footer__copyright">{{ 'footer.copyright' | translate }}</small>
-        <a class="footer__legal" [routerLink]="['/', lang(), 'legal-notice']">{{ 'footer.legalNotice' | translate }}</a>
-      </div>
-    </section>
-
-    <section class="footer__bottom">
-      <a class="footer__legal footer__legal--bottom" [routerLink]="['/', lang(), 'legal-notice']">{{ 'footer.legalNotice' | translate }}</a>
-      <nav class="footer__links" aria-label="Footer navigation">
-        <a href="https://github.com/Patshakeitout" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <img src="/icons/contact/github.svg" alt="GitHub" />
-          <span class="footer__link-text">GitHub</span>
-        </a>
-        <a href="https://www.linkedin.com/in/patrick-schauer-5a369322a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
-          <span class="footer__link-text">LinkedIn</span>
-        </a>
-        <a href="mailto:patrick_schauer@t-online.de" aria-label="Email">
-          <img src="/icons/contact/mail.svg" alt="Email" />
-          <span class="footer__link-text">Email</span>
-        </a>
-      </nav>
-    </section>
-  </footer>
-
 </section>
