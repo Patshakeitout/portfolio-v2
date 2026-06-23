@@ -146,7 +146,7 @@ export class ContactComponent implements OnInit, OnDestroy {
 
     try {
       await firstValueFrom(
-        this.http.post('https://v2.patrickschauer.de/api/contact.php', this.form.value)
+        this.http.post('https://patrickschauer.de/api/contact.php', this.form.value)
       );
       this.status.set('success');
       this.submitted.set(false);
