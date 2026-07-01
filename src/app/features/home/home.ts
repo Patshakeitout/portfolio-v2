@@ -1,5 +1,4 @@
 import { Component, AfterViewInit, ElementRef, inject, OnDestroy, NgZone } from '@angular/core';
-import { HeaderColorService } from '../../core/services/header-color.service';
 import { HeroComponent } from './../hero/hero';
 import { AboutComponent } from './../about/about';
 import { SkillsComponent } from './../skills/skills';
@@ -14,10 +13,7 @@ import { ContactComponent } from './../contact/contact';
   standalone: true,
 })
 export class HomeComponent implements AfterViewInit, OnDestroy {
-  private elementRef = inject(ElementRef); // tag (<app-home>)
-  private headerColorService = inject(HeaderColorService);
-  // We use the browser API to listen for visual changes between the sections.
-  private observer?: IntersectionObserver;
+  private elementRef = inject(ElementRef);
   /* Ng-specific service that ng "can see" changes with IntersectionObserver because this
   is outside of ng's "zone". */
   private zone = inject(NgZone);
@@ -29,7 +25,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
    * sections that require the header to change color.
    */
   ngAfterViewInit(): void {
-    this.setupIntersectionObserver();
     this.setupScrollListener();
   }
 
@@ -37,53 +32,9 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
    * Cleans up the IntersectionObserver and scroll listener when the component is destroyed.
    */
   ngOnDestroy(): void {
-    this.observer?.disconnect();
     if (this.scrollListener) {
       window.removeEventListener('scroll', this.scrollListener);
     }
-  }
-
-  /**
-   * Initializes the IntersectionObserver to track sections with the
-   * 'section--invert-color' class. When these sections are in view,
-   * it updates the HeaderColorService.
-   *
-   * @private
-   */
-  private setupIntersectionObserver(): void {
-    const headerHeight = 76;
-    const bottomMargin = headerHeight - window.innerHeight;
-
-    const options = {
-      root: null,
-      rootMargin: `0px 0px ${bottomMargin}px 0px`,
-      threshold: 0, // Trigger as soon as the element enters the adjusted viewport.
-    };
-
-    const sectionsToObserve = this.elementRef.nativeElement.querySelectorAll('.section--invert-color');
-    const intersectingElements = new Set<Element>();
-
-    /* Instantiate observer with CB for element's visibility changes.
-       Now, the IntersectionObserver API is going to be used. */
-    this.observer = new IntersectionObserver((entries) => {
-      this.zone.run(() => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            intersectingElements.add(entry.target);
-          } else {
-            intersectingElements.delete(entry.target);
-          }
-        });
-        // Update the signal based on intersecting sections only
-        // Bottom state is handled separately in scroll listener
-        this.headerColorService.isHeaderInverted.set(intersectingElements.size > 0 && !this.isAtBottom);
-      });
-    }, options);
-
-    // Use the observe()-method, means start watching.
-    sectionsToObserve.forEach((section: Element) => {
-      this.observer?.observe(section);
-    });
   }
 
   /**
@@ -99,8 +50,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
         // If bottom state changed, update the header
         if (wasAtBottom !== this.isAtBottom) {
           if (this.isAtBottom) {
-            // At bottom: force header to NOT be inverted (white)
-            this.headerColorService.isHeaderInverted.set(false);
           } else {
             // Not at bottom anymore: check if any sections are intersecting
             const sectionsToObserve = this.elementRef.nativeElement.querySelectorAll('.section--invert-color');
@@ -113,8 +62,6 @@ export class HomeComponent implements AfterViewInit, OnDestroy {
                 hasIntersectingSections = true;
               }
             });
-
-            this.headerColorService.isHeaderInverted.set(hasIntersectingSections);
           }
         }
       });

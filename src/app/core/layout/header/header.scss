@@ -5,16 +5,38 @@
 
 .header {
   position: fixed;
+  overflow: visible;
   top: 0;
   left: 0;
   right: 0;
   z-index: 100;
+
   padding: 1rem;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: top 0.3s ease-in-out;
+
+
   @include mix.content-bounds;
+
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    top: -40px;
+    height: 40px;
+    pointer-events: none;
+
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.08), transparent);
+  }
 
   &__logo {
     width: 40px;
@@ -25,7 +47,8 @@
     &:hover,
     &:active {
       // Filter equivalent of vars.$highlight1-option1 (#F7C518)
-      filter: brightness(0) saturate(100%) invert(76%) sepia(53%) saturate(1029%) hue-rotate(358deg) brightness(103%) contrast(94%);
+      filter: brightness(0) saturate(100%) invert(76%) sepia(53%) saturate(1029%) hue-rotate(358deg)
+        brightness(103%) contrast(94%);
     }
   }
 
@@ -37,18 +60,24 @@
     z-index: 1;
   }
 
-  &--invert {
-    filter: brightness(0) invert(1) brightness(0.974);
-    transition: filter 0.2s ease-in-out;
-  }
-
   &__nav-link {
     display: none;
     text-decoration: none;
-    color: inherit;
+    color: #3d3d3d;
     font-size: 18px;
     font-weight: 700;
     padding: 8px 16px;
+
+    :hover {
+      color: #111;
+    }
+
+    &.active {
+      color: vars.$base-black-option1;
+      transition:
+        color 0.25s ease,
+        opacity 0.25s ease;
+    }
 
     @media (min-width: vars.$breakpoint-desktop) {
       display: inline-block;
@@ -67,10 +96,18 @@
       }
     }
 
-    &--about    { @include mix.nav-link-hover(1, mix.$clip-top-to-bottom); }
-    &--skills   { @include mix.nav-link-hover(2, mix.$clip-left-to-right); }
-    &--projects { @include mix.nav-link-hover(3, mix.$clip-left-to-right, 50%, 1, 100%, 145%); }
-    &--contact  { @include mix.nav-link-hover(4, mix.$clip-left-to-right, 90%, 1, 100%); }
+    &--about {
+      @include mix.nav-link-hover(1, mix.$clip-top-to-bottom);
+    }
+    &--skills {
+      @include mix.nav-link-hover(2, mix.$clip-left-to-right);
+    }
+    &--projects {
+      @include mix.nav-link-hover(3, mix.$clip-left-to-right, 50%, 1, 100%, 145%);
+    }
+    &--contact {
+      @include mix.nav-link-hover(4, mix.$clip-left-to-right, 90%, 1, 100%);
+    }
   }
 
   &__lang-toggle {
@@ -89,8 +126,12 @@
       top: 45%;
     }
 
-    &--english::before { left: 80%; }
-    &:not(&--english)::before { left: 18%; }
+    &--english::before {
+      left: 80%;
+    }
+    &:not(&--english)::before {
+      left: 18%;
+    }
   }
 
   &__toggle {
@@ -132,7 +173,8 @@
     &:hover .header__menu-icon,
     &:active .header__menu-icon {
       // Filter equivalent of vars.$highlight2-option1 (#3355FF)
-      filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1852%) hue-rotate(222deg) brightness(101%) contrast(102%);
+      filter: brightness(0) saturate(100%) invert(29%) sepia(93%) saturate(1852%) hue-rotate(222deg)
+        brightness(101%) contrast(102%);
     }
 
     // When menu is open (close icon - no --invert class)
@@ -141,20 +183,7 @@
     }
   }
 
-  &--inverted {
-    color: vars.$base-black-option1;
-
-    .header--invert {
-      filter: brightness(0) invert(1) brightness(0.06);
-    }
-  }
-
-  &--project-details &__menu-icon.header--invert {
-    filter: brightness(0) invert(1) brightness(0.06);
-  }
-
   &--hidden {
     top: -80px;
   }
-
 }

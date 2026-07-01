@@ -1,6 +1,5 @@
-import { Component, ElementRef, inject, OnInit, OnDestroy, signal } from '@angular/core';
+import { Component, inject, OnDestroy, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
-import { HeaderColorService } from '../../core/services/header-color.service';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
@@ -15,9 +14,7 @@ import { LanguageService } from '../../core/services/language.service';
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
-export class ContactComponent implements OnInit, OnDestroy {
-  private elementRef = inject(ElementRef);
-  private headerColorService = inject(HeaderColorService);
+export class ContactComponent implements OnDestroy {
   private http = inject(HttpClient);
   public lang = inject(LanguageService).lang;
   private observer?: IntersectionObserver;
@@ -154,22 +151,6 @@ export class ContactComponent implements OnInit, OnDestroy {
     } catch {
       this.status.set('error');
     }
-  }
-
-  /** Observes the section's visibility to toggle the header colour on intersection. */
-  ngOnInit(): void {
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          this.headerColorService.isInContactSection.set(entry.isIntersecting);
-        });
-      },
-      {
-        threshold: 0.3 // Trigger when 30% of the section is visible
-      }
-    );
-
-    this.observer.observe(this.elementRef.nativeElement);
   }
 
   /** Smoothly animates the window scroll position back to the top. */
