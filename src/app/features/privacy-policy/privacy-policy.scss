@@ -1,5 +1,11 @@
-@use '../../../styles/variables' as vars;
-@use '../../../styles/mixins' as mix;
+/* privacy-policy.scss */
+
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+.privacy {
+  @include mix.content-bounds;
+}
 
 .privacy__title {
   position: absolute;
@@ -16,7 +22,6 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 1rem 1rem 0;
   text-decoration: none;
   color: vars.$base-black-option1;
   font-size: 1.125rem;
@@ -50,11 +55,7 @@
 .privacy {
   position: relative;
   z-index: 1;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0rem 1rem 4rem;
   color: vars.$base-black-option1;
-
 
   h2 {
     font-size: 1.125rem;

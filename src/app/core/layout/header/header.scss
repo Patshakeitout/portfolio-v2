@@ -17,13 +17,11 @@
   justify-content: space-between;
   align-items: center;
 
-
-  @include mix.content-bounds;
-
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.45); /* Lowered from 0.72 for more transparency */
+  backdrop-filter: blur(24px);           /* Increased blur for better frosting */
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Slightly brighter reflection on the edge */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
 
@@ -58,6 +56,7 @@
     transition: filter 0.3s ease-out;
     position: relative;
     z-index: 1;
+    filter: invert(0%) brightness(0%) contrast(100%);
   }
 
   &__nav-link {
@@ -178,7 +177,7 @@
     }
 
     // When menu is open (close icon - no --invert class)
-    &:has(.header__menu-icon:not(.header--invert))::before {
+    &:has(.header__menu-icon:before) {
       background-image: url('/design-material/00_Hand-drawn%20lines/00_Header/Menu%20-%20Mobile%20icon/00_While%20pressing%202.png');
     }
   }

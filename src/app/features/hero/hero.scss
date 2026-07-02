@@ -373,11 +373,11 @@
     flex-direction: column;
     gap: 0.5rem;
     position: absolute;
-    bottom: 5.5rem;
+    bottom: 11.5rem;
     left: 0;
     right: 0;
     box-sizing: border-box;
-    @include mix.content-bounds;
+    padding-left: 1rem;
 
     @media (max-width: 430px) {
       display: none;
