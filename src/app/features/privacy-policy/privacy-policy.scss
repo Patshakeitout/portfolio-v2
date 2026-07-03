@@ -1,68 +1,29 @@
-/* privacy-policy.scss */
-
 @use 'variables' as vars;
 @use 'mixins' as mix;
 
 .privacy {
-  @include mix.content-bounds;
-}
-
-.privacy__title {
-  position: absolute;
-  bottom: 3.5rem;
-  left: 1rem;
-  z-index: 1;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0;
-  color: vars.$base-white-option1;
-}
-
-.privacy__back-arrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: vars.$base-black-option1;
-  font-size: 1.125rem;
-  font-weight: 700;
-
-  img {
-    height: 1.5rem;
-    width: auto;
-  }
-
-  &:hover {
-    color: #f87a55;
-  }
-}
-
-.privacy__bg {
-  position: relative;
-  width: 100%;
-  height: 16.9375rem;
-  overflow: hidden;
-
-  img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.privacy {
   position: relative;
   z-index: 1;
   color: vars.$base-black-option1;
+
+  &__content {
+    @include mix.content-bounds;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      max-width: 1216px;
+    }
+  }
 
   h2 {
     font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.2;
-    color: #3355FF;
+    color: #3355ff;
     margin: 2rem 0 0.5rem;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      font-size: 1.5em;
+    }
   }
 
   p {
@@ -71,13 +32,67 @@
     margin: 0 0 1rem;
   }
 
-
-  a {
-    color: #3355FF;
+  p a {
+    color: #3355ff;
     text-decoration: underline;
     text-underline-offset: 0.15rem;
 
-    &:hover { color: #1f3ad6; }
+    &:hover {
+      color: #1f3ad6;
+    }
+  }
+
+  &__bg {
+    position: relative;
+    height: 439px;
+    overflow: hidden;
+    background: url('/design-material/01_Background/design-size-relation/09_privacy-policy_legal.webp')
+      center / 100% 100% no-repeat;
+  }
+
+  &__title {
+    @include mix.content-bounds;
+    position: absolute;
+    inset-inline: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-block: 0;
+    font-size: 48px;
+    font-weight: 700;
+    color: vars.$base-white-option1;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      max-width: 1216px;
+      font-size: 4rem;
+    }
+
+    @media (max-width: 372px) {
+      font-size: 36px;
+    }
+  }
+
+  &__back-arrow {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: vars.$base-black-option1;
+    font-size: 1.125rem;
+    font-weight: 700;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      margin-block: 2rem;
+    }
+
+    img {
+      height: 1.5rem;
+      width: auto;
+    }
+
+    &:hover {
+      color: #f87a55;
+    }
   }
 }
 
@@ -85,10 +100,14 @@
   background: transparent;
   color: vars.$base-white-option1;
   padding-block: 2rem;
-  @include mix.content-bounds;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+
+  @media (min-width: vars.$breakpoint-desktop) {
+    margin-inline: 0;
+    padding-inline: 72px;
+  }
 
   &__top {
     display: flex;
@@ -114,7 +133,8 @@
     font-style: normal;
   }
 
-  &__copyright, &__legal {
+  &__copyright,
+  &__legal {
     font-size: 1.125rem;
     font-weight: 700;
     color: vars.$base-black-option1;
@@ -123,14 +143,16 @@
   &__legal {
     text-decoration: none;
     display: inline-block;
-    background-image: url("/design-material/00_Hand-drawn lines/05_Contact/legal.png");
+    background-image: url('/design-material/00_Hand-drawn lines/05_Contact/legal.png');
     background-repeat: no-repeat;
     background-position: left bottom;
     padding-bottom: 0.5rem;
     background-size: 0% 1.5rem;
     transition: background-size 0.3s ease-out;
 
-    &:hover { background-size: 100% 1.5rem; }
+    &:hover {
+      background-size: 100% 1.5rem;
+    }
   }
 
   &__bottom {
@@ -153,11 +175,13 @@
       border-radius: 50%;
       border: 1px solid vars.$base-black-option1;
       flex-shrink: 0;
-      transition: background 300ms ease, border-color 300ms ease;
+      transition:
+        background 300ms ease,
+        border-color 300ms ease;
 
       &:hover {
-        background: #3355FF;
-        border-color: #3355FF;
+        background: #3355ff;
+        border-color: #3355ff;
       }
 
       img {

@@ -10,20 +10,27 @@
   left: 0;
   right: 0;
   z-index: 100;
-
   padding: 1rem;
 
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  background: rgba(255, 255, 255, 0.45); /* Lowered from 0.72 for more transparency */
-  backdrop-filter: blur(24px);           /* Increased blur for better frosting */
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* Slightly brighter reflection on the edge */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%), /* contrast scrim */
+    rgba(255, 255, 255, 0.45); /* frosted tint */
+  backdrop-filter: blur(24px) saturate(140%); /* frost + vibrancy */
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* brighter reflection on the edge */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* subtle depth */
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;
+
+  @media (min-width: vars.$breakpoint-desktop) {
+    padding: 16px 72px;
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+  }
 
   &::before {
     content: '';

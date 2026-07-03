@@ -74,6 +74,10 @@
     font-size: 48px;
     font-weight: 700;
 
+    @media (min-width: vars.$breakpoint-desktop) {
+      font-size: 64px;
+    }
+
     &::after {
       content: '';
       position: absolute;

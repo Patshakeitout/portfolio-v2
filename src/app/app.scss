@@ -1,25 +1,2 @@
 @use 'variables' as vars;
 
-.rotate-overlay {
-  display: none;
-}
-
-// iPad-Pro-class tablets in portrait: prompt to rotate to landscape.
-@media (orientation: portrait) and (min-width: 768px) {
-  .rotate-overlay {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    background-color: vars.$base-black-option1;
-    color: vars.$base-white-option1;
-    text-align: center;
-  }
-
-  .rotate-overlay__content {
-    max-width: 28rem;
-  }
-}

@@ -1,42 +1,39 @@
-<div class="privacy__bg">
-  <img
-    src="/design-material/01_Background/design-size-relation/09_privacy_policy_legal_notice.webp"
-    alt=""
-    aria-hidden="true"
-  />
-  <h1 class="privacy__title">{{ 'privacyPolicy.title' | translate }}</h1>
-</div>
-
 <main class="privacy">
-  <a class="privacy__back-arrow" [routerLink]="['/', lang()]">
-    <img
-      src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png"
-      alt="Back"
-    />
-    {{ 'common.back' | translate }}
-  </a>
+  <header class="privacy__bg">
+    <h1 class="privacy__title">{{ 'privacyPolicy.title' | translate }}</h1>
+  </header>
 
-  <h2>{{ 'privacyPolicy.controllerHeading' | translate }}</h2>
-  <p [innerHTML]="'privacyPolicy.controllerBody' | translate"></p>
+  <div class="privacy__content">
+    <a class="privacy__back-arrow" [routerLink]="['/', lang()]">
+      <img
+        src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png"
+        alt="Back"
+      />
+      {{ 'common.back' | translate }}
+    </a>
 
-  <h2>{{ 'privacyPolicy.collectionHeading' | translate }}</h2>
-  <p>{{ 'privacyPolicy.collectionBody' | translate }}</p>
+    <h2>{{ 'privacyPolicy.controllerHeading' | translate }}</h2>
+    <p [innerHTML]="'privacyPolicy.controllerBody' | translate"></p>
 
-  <h2>{{ 'privacyPolicy.formHeading' | translate }}</h2>
-  <p>{{ 'privacyPolicy.formBody' | translate }}</p>
+    <h2>{{ 'privacyPolicy.collectionHeading' | translate }}</h2>
+    <p>{{ 'privacyPolicy.collectionBody' | translate }}</p>
 
-  <h2>{{ 'privacyPolicy.hostingHeading' | translate }}</h2>
-  <p>{{ 'privacyPolicy.hostingBody' | translate }}</p>
+    <h2>{{ 'privacyPolicy.formHeading' | translate }}</h2>
+    <p>{{ 'privacyPolicy.formBody' | translate }}</p>
 
-  <h2>{{ 'privacyPolicy.cookiesHeading' | translate }}</h2>
-  <p>{{ 'privacyPolicy.cookiesBody' | translate }}</p>
+    <h2>{{ 'privacyPolicy.hostingHeading' | translate }}</h2>
+    <p>{{ 'privacyPolicy.hostingBody' | translate }}</p>
 
-  <h2>{{ 'privacyPolicy.rightsHeading' | translate }}</h2>
-  <p [innerHTML]="'privacyPolicy.rightsBody1' | translate"></p>
-  <p>{{ 'privacyPolicy.rightsBody2' | translate }}</p>
+    <h2>{{ 'privacyPolicy.cookiesHeading' | translate }}</h2>
+    <p>{{ 'privacyPolicy.cookiesBody' | translate }}</p>
 
-  <h2>{{ 'privacyPolicy.statusHeading' | translate }}</h2>
-  <p>{{ 'privacyPolicy.statusBody' | translate }}</p>
+    <h2>{{ 'privacyPolicy.rightsHeading' | translate }}</h2>
+    <p [innerHTML]="'privacyPolicy.rightsBody1' | translate"></p>
+    <p>{{ 'privacyPolicy.rightsBody2' | translate }}</p>
+
+    <h2>{{ 'privacyPolicy.statusHeading' | translate }}</h2>
+    <p>{{ 'privacyPolicy.statusBody' | translate }}</p>
+  </div>
 </main>
 
 <footer class="footer">

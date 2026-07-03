@@ -1,41 +1,10 @@
 @use '../../../styles/variables' as vars;
 @use '../../../styles/mixins' as mix;
 
-.legal__title {
-  position: absolute;
-  bottom: 3.5rem;
-  left: 1rem;
-  z-index: 1;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0;
-  color: vars.$base-white-option1;
-}
-
-.legal__back-arrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem 1rem 0;
-  text-decoration: none;
-  color: vars.$base-black-option1;
-  font-size: 1.125rem;
-  font-weight: 700;
-
-  img {
-    height: 1.5rem;
-    width: auto;
-  }
-
-  &:hover {
-    color: #F87AF5;
-  }
-}
-
 .legal__bg {
   position: relative;
   width: 100%;
-  height: 16.9375rem;
+  height: 439px;
   overflow: hidden;
 
   img {
@@ -47,20 +16,63 @@
   }
 }
 
+.legal__title {
+  @include mix.content-bounds;
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-block: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: vars.$base-white-option1;
+
+  @media (min-width: vars.$breakpoint-desktop) {
+    padding-inline: 7.5rem;
+    font-size: 4rem;
+  }
+}
+
+.legal__back-arrow {
+  @include mix.content-bounds;
+  display: flex;
+  align-items: center;
+  margin-block: 2rem;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: vars.$base-black-option1;
+  font-size: 1.125rem;
+  font-weight: 700;
+
+  @media (min-width: vars.$breakpoint-desktop) {
+    padding-left: 7.5rem;
+    width: 1024px;
+    margin-inline: 0;
+  }
+
+  img {
+    height: 1.5rem;
+    width: auto;
+  }
+
+  &:hover {
+    color: #f87a55;
+  }
+}
+
 .legal {
   position: relative;
   z-index: 1;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 0 1rem 4rem;
   color: vars.$base-black-option1;
+  @include mix.content-bounds;
+
+  @media (min-width: vars.$breakpoint-desktop) {
+    padding-left: 7.5rem;
+    width: 1024px;
+    margin-inline: 0;
+  }
 
   &__section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
-
     .DevAka {
       text-decoration: none;
 
@@ -71,39 +83,36 @@
   }
 
   h2 {
-    font-size: 1.4375rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.2;
-    color: #3355FF;
-    margin: 0;
+    color: #3355ff;
+    margin: 2rem 0 0.5rem;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      font-size: 1.5em;
+    }
   }
 
   p {
     font-size: 1rem;
-    line-height: 1.2;
-    color: vars.$base-black-option1;
-    margin: 0;
-  }
-
-  &__section:first-child {
-    h2 { color: #3355FF; }
-
-    p {
-      font-size: 1rem;
-      font-weight: 400;
-      color: vars.$base-black-option1;
-    }
+    line-height: 1.7;
+    margin: 0 0 1rem;
   }
 
   em {
     font-style: normal;
-    color: #3355FF;
+    color: #3355ff;
   }
 
-  a {
-    color: #3355FF;
+  p a {
+    color: #3355ff;
     text-decoration: underline;
     text-underline-offset: 0.15rem;
+
+    &:hover {
+      color: #1f3ad6;
+    }
   }
 }
 
