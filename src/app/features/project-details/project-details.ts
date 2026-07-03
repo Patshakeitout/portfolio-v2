@@ -3,10 +3,11 @@ import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { PROJECTS } from './projects-data';
 import { LanguageService } from '../../core/services/language.service';
+import { FooterComponent } from '../../core/layout/footer/footer';
 
 @Component({
   selector: 'app-project-details',
-  imports: [RouterLink, TranslatePipe],
+  imports: [RouterLink, TranslatePipe, FooterComponent],
   templateUrl: './project-details.html',
   styleUrl: './project-details.scss',
 })

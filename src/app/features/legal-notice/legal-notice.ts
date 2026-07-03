@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageService } from '../../core/services/language.service';
+import { FooterComponent } from '../../core/layout/footer/footer';
 
 @Component({
   selector: 'app-legal-notice',
-  imports: [RouterLink, TranslatePipe],
+  imports: [RouterLink, TranslatePipe, FooterComponent],
   templateUrl: './legal-notice.html',
   styleUrl: './legal-notice.scss',
 })

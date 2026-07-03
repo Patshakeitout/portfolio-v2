@@ -1,4 +1,4 @@
-@use 'variables' as vars;
+﻿@use 'variables' as vars;
 @use 'mixins' as mix;
 
 .privacy {
@@ -92,108 +92,6 @@
 
     &:hover {
       color: #f87a55;
-    }
-  }
-}
-
-.footer {
-  background: transparent;
-  color: vars.$base-white-option1;
-  padding-block: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-
-  @media (min-width: vars.$breakpoint-desktop) {
-    margin-inline: 0;
-    padding-inline: 72px;
-  }
-
-  &__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__logo {
-    width: 3rem;
-    height: auto;
-    transition: filter 300ms ease;
-
-    &:hover {
-      filter: brightness(0) saturate(100%) invert(78%) sepia(60%) saturate(600%) hue-rotate(5deg);
-    }
-  }
-
-  &__meta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.25rem;
-    font-style: normal;
-  }
-
-  &__copyright,
-  &__legal {
-    font-size: 1.125rem;
-    font-weight: 700;
-    color: vars.$base-black-option1;
-  }
-
-  &__legal {
-    text-decoration: none;
-    display: inline-block;
-    background-image: url('/design-material/00_Hand-drawn lines/05_Contact/legal.png');
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    padding-bottom: 0.5rem;
-    background-size: 0% 1.5rem;
-    transition: background-size 0.3s ease-out;
-
-    &:hover {
-      background-size: 100% 1.5rem;
-    }
-  }
-
-  &__bottom {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    padding-top: 1rem;
-  }
-
-  &__links {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-
-    a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
-      border: 1px solid vars.$base-black-option1;
-      flex-shrink: 0;
-      transition:
-        background 300ms ease,
-        border-color 300ms ease;
-
-      &:hover {
-        background: #3355ff;
-        border-color: #3355ff;
-      }
-
-      img {
-        width: 2rem;
-        height: 2rem;
-        filter: brightness(0);
-        transition: filter 300ms ease;
-      }
-
-      &:hover img {
-        filter: brightness(0) invert(1);
-      }
     }
   }
 }

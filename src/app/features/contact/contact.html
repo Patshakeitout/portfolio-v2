@@ -152,50 +152,6 @@
       }
     </form>
 
-    <footer class="footer">
-      <section class="footer__top">
-        <a [routerLink]="['/', lang()]" (click)="scrollToTop()"
-          ><img class="footer__logo" src="/logo.webp" alt="Patrick Schauer Logo"
-        /></a>
-        <div class="footer__meta">
-          <small class="footer__copyright">{{ 'footer.copyright' | translate }}</small>
-          <a class="footer__legal" [routerLink]="['/', lang(), 'legal-notice']">{{
-            'footer.legalNotice' | translate
-          }}</a>
-        </div>
-      </section>
-
-      <section class="footer__bottom">
-        <a
-          class="footer__legal footer__legal--bottom"
-          [routerLink]="['/', lang(), 'legal-notice']"
-          >{{ 'footer.legalNotice' | translate }}</a
-        >
-        <nav class="footer__links" aria-label="Footer navigation">
-          <a
-            href="https://github.com/Patshakeitout"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-          >
-            <img src="/icons/contact/github.svg" alt="GitHub" />
-            <span class="footer__link-text">GitHub</span>
-          </a>
-          <a
-            href="https://www.linkedin.com/in/patrick-schauer-5a369322a/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <img src="/icons/contact/linkedin.svg" alt="LinkedIn" />
-            <span class="footer__link-text">LinkedIn</span>
-          </a>
-          <a href="mailto:patrick_schauer@t-online.de" aria-label="Email">
-            <img src="/icons/contact/mail.svg" alt="Email" />
-            <span class="footer__link-text">Email</span>
-          </a>
-        </nav>
-      </section>
-    </footer>
   </main>
+  <app-footer theme="dark" />
 </section>

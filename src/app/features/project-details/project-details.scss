@@ -6,12 +6,29 @@
 .project-details {
   margin: 0;
   position: relative;
+  isolation: isolate;
   min-height: 100dvh;
   width: 100%;
   overflow: hidden;
   background-color: vars.$base-black-option1;
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('/design-material/01_Background/design-size-relation/08_project-view-mobile.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    z-index: -1;
+  }
+
   @media (min-width: vars.$breakpoint-desktop) {
+    &::before {
+      background-image: url('/design-material/01_Background/design-size-relation/project-details.webp');
+      background-size: auto 100%;
+    }
+
     .project-details__content {
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
@@ -31,11 +48,6 @@
           'header  image'
           'article image';
         grid-template-rows: auto auto minmax(0, 1fr);
-      }
-
-      &::before {
-        background-image: url('/design-material/01_Background/design-size-relation/project-details.webp');
-        background-size: auto 100%;
       }
     }
 
@@ -117,18 +129,6 @@
     padding: 88px 32px 24px 32px;
     min-height: 100dvh;
     @include mix.content-bounds;
-
-    &::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      height: 100dvh;
-      background-image: url('/design-material/01_Background/design-size-relation/08_project-view-mobile.png');
-      background-repeat: no-repeat;
-      background-position: top left;
-      background-size: cover;
-      z-index: -1;
-    }
   }
 
   &__header {

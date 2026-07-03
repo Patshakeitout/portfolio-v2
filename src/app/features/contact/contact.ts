@@ -6,11 +6,12 @@ import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 import { firstValueFrom } from 'rxjs';
 import { LanguageService } from '../../core/services/language.service';
+import { FooterComponent } from '../../core/layout/footer/footer';
 
 
 @Component({
   selector: 'app-contact',
-  imports: [NgOptimizedImage, ReactiveFormsModule, RouterLink, TranslatePipe],
+  imports: [NgOptimizedImage, ReactiveFormsModule, RouterLink, TranslatePipe, FooterComponent],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
@@ -151,23 +152,6 @@ export class ContactComponent implements OnDestroy {
     } catch {
       this.status.set('error');
     }
-  }
-
-  /** Smoothly animates the window scroll position back to the top. */
-  scrollToTop(): void {
-    const start = window.scrollY;
-    const duration = 1200;
-    const startTime = performance.now();
-
-    const step = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      window.scrollTo(0, start * (1 - ease));
-      if (progress < 1) requestAnimationFrame(step);
-    };
-
-    requestAnimationFrame(step);
   }
 
   /** Disconnects the intersection observer to avoid leaks. */
