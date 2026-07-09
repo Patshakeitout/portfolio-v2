@@ -54,6 +54,31 @@ body {
   background-color: vars.$base-white-option1;
 }
 
+// Project-details carousel slide (View Transitions API, enabled via router)
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes project-slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(24px);
+    }
+  }
+
+  @keyframes project-slide-out {
+    to {
+      opacity: 0;
+      transform: translateX(-24px);
+    }
+  }
+
+  ::view-transition-old(project-detail) {
+    animation: project-slide-out 0.35s ease both;
+  }
+
+  ::view-transition-new(project-detail) {
+    animation: project-slide-in 0.35s ease both;
+  }
+}
+
 // Hides content visually while keeping it readable for screen readers & SEO
 .visually-hidden {
   position: absolute;

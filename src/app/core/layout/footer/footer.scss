@@ -112,10 +112,6 @@
         filter: brightness(0);
         transition: filter 300ms ease;
       }
-
-      &:hover img {
-        filter: brightness(0) invert(1);
-      }
     }
   }
 

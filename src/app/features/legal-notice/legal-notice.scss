@@ -1,84 +1,16 @@
-﻿@use '../../../styles/variables' as vars;
-@use '../../../styles/mixins' as mix;
-
-.legal__bg {
-  position: relative;
-  width: 100%;
-  height: 439px;
-  overflow: hidden;
-
-  img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-.legal__title {
-  @include mix.content-bounds;
-  position: absolute;
-  inset-inline: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-block: 0;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: vars.$base-white-option1;
-
-  @media (min-width: vars.$breakpoint-desktop) {
-    padding-inline: 7.5rem;
-    font-size: 4rem;
-  }
-}
-
-.legal__back-arrow {
-  @include mix.content-bounds;
-  display: flex;
-  align-items: center;
-  margin-block: 2rem;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: vars.$base-black-option1;
-  font-size: 1.125rem;
-  font-weight: 700;
-
-  @media (min-width: vars.$breakpoint-desktop) {
-    padding-left: 7.5rem;
-    width: 1024px;
-    margin-inline: 0;
-  }
-
-  img {
-    height: 1.5rem;
-    width: auto;
-  }
-
-  &:hover {
-    color: #f87a55;
-  }
-}
+﻿@use 'variables' as vars;
+@use 'mixins' as mix;
 
 .legal {
   position: relative;
   z-index: 1;
   color: vars.$base-black-option1;
-  @include mix.content-bounds;
 
-  @media (min-width: vars.$breakpoint-desktop) {
-    padding-left: 7.5rem;
-    width: 1024px;
-    margin-inline: 0;
-  }
+  &__content {
+    @include mix.content-bounds;
 
-  &__section {
-    .DevAka {
-      text-decoration: none;
-
-      &:hover {
-        color: #1f3ad6;
-      }
+    @media (min-width: vars.$breakpoint-desktop) {
+      max-width: 1216px;
     }
   }
 
@@ -98,11 +30,8 @@
     font-size: 1rem;
     line-height: 1.7;
     margin: 0 0 1rem;
-  }
-
-  em {
-    font-style: normal;
-    color: #3355ff;
+    text-align: justify;
+    hyphens: auto;
   }
 
   p a {
@@ -112,6 +41,59 @@
 
     &:hover {
       color: #1f3ad6;
+    }
+  }
+
+  &__bg {
+    position: relative;
+    height: 439px;
+    overflow: hidden;
+    background: url('/design-material/01_Background/design-size-relation/09_privacy-policy_legal.webp')
+      center / 100% 100% no-repeat;
+  }
+
+  &__title {
+    @include mix.content-bounds;
+    position: absolute;
+    inset-inline: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-block: 0;
+    font-size: 48px;
+    font-weight: 700;
+    color: vars.$base-white-option1;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      max-width: 1216px;
+      font-size: 4rem;
+    }
+
+    @media (max-width: 372px) {
+      font-size: 36px;
+    }
+  }
+
+  &__back-arrow {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: vars.$base-black-option1;
+    font-size: 1.125rem;
+    font-weight: 700;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      margin-block: 2rem;
+    }
+
+    img {
+      height: 1.5rem;
+      width: auto;
+    }
+
+    &:hover {
+      color: #f87a55;
     }
   }
 }

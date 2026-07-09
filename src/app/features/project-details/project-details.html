@@ -85,45 +85,48 @@
         </figure>
       }
 
-      <nav class="project-details__nav" aria-label="Project navigation">
-        <a
-          class="project-details__arrow project-details__arrow--prev"
-          [routerLink]="['/', lang()]"
-          fragment="projects"
-          aria-label="Back to projects"
-        >
-          <img
-            src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-2.png"
-            alt=""
-          />
-          {{ 'projectDetails.goBack' | translate }}
-        </a>
+      <a
+        class="project-details__arrow project-details__arrow--prev"
+        [routerLink]="['/', lang()]"
+        fragment="projects"
+        aria-label="Back to projects"
+      >
+        <img
+          src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-2.png"
+          alt=""
+        />
+        {{ 'projectDetails.goBack' | translate }}
+      </a>
 
-        @if (nextSlug(); as next) {
-          <a
-            class="project-details__arrow project-details__arrow--next"
-            [routerLink]="['/', lang(), 'projects', next]"
-            aria-label="Next project"
-          >
-            {{ 'projectDetails.nextProject' | translate }}
-            <img
-              src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/next-project-arrow-1.png"
-              alt=""
-            />
-          </a>
-        } @else {
-          <span
-            class="project-details__arrow project-details__arrow--next project-details__arrow--disabled"
-            aria-disabled="true"
-          >
-            {{ 'projectDetails.nextProject' | translate }}
-            <img
-              src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/next-project-arrow-1.png"
-              alt=""
-            />
-          </span>
-        }
+      <nav class="project-details__swipe-hint" aria-label="Project navigation">
+        <button
+          class="project-details__chevron project-details__chevron--prev"
+          (click)="goTo(prevSlug())"
+          [attr.aria-label]="'projectDetails.prevProject' | translate"
+        >
+          <img src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png" alt="" />
+        </button>
+        <span class="project-details__swipe-text">{{ 'projectDetails.browseHint' | translate }}</span>
+        <button
+          class="project-details__chevron project-details__chevron--next"
+          (click)="goTo(nextSlug())"
+          [attr.aria-label]="'projectDetails.nextProject' | translate"
+        >
+          <img src="/design-material/00_Hand-drawn lines/03_Portfolio/Breadcrumbs/breadcrumb-arrow-1.png" alt="" />
+        </button>
       </nav>
+
+      <span class="project-details__dots">
+        @for (item of projects; track item.slug) {
+          <button
+            class="project-details__dot"
+            [class.project-details__dot--active]="item.slug === slug()"
+            [attr.aria-current]="item.slug === slug() ? 'true' : null"
+            [attr.aria-label]="item.title"
+            (click)="goTo(item.slug)"
+          ></button>
+        }
+      </span>
     </main>
   } @else {
     <main class="project-details__content">

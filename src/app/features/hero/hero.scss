@@ -105,6 +105,54 @@
       grid-column: 2;
     }
 
+    .hero__world-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero__sound {
+      display: inline-flex;
+      padding: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: currentColor;
+      transition:
+        color 0.3s ease-out,
+        transform 0.2s ease-out;
+
+      svg {
+        width: 1.75rem;
+        height: 1.75rem;
+      }
+
+      &:hover,
+      &:focus-visible {
+        color: vars.$highlight1-option1;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+
+      &--off {
+        color: vars.$base-grey-option1;
+      }
+    }
+
+    .hero__sound-slash {
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+
+    .hero__sound--off .hero__sound-slash {
+      opacity: 1;
+    }
+
     // Letter hover effects: ::before is a zero-height in-flow block holding
     // the case-flipped twin (data-hover) — it reserves the twin's width and
     // renders exactly on the letter's line, so on hover the letter fades out

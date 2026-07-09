@@ -1,0 +1,28 @@
+- 01:00 - 01:35: Navbar: nun mit Milchglaseffekt (on topscroll) implementiert -> done
+
+- 01:47: Responsiveness hero:
+  - Social Media Btns weiter nach oben gesetzt -> done
+
+- ~04:20: project-details:
+  -> nativer Scroll-Karussell mit Pointer-Drag (Maus/Pen), Touch scrollt nativ
+
+- 04:31: Bilderkomprimierung:
+  -
+
+- 05:15: Links Target="blanked": -> done
+
+- 06:00: Formular
+  - per Tastendruck validieren
+  - Btn aktivieren, sobald valide
+
+- 07:16: contact:
+  - Footer ganz unten
+
+- 08:00: Rotate device
+  - rausgenommen -> done
+
+
+
+
+
+

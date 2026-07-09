@@ -16,6 +16,24 @@
   }
 }
 
+// Switches text color to match a background that flips from dark to light at
+// the desktop breakpoint (e.g. project-details' mobile art vs. desktop paper).
+@mixin adaptive-text($on-dark: vars.$base-white-option1, $on-light: vars.$base-black-option1) {
+  color: $on-dark;
+
+  @media (min-width: vars.$breakpoint-desktop) {
+    color: $on-light;
+  }
+}
+
+// Keeps text/icons legible over a background that varies within one screen by
+// inverting against whatever is behind them (as used for the footer social
+// links). Requires an isolated ancestor so the blend stays within the section.
+@mixin blend-contrast {
+  color: vars.$base-white-option1;
+  mix-blend-mode: difference;
+}
+
 // Clip-path animation directions
 $clip-top-to-bottom: inset(0 0 100% 0);
 $clip-left-to-right: inset(0 100% 0 0);

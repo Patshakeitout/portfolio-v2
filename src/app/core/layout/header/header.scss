@@ -17,11 +17,13 @@
   align-items: center;
 
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%), /* contrast scrim */
-    rgba(255, 255, 255, 0.45); /* frosted tint */
-  backdrop-filter: blur(24px) saturate(140%); /* frost + vibrancy */
-  -webkit-backdrop-filter: blur(24px) saturate(140%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4); /* brighter reflection on the edge */
+    radial-gradient(ellipse 40% 120% at 18% 0%, rgba(vars.$coffee-cream, 0.4), transparent 70%), /* milk foam */
+    radial-gradient(ellipse 35% 110% at 62% 100%, rgba(vars.$coffee-latte, 0.3), transparent 65%), /* latte swirl */
+    radial-gradient(ellipse 30% 100% at 92% 30%, rgba(vars.$coffee-espresso, 0.1), transparent 70%), /* espresso hint */
+    rgba(vars.$coffee-cream, 0.45); /* frosted cappuccino tint */
+  backdrop-filter: blur(24px) saturate(140%) brightness(2); /* frost + vibrancy, lifted for dark sections */
+  -webkit-backdrop-filter: blur(24px) saturate(140%) brightness(2);
+  border-bottom: 1px solid rgba(vars.$coffee-cream, 0.5); /* creamy reflection on the edge */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* subtle depth */
   border-bottom-left-radius: 18px;
   border-bottom-right-radius: 18px;

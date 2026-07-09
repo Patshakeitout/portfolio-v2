@@ -5,7 +5,7 @@ import { LanguageService } from '../../core/services/language.service';
 import { FooterComponent } from '../../core/layout/footer/footer';
 
 @Component({
-  selector: 'app-legal-notice',
+  selector: 'app-privacy-policy',
   imports: [RouterLink, TranslatePipe, FooterComponent],
   templateUrl: './legal-notice.html',
   styleUrl: './legal-notice.scss',

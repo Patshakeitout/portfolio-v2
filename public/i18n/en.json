@@ -18,6 +18,8 @@
     "helloWorld": "Hello, World!",
     "name": "I'M PATRICK SCHAUER",
     "getInTouch": "Get in touch",
+    "soundOn": "Turn sound on",
+    "soundOff": "Turn sound off",
     "polaroidCaption": "Patrick :D",
     "frontendWords": ["Fullstack", "R-Shiny", "OOP", "Normalization", "TypeScript", "Endpoints", "Navigation", "Django"],
     "developerWords": ["Detail-oriented", "Exacting", "Versatile", "Empathetic", "Logical", "Observant", "Precise", "Eager", "Resilient"]
@@ -77,6 +79,8 @@
     "liveTest": "Live Test",
     "goBack": "Go Back",
     "nextProject": "Next Project",
+    "prevProject": "Previous Project",
+    "browseHint": "Browse projects",
     "notFound": "Project not found.",
     "backHome": "Back home"
   },

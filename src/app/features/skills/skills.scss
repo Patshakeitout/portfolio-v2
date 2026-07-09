@@ -9,7 +9,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 
   .bg-image {
@@ -32,6 +32,7 @@
 
   header {
     align-self: flex-end;
+    text-align: right;
     flex-shrink: 0;
 
     @media (min-width: vars.$breakpoint-desktop) {
@@ -41,7 +42,6 @@
 
   /* Title */
   h5 {
-    text-align: right;
     font-weight: 500;
     font-size: 18px;
     margin: 4px;
@@ -54,6 +54,10 @@
     font-size: 48px;
     margin: 4px;
     white-space: nowrap;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      font-size: 64px;
+    }
 
     &::after {
       content: '';

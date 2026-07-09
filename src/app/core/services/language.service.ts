@@ -9,14 +9,14 @@ const STORAGE_KEY = 'lang';
 
 /**
  * Resolves the language to use when the URL carries none.
- * Prefers a previously stored choice, then the browser language, then English.
+ * Prefers a previously stored choice, then the browser language, then German.
  *
  * @returns The best-guess starting language.
  */
 export function detectInitialLang(): Lang {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (isLang(stored)) return stored;
-  return navigator.language?.toLowerCase().startsWith('de') ? 'de' : 'en';
+  return navigator.language?.toLowerCase().startsWith('en') ? 'en' : 'de';
 }
 
 /**
@@ -39,7 +39,7 @@ export class LanguageService {
   private translate = inject(TranslateService);
   private router = inject(Router);
 
-  private readonly _lang = signal<Lang>('en');
+  private readonly _lang = signal<Lang>('de');
 
   /** The currently active language, for templates and lang-aware `routerLink`s. */
   readonly lang = this._lang.asReadonly();
