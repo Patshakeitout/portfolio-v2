@@ -27,7 +27,7 @@
   "about": {
     "subtitle": "WHO'S PATRICK?",
     "title": "About me",
-    "paragraph1": "Hi, I'm Patrick. I've always wanted to figure out how things work and use that insight to shape new things. Software development and coding let me do exactly that. Understanding systems and logic and then building something practical from them is what drives me to keep improving toward the best-fitting solution, learn new technologies, and bring projects to life.",
+    "paragraph1": "Hi, I'm Patrick — physicist, engineer, and developer. I've always wanted to figure out how things work and use that insight to shape new things. As a product quality and process engineer, I learned to understand systems down to the last detail and never leave quality to chance. That's exactly the mindset I put into software today: understanding logic, building something practical — while constantly improving, learning new technologies, and bringing projects to life.",
     "paragraph2": "Let's work together and create something meaningful that brings value to others!",
     "cta": "Let's have a chat",
     "location": "Based in Itzehoe",
@@ -86,8 +86,8 @@
   },
   "contact": {
     "eyebrow": "CONTACT ME",
-    "heading": "Got a Project?",
-    "intro": "I work across the full stack and care about the craft — clean code, solid structure, and a meaningful UI with a fluid UX. Got a project? I'd love to help.",
+    "heading": "Looking for reinforcement? Let's talk!",
+    "intro": "Frontend with Angular and TypeScript, full-stack understanding from R-Shiny to Django — I build interfaces with care and think beyond the UI. I'm looking for a team where I can make a meaningful contribution with precision, curiosity, and a love of learning. Sounds like your project? Drop me a line!",
     "nameLabel": "What's your name?",
     "namePlaceholder": "Your name goes here",
     "nameError": "Oops! It seems your name is missing.",

@@ -4,6 +4,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 
 import { HeaderComponent } from "./core/layout/header/header";
 import { MobileMenuComponent } from "./features/mobile-menu/mobile-menu";
+import { CursorComponent } from "./shared/components/cursor/cursor";
 
 
 @Component({
@@ -12,7 +13,8 @@ import { MobileMenuComponent } from "./features/mobile-menu/mobile-menu";
     RouterOutlet,
     HeaderComponent,
     MobileMenuComponent,
-    TranslatePipe
+    TranslatePipe,
+    CursorComponent
 ],
   templateUrl: './app.html',
   styleUrl: './app.scss'

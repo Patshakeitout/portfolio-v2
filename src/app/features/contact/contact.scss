@@ -14,13 +14,27 @@
   }
 
   &__content {
+    display: flex;
     position: relative;
     z-index: 1;
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-top: 9rem;
     @include mix.content-bounds;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 112px;
+    }
+  }
+
+  &__marketing {
+    width: 100%;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      width: 50%;
+    }
   }
 
   &__header {
@@ -37,6 +51,13 @@
 
       &--cw  { animation: sticker-cw  1.5s ease-out forwards; }
       &--ccw { animation: sticker-ccw 1.5s ease-out forwards; }
+
+      @media (min-width: vars.$breakpoint-desktop) {
+        position: absolute;
+        top: clamp(9rem, calc(5.1146dvw + 4rem), 9.9375rem);
+        right: clamp(2.75rem, 4.25dvw, 5rem);
+        z-index: 2;
+      }
     }
 
     @keyframes sticker-cw {
@@ -53,6 +74,8 @@
   &__text p {
     font-size: 1.125rem;
     margin-top: 2rem;
+    text-align: justify;
+    hyphens: auto;
   }
 
   &__form {
@@ -60,6 +83,11 @@
     flex-direction: column;
     margin-top: 0.375rem;
     width: 100%;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      width: 50%;
+      margin-top: 4.375rem;
+    }
   }
 
   &__label {
@@ -123,6 +151,7 @@
   }
 
   &__privacy {
+    position: relative;
     border: none;
     padding: 0;
     margin: 2.5rem 0 1rem;
@@ -209,6 +238,10 @@
   }
 
   &__arrow {
+    position: absolute;
+    right: 100%;
+    top: 0.1rem;
+    margin-right: 0.5rem;
     max-width: 9.56rem;
     pointer-events: none;
     animation: arrow-fly 4s ease-out infinite;
@@ -241,13 +274,13 @@
   h5 {
     color: vars.$base-white-option1;
     font-weight: 500;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     margin: 0 0 1rem;
   }
 
   h1 {
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 64px;
     margin: 0;
   }
 }

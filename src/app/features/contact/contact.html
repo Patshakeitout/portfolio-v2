@@ -9,62 +9,64 @@
   />
 
   <main class="contact__content">
-    <header class="contact__header">
-      <svg
-        class="sticker"
-        viewBox="0 0 200 200"
-        xmlns="http://www.w3.org/2000/svg"
-        (mouseenter)="onStickerEnter($event)"
-        (mouseleave)="onStickerLeave()"
-        (click)="onStickerEnter($event)"
-        [class.sticker--cw]="stickerDir() === 'cw'"
-        [class.sticker--ccw]="stickerDir() === 'ccw'"
-      >
-        <defs>
-          <clipPath id="sticker-clip">
-            <circle cx="100" cy="100" r="99" />
-          </clipPath>
-          <path
-            id="sticker-text-path"
-            d="M 100,100 m -50.5,65.9 a 83,83 0 1,1 101,-131.8 a 83,83 0 1,1 -101,131.8"
+    <aside class="contact__marketing">
+      <header class="contact__header">
+        <svg
+          class="sticker"
+          viewBox="0 0 200 200"
+          xmlns="http://www.w3.org/2000/svg"
+          (mouseenter)="onStickerEnter($event)"
+          (mouseleave)="onStickerLeave()"
+          (click)="onStickerEnter($event)"
+          [class.sticker--cw]="stickerDir() === 'cw'"
+          [class.sticker--ccw]="stickerDir() === 'ccw'"
+        >
+          <defs>
+            <clipPath id="sticker-clip">
+              <circle cx="100" cy="100" r="99" />
+            </clipPath>
+            <path
+              id="sticker-text-path"
+              d="M 100,100 m -50.5,65.9 a 83,83 0 1,1 101,-131.8 a 83,83 0 1,1 -101,131.8"
+            />
+          </defs>
+          <image
+            href="/design-material/03_Stickers/00_Round/blue.png"
+            x="0"
+            y="0"
+            width="200"
+            height="200"
+            clip-path="url(#sticker-clip)"
           />
-        </defs>
-        <image
-          href="/design-material/03_Stickers/00_Round/blue.png"
-          x="0"
-          y="0"
-          width="200"
-          height="200"
-          clip-path="url(#sticker-clip)"
-        />
-        <image
-          href="/logo.webp"
-          x="52"
-          y="52"
-          width="96"
-          height="96"
-          transform="rotate(-75, 100, 100)"
-          filter="brightness(0)"
-        />
-        <text font-size="12" font-family="sans-serif" fill="#0E1013" font-weight="700">
-          <textPath
-            href="#sticker-text-path"
-            startOffset="0%"
-            textLength="509"
-            lengthAdjust="spacing"
-          >
-            Patrick Schauer ● Frontend Developer ● Engineering &amp; Design ●
-          </textPath>
-        </text>
-      </svg>
+          <image
+            href="/logo.webp"
+            x="52"
+            y="52"
+            width="96"
+            height="96"
+            transform="rotate(-75, 100, 100)"
+            filter="brightness(0)"
+          />
+          <text font-size="12" font-family="sans-serif" fill="#0E1013" font-weight="700">
+            <textPath
+              href="#sticker-text-path"
+              startOffset="0%"
+              textLength="509"
+              lengthAdjust="spacing"
+            >
+              Patrick Schauer ● Frontend Developer ● Engineering &amp; Design ●
+            </textPath>
+          </text>
+        </svg>
 
-      <h5>{{ 'contact.eyebrow' | translate }}</h5>
-      <h1>{{ 'contact.heading' | translate }}</h1>
-    </header>
+        <h5>{{ 'contact.eyebrow' | translate }}</h5>
+        <h1>{{ 'contact.heading' | translate }}</h1>
+      </header>
 
-    <article class="contact__text">
-      <p>{{ 'contact.intro' | translate }}</p>
-    </article>
+      <article class="contact__text">
+        <p>{{ 'contact.intro' | translate }}</p>
+      </article>
+    </aside>
 
     <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
       <label class="contact__label" for="contact-name">{{ 'contact.nameLabel' | translate }}</label>
@@ -110,6 +112,11 @@
       </textarea>
 
       <fieldset class="contact__privacy">
+        <img
+          class="contact__arrow"
+          src="/design-material/00_Hand-drawn lines/05_Contact/contact-arrow.png"
+          alt=""
+        />
         <label class="contact__privacy-label">
           <input type="checkbox" formControlName="privacy" (change)="submitted.set(false)" />
           <span
@@ -124,11 +131,6 @@
       </fieldset>
 
       <div class="contact__actions">
-        <img
-          class="contact__arrow"
-          src="/design-material/00_Hand-drawn lines/05_Contact/contact-arrow.png"
-          alt=""
-        />
         <button
           class="btn-primary btn-primary--ghost btn-primary--grey"
           type="submit"
@@ -151,7 +153,6 @@
         <p class="contact__feedback contact__feedback--error">{{ 'contact.error' | translate }}</p>
       }
     </form>
-
   </main>
   <app-footer theme="dark" />
 </section>

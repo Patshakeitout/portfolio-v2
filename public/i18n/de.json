@@ -27,8 +27,8 @@
   "about": {
     "subtitle": "WER IST PATRICK?",
     "title": "Über mich",
-    "paragraph1": "Moin, ich bin Patrick.  Ich wollte schon immer herausfinden, wie Sachen funktionieren und mit der Erkenntnis daraus neue Dinge gestalten. Das kann ich in der Softwareentwicklung und beim Coden. Systeme und Logiken verstehen und daraus dann Praktikables entwickeln, ist Antreiber, mich stetig zur geeignetesten Lösung zu verbessern, neue Technologien zu lernen und Projekte umzusetzen.",
-    "paragraph2": "Lassen Sie uns zusammenarbeiten und etwas Bedeutsames mit Mehrwert für andere schaffen!",
+    "paragraph1": "Moin, ich bin Patrick — Physiker, Ingenieur und Entwickler. Ich wollte schon immer herausfinden, wie Sachen funktionieren, und mit der Erkenntnis daraus Neues gestalten. Als Ingenieur für Produktqualität und Prozesse habe ich gelernt, Systeme bis ins Detail zu durchdringen und Qualität nicht dem Zufall zu überlassen. Genau diese Denkweise stecke ich heute in Software: Logiken verstehen, Praktikables entwickeln — und mich dabei stetig verbessern, neue Technologien lernen und Projekte umsetzen.",
+    "paragraph2": "Lass uns zusammenarbeiten und etwas Bedeutsames mit Mehrwert für andere schaffen!",
     "cta": "Schnacken wir miteinander",
     "location": "Ansässig in Itzehoe",
     "workMode1": "Vor Ort: max. 40 km Anfahrt",
@@ -86,8 +86,8 @@
   },
   "contact": {
     "eyebrow": "KONTAKTIERE MICH",
-    "heading": "Hast du ein Projekt?",
-    "intro": "Ich arbeite über den gesamten Stack hinweg und lege Wert auf das Handwerk — sauberer Code, solide Struktur und eine sinnvolle UI mit einer fluiden UX. Hast du ein Projekt? Ich unterstütze gerne.",
+    "heading": "Du suchst Verstärkung? Dann lass uns schnacken!",
+    "intro": "Frontend mit Angular und TypeScript, Fullstack-Verständnis von R-Shiny bis Django — ich baue Interfaces mit Sorgfalt und denke über den Tellerrand hinaus. Ich suche ein Team, in dem ich mit Präzision, Neugier und Lernfreude etwas Bedeutsames beitragen kann. Klingt nach deinem Projekt? Schreib mir!",
     "nameLabel": "Wie heißt du?",
     "namePlaceholder": "Dein Name kommt hierhin",
     "nameError": "Ups! Dein Name scheint zu fehlen.",
