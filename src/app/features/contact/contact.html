@@ -78,6 +78,7 @@
         [placeholder]="namePlaceholder() | translate"
         [class.contact__input--error]="form.get('name')?.touched && form.get('name')?.invalid"
         (focus)="resetTouched('name')"
+        (keyup)="markTouched('name')"
         (blur)="markTouched('name')"
       />
 
@@ -92,6 +93,7 @@
         [placeholder]="emailPlaceholder() | translate"
         [class.contact__input--error]="form.get('email')?.touched && form.get('email')?.invalid"
         (focus)="resetTouched('email')"
+        (keyup)="markTouched('email')"
         (blur)="markTouched('email')"
       />
       <p class="contact__error" role="alert">{{ emailError() | translate }}</p>
@@ -107,6 +109,7 @@
         [placeholder]="messagePlaceholder() | translate"
         [class.contact__input--error]="form.get('message')?.touched && form.get('message')?.invalid"
         (focus)="resetTouched('message')"
+        (keyup)="markTouched('message')"
         (blur)="markTouched('message')"
       >
       </textarea>
@@ -132,7 +135,9 @@
 
       <div class="contact__actions">
         <button
-          class="btn-primary btn-primary--ghost btn-primary--grey"
+          class="btn-primary"
+          [class.btn-primary--ghost]="form.invalid"
+          [class.btn-primary--grey]="form.invalid"
           type="submit"
           [disabled]="status() === 'sending'"
         >
