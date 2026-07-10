@@ -19,6 +19,7 @@ export class CursorComponent implements OnInit, OnDestroy {
   private dotY = 0;
   private velX = 0;
   private velY = 0;
+  private readonly imageContexts = new Map<string, CanvasRenderingContext2D | null>();
   private readonly onMove = (event: PointerEvent) => this.track(event);
 
   ngOnInit(): void {
@@ -32,42 +33,43 @@ export class CursorComponent implements OnInit, OnDestroy {
   }
 
   private syncCursorColor(x: number, y: number): void {
-    let element = document.elementFromPoint(x, y) as HTMLElement | null;
+    const color = this.getBackgroundColorAtPoint(x, y);
 
-    while (element) {
-      const style = getComputedStyle(element);
+    this.host.nativeElement.style.setProperty('--cursor-color', color === 'dark' ? '#fff' : '#111');
+  }
+
+  private getBackgroundColorAtPoint(x: number, y: number): 'dark' | 'light' {
+    const host = this.host.nativeElement;
+
+    host.style.visibility = 'hidden';
+
+    const element = document.elementFromPoint(x, y) as HTMLElement | null;
+
+    host.style.visibility = '';
+
+    if (!element) {
+      return 'dark';
+    }
+
+    let current: HTMLElement | null = element;
+
+    while (current) {
+      const style = getComputedStyle(current);
 
       const bg = style.backgroundColor;
 
-      if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
-        const rgb = bg.match(/\d+/g);
+      if (bg && bg !== 'transparent' && !bg.includes('rgba(0, 0, 0, 0)')) {
+        const rgb = this.parseRGB(bg);
 
         if (rgb) {
-          const [r, g, b] = rgb.map(Number);
-
-          const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-
-          this.host.nativeElement.classList.toggle('cursor--dark', brightness > 160);
-
-          return;
+          return this.getBrightness(rgb) > 160 ? 'light' : 'dark';
         }
       }
 
-      element = element.parentElement;
+      current = current.parentElement;
     }
 
-    // Fallback -> body
-    const bodyColor = getComputedStyle(document.body).backgroundColor;
-
-    const rgb = bodyColor.match(/\d+/g);
-
-    if (rgb) {
-      const [r, g, b] = rgb.map(Number);
-
-      const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-
-      this.host.nativeElement.classList.toggle('cursor--dark', brightness > 160);
-    }
+    return 'dark';
   }
 
   /** Tracks the pointer position and its velocity for the inner dot. */
@@ -101,5 +103,43 @@ export class CursorComponent implements OnInit, OnDestroy {
   private applyTransforms(): void {
     this.ring().nativeElement.style.transform = `translate3d(${this.x}px, ${this.y}px, 0)`;
     this.dot().nativeElement.style.transform = `translate3d(${this.x + this.dotX}px, ${this.y + this.dotY}px, 0)`;
+  }
+
+  private parseRGB(color: string): [number, number, number] | null {
+    const values = color.match(/\d+/g);
+
+    if (!values || values.length < 3) {
+      return null;
+    }
+
+    return [Number(values[0]), Number(values[1]), Number(values[2])];
+  }
+
+  private getBrightness(rgb: [number, number, number]): number {
+    const [r, g, b] = rgb;
+
+    return (r * 299 + g * 587 + b * 114) / 1000;
+  }
+
+  private samplePixel(x: number, y: number): 'dark' | 'light' {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+
+    if (!ctx) {
+      return 'dark';
+    }
+
+    canvas.width = 1;
+    canvas.height = 1;
+
+    try {
+      ctx.drawImage(document.elementFromPoint(x, y) as CanvasImageSource, 0, 0);
+
+      const pixel = ctx.getImageData(0, 0, 1, 1).data;
+
+      return this.getBrightness([pixel[0], pixel[1], pixel[2]]) > 160 ? 'light' : 'dark';
+    } catch {
+      return 'dark';
+    }
   }
 }

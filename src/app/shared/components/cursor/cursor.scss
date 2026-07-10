@@ -41,7 +41,7 @@
   margin-left: -20px;
   margin-top: -20px;
 
-  border: 2px solid vars.$base-white-option1;
+  border: 2px solid var(--cursor-color, #{vars.$base-white-option1});
   border-radius: 50%;
 
   will-change: transform, width, height, border-color;
@@ -61,20 +61,11 @@
   margin-left: -3px;
   margin-top: -3px;
 
-  background: vars.$base-white-option1;
+  background: var(--cursor-color, #{vars.$base-white-option1});
   border-radius: 50%;
 
   will-change: transform, background-color, opacity;
   transition:
     background-color .18s ease,
     opacity .18s ease;
-}
-
-/* Heller Hintergrund → dunkler Cursor */
-:host(.cursor--dark) .cursor__ring {
-  border-color: vars.$base-black-option1;
-}
-
-:host(.cursor--dark) .cursor__dot {
-  background: vars.$base-black-option1;
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { TranslatePipe } from '@ngx-translate/core';
 
 import { HeaderComponent } from "./core/layout/header/header";
 import { MobileMenuComponent } from "./features/mobile-menu/mobile-menu";
@@ -13,7 +12,6 @@ import { CursorComponent } from "./shared/components/cursor/cursor";
     RouterOutlet,
     HeaderComponent,
     MobileMenuComponent,
-    TranslatePipe,
     CursorComponent
 ],
   templateUrl: './app.html',

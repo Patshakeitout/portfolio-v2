@@ -82,11 +82,6 @@
   gap: 3rem;
   box-sizing: border-box;
 
-  background-image: url('/design-material/01_Background/design-size-relation/01_Hero_mobile.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
   @media (min-width: vars.$breakpoint-desktop) {
     display: grid;
     grid-template-columns: 1fr minmax(0, 52.034rem) 1fr;
