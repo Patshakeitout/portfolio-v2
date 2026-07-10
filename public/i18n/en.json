@@ -2,6 +2,9 @@
   "common": {
     "back": "Back"
   },
+  "console": {
+    "credits": "This portfolio was developed with passion\nin cooperation with Developer Akademie."
+  },
   "rotateDevice": {
     "title": "Rotate your device",
     "message": "Please switch to landscape for the best experience."

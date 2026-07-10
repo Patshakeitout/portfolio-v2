@@ -1,5 +1,6 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { HeaderComponent } from "./core/layout/header/header";
 import { MobileMenuComponent } from "./features/mobile-menu/mobile-menu";
@@ -19,8 +20,29 @@ import { CursorComponent } from "./shared/components/cursor/cursor";
 })
 export class App implements OnInit {
   protected readonly title = signal('portfolio');
+  private translate = inject(TranslateService);
+
+  /**
+   * Prints a styled credits message to the browser developer console.
+   *
+   * @param credits - The localized credits line.
+   */
+  private printConsoleCredits(credits: string): void {
+    console.log(
+      '\n%c  ❤  %c  </>  %c\n\n' + credits + '\n\n' +
+      '%c DA %c Academy  %c https://developerakademie.com/',
+      'background:#e74c3c; color:#fff; font-size: 12px; padding: 3px 1px; border-radius: 4px 0 0 4px;',
+      'background:#2c3e50; color:#3498db; font-size: 12px; font-weight:bold; padding: 3px 1px; border-radius: 0 4px 4px 0;',
+      'color:#f0c040; font-size: 13px; font-weight:bold; line-height: 1.4;',
+      'color:#e94560; font-size:10px; font-weight:bold;',
+      'color:#aaa; font-weight:bold; font-size:10px;',
+      'color:#ccc; font-size:10px;'
+    );
+  }
 
   ngOnInit(): void {
+    this.translate.get('console.credits')
+      .subscribe(credits => this.printConsoleCredits(credits));
     const link = document.querySelector<HTMLLinkElement>("link[rel='icon']")!;
     const canvas = document.createElement('canvas');
     canvas.width = 32;

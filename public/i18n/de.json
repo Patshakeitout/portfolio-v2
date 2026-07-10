@@ -2,6 +2,9 @@
   "common": {
     "back": "Zurück"
   },
+  "console": {
+    "credits": "Dieses Portfolio wurde mit Leidenschaft\nin Zusammenarbeit mit der Developer Akademie entwickelt."
+  },
   "rotateDevice": {
     "title": "Gerät drehen",
     "message": "Bitte wechsle ins Querformat für die beste Darstellung."
