@@ -34,14 +34,12 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       grid-template-areas:
-        'back    .'
-        'swipe   swipe'
-        'dots    dots'
+        'back    swipe'
+        '.       dots'
         'header  image'
         'article image'
         'article .';
-      grid-template-rows: auto auto auto auto auto auto;
-      align-items: start;
+      grid-template-rows: auto auto auto auto auto;
       align-content: center;
       column-gap: 32px;
       row-gap: 0;
@@ -50,22 +48,23 @@
       @media (max-height: 755px) {
         align-content: normal;
         grid-template-areas:
-          'back    .'
-          'swipe   swipe'
-          'dots    dots'
+          'back    swipe'
+          '.       dots'
           'header  image'
           'article image';
-        grid-template-rows: auto auto auto auto minmax(0, 1fr);
+        grid-template-rows: auto auto auto minmax(0, 1fr);
       }
     }
 
     .project-details__swipe-hint {
       grid-area: swipe;
       margin-top: 0;
+      justify-self: center;
     }
 
     .project-details__dots {
       grid-area: dots;
+      justify-self: center;
     }
 
     .project-details__header {
@@ -76,7 +75,9 @@
     .project-details__article {
       grid-area: article;
       margin-left: 48px;
-      width: min(80dvw, 56dvh);
+      width: min(80dvw, 70dvh);
+      // keep the right edge on the paper (torn edge ~45% of the 160dvh background)
+      max-width: calc(84dvh - (100dvw - min(100dvw, vars.$content-max)) / 2 - 4.5rem - 48px);
       max-height: 60dvh;
       min-height: 0;
       overflow-y: auto;
@@ -94,11 +95,15 @@
     .project-details__image {
       grid-area: image;
 
+      @media (min-width: vars.$breakpoint-desktop) {
+        margin-top: 4rem;
+      }
+
       img {
         width: 560px;
         height: 398.22px;
         max-width: none;
-        object-fit: cover;
+        object-fit: fill;
 
         @media (max-height: 742px) {
           width: auto;
@@ -106,6 +111,13 @@
           aspect-ratio: 560 / 398.22;
         }
       }
+
+      img[src*='join-board'] {
+        object-fit: cover;
+        object-position: top left;
+      }
+
+
     }
 
     .project-details__arrow--prev {
@@ -152,6 +164,10 @@
     color: vars.$base-black-option1;
     font-size: 48px;
     font-weight: 700;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      font-size: 64px;
+    }
 
     &::after {
       content: '';
@@ -201,7 +217,7 @@
       margin-top: 1rem;
       position: relative;
 
-      @media (min-width: vars.$breakpoint-desktop) and (max-width: 1686px) {
+      @media (min-width: vars.$breakpoint-desktop) {
         z-index: -2;
       }
     }
@@ -214,6 +230,7 @@
         aspect-ratio: 560 / 399;
         object-fit: cover;
       }
+
     }
 
     .project-details__media {
@@ -240,7 +257,7 @@
         display: none;
       }
 
-      @media (min-width: vars.$breakpoint-desktop) and (max-width: 1686px) {
+      @media (min-width: vars.$breakpoint-desktop) {
         z-index: -2;
       }
     }
@@ -304,10 +321,6 @@
     font-weight: 700;
     font-size: 18px;
 
-    @media (min-width: vars.$breakpoint-desktop) {
-        margin-top: 24px;
-    }
-
     img {
       height: 2rem;
       width: auto;
@@ -349,7 +362,7 @@
   }
 
   &__chevron {
-    padding: 10px;
+    padding-inline: 10px;
     background: none;
     border: none;
     cursor: pointer;

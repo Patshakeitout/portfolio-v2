@@ -76,6 +76,7 @@
 
     @media (min-width: vars.$breakpoint-desktop) {
       font-size: 64px;
+      white-space: nowrap;
     }
 
     &::after {
