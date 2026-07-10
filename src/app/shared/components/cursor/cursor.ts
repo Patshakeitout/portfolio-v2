@@ -32,44 +32,107 @@ export class CursorComponent implements OnInit, OnDestroy {
     cancelAnimationFrame(this.raf);
   }
 
+  /** Applies the cursor color that contrasts with the background under the pointer. */
   private syncCursorColor(x: number, y: number): void {
     const color = this.getBackgroundColorAtPoint(x, y);
 
     this.host.nativeElement.style.setProperty('--cursor-color', color === 'dark' ? '#fff' : '#111');
   }
 
+  /** Classifies the topmost visible pixel or color in the full stack under the pointer. */
   private getBackgroundColorAtPoint(x: number, y: number): 'dark' | 'light' {
-    const host = this.host.nativeElement;
+    for (const el of this.stackAt(x, y)) {
+      const style = getComputedStyle(el);
+      const rgb = this.samplePoint(el, style, x, y) ?? this.opaqueColor(style.backgroundColor);
 
-    host.style.visibility = 'hidden';
-
-    const element = document.elementFromPoint(x, y) as HTMLElement | null;
-
-    host.style.visibility = '';
-
-    if (!element) {
-      return 'dark';
+      if (rgb) {
+        return this.getBrightness(rgb) > 160 ? 'light' : 'dark';
+      }
     }
 
-    let current: HTMLElement | null = element;
+    return 'light';
+  }
 
-    while (current) {
-      const style = getComputedStyle(current);
+  /** Collects the hit-test stack plus negative z-index background children under the point. */
+  private stackAt(x: number, y: number): HTMLElement[] {
+    const stack: HTMLElement[] = [];
 
-      const bg = style.backgroundColor;
+    for (const el of document.elementsFromPoint(x, y) as HTMLElement[]) {
+      stack.push(el);
 
-      if (bg && bg !== 'transparent' && !bg.includes('rgba(0, 0, 0, 0)')) {
-        const rgb = this.parseRGB(bg);
-
-        if (rgb) {
-          return this.getBrightness(rgb) > 160 ? 'light' : 'dark';
+      for (const child of Array.from(el.children) as HTMLElement[]) {
+        if (Number(getComputedStyle(child).zIndex) < 0 && !stack.includes(child) && this.containsPoint(child, x, y)) {
+          stack.push(child);
         }
       }
-
-      current = current.parentElement;
     }
 
-    return 'dark';
+    return stack;
+  }
+
+  /** Checks whether the element's bounding box contains the viewport point. */
+  private containsPoint(el: HTMLElement, x: number, y: number): boolean {
+    const rect = el.getBoundingClientRect();
+
+    return rect.left <= x && x <= rect.right && rect.top <= y && y <= rect.bottom;
+  }
+
+  /** Samples the image pixel under the pointer; null when absent, loading or transparent. */
+  private samplePoint(el: HTMLElement, style: CSSStyleDeclaration, x: number, y: number): [number, number, number] | null {
+    const src = el instanceof HTMLImageElement
+      ? el.currentSrc
+      : /url\("?([^")]+)"?\)/.exec(style.backgroundImage)?.[1];
+    const ctx = src ? this.imageContext(src) : null;
+
+    if (!ctx) {
+      return null;
+    }
+
+    const rect = el.getBoundingClientRect();
+    const u = Math.min(63, Math.max(0, Math.round(((x - rect.left) / rect.width) * 64)));
+    const v = Math.min(63, Math.max(0, Math.round(((y - rect.top) / rect.height) * 64)));
+    const data = ctx.getImageData(u, v, 1, 1).data;
+
+    return data[3] > 127 ? [data[0], data[1], data[2]] : null;
+  }
+
+  /** Returns a cached 64x64 sampling canvas for the image, loading it on first request. */
+  private imageContext(src: string): CanvasRenderingContext2D | null {
+    if (this.imageContexts.has(src)) {
+      return this.imageContexts.get(src) ?? null;
+    }
+
+    this.imageContexts.set(src, null);
+
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => this.imageContexts.set(src, this.drawToCanvas(img));
+    img.src = src;
+
+    return null;
+  }
+
+  /** Draws the image onto a small offscreen canvas used for pixel lookups. */
+  private drawToCanvas(img: HTMLImageElement): CanvasRenderingContext2D | null {
+    const canvas = document.createElement('canvas');
+    canvas.width = 64;
+    canvas.height = 64;
+
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    ctx?.drawImage(img, 0, 0, 64, 64);
+
+    return ctx;
+  }
+
+  /** Parses a CSS color string, returning null for transparent values. */
+  private opaqueColor(color: string): [number, number, number] | null {
+    const values = color.match(/[\d.]+/g)?.map(Number);
+
+    if (!values || values.length < 3 || values[3] === 0) {
+      return null;
+    }
+
+    return [values[0], values[1], values[2]];
   }
 
   /** Tracks the pointer position and its velocity for the inner dot. */
@@ -105,41 +168,11 @@ export class CursorComponent implements OnInit, OnDestroy {
     this.dot().nativeElement.style.transform = `translate3d(${this.x + this.dotX}px, ${this.y + this.dotY}px, 0)`;
   }
 
-  private parseRGB(color: string): [number, number, number] | null {
-    const values = color.match(/\d+/g);
-
-    if (!values || values.length < 3) {
-      return null;
-    }
-
-    return [Number(values[0]), Number(values[1]), Number(values[2])];
-  }
-
+  /** Returns the perceived brightness (0-255) of an RGB color. */
   private getBrightness(rgb: [number, number, number]): number {
     const [r, g, b] = rgb;
 
     return (r * 299 + g * 587 + b * 114) / 1000;
   }
 
-  private samplePixel(x: number, y: number): 'dark' | 'light' {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-
-    if (!ctx) {
-      return 'dark';
-    }
-
-    canvas.width = 1;
-    canvas.height = 1;
-
-    try {
-      ctx.drawImage(document.elementFromPoint(x, y) as CanvasImageSource, 0, 0);
-
-      const pixel = ctx.getImageData(0, 0, 1, 1).data;
-
-      return this.getBrightness([pixel[0], pixel[1], pixel[2]]) > 160 ? 'light' : 'dark';
-    } catch {
-      return 'dark';
-    }
-  }
 }
