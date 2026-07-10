@@ -5,8 +5,9 @@
   inset: 0;
   z-index: 10000;
   pointer-events: none;
+
   opacity: 0;
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.25s ease;
 
   @media (pointer: coarse) {
     display: none;
@@ -17,24 +18,63 @@
   opacity: 1;
 }
 
+:host(.cursor--hover) .cursor__ring {
+  width: 56px;
+  height: 56px;
+  margin-left: -28px;
+  margin-top: -28px;
+}
+
+:host(.cursor--click) .cursor__ring {
+  width: 32px;
+  height: 32px;
+  margin-left: -16px;
+  margin-top: -16px;
+}
+
 .cursor__ring {
   position: absolute;
-  top: -20px;
-  left: -20px;
+
   width: 40px;
   height: 40px;
+
+  margin-left: -20px;
+  margin-top: -20px;
+
   border: 2px solid vars.$base-white-option1;
   border-radius: 50%;
-  mix-blend-mode: difference;
+
+  will-change: transform, width, height, border-color;
+  transition:
+    border-color .18s ease,
+    width .25s ease,
+    height .25s ease,
+    border-width .25s ease;
 }
 
 .cursor__dot {
   position: absolute;
-  top: -3px;
-  left: -3px;
+
   width: 6px;
   height: 6px;
+
+  margin-left: -3px;
+  margin-top: -3px;
+
   background: vars.$base-white-option1;
   border-radius: 50%;
-  mix-blend-mode: difference;
+
+  will-change: transform, background-color, opacity;
+  transition:
+    background-color .18s ease,
+    opacity .18s ease;
+}
+
+/* Heller Hintergrund → dunkler Cursor */
+:host(.cursor--dark) .cursor__ring {
+  border-color: vars.$base-black-option1;
+}
+
+:host(.cursor--dark) .cursor__dot {
+  background: vars.$base-black-option1;
 }

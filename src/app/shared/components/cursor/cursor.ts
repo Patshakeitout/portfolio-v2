@@ -31,13 +31,56 @@ export class CursorComponent implements OnInit, OnDestroy {
     cancelAnimationFrame(this.raf);
   }
 
+  private syncCursorColor(x: number, y: number): void {
+    let element = document.elementFromPoint(x, y) as HTMLElement | null;
+
+    while (element) {
+      const style = getComputedStyle(element);
+
+      const bg = style.backgroundColor;
+
+      if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'transparent') {
+        const rgb = bg.match(/\d+/g);
+
+        if (rgb) {
+          const [r, g, b] = rgb.map(Number);
+
+          const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+          this.host.nativeElement.classList.toggle('cursor--dark', brightness > 160);
+
+          return;
+        }
+      }
+
+      element = element.parentElement;
+    }
+
+    // Fallback -> body
+    const bodyColor = getComputedStyle(document.body).backgroundColor;
+
+    const rgb = bodyColor.match(/\d+/g);
+
+    if (rgb) {
+      const [r, g, b] = rgb.map(Number);
+
+      const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+
+      this.host.nativeElement.classList.toggle('cursor--dark', brightness > 160);
+    }
+  }
+
   /** Tracks the pointer position and its velocity for the inner dot. */
   private track(event: PointerEvent): void {
     this.velX = event.clientX - this.targetX;
     this.velY = event.clientY - this.targetY;
+
     this.targetX = event.clientX;
     this.targetY = event.clientY;
+
     this.host.nativeElement.classList.add('cursor--visible');
+
+    this.syncCursorColor(event.clientX, event.clientY);
   }
 
   /** Eases the ring toward the pointer and the dot toward the motion edge. */
@@ -57,7 +100,6 @@ export class CursorComponent implements OnInit, OnDestroy {
   /** Writes the current ring and dot positions as transforms. */
   private applyTransforms(): void {
     this.ring().nativeElement.style.transform = `translate3d(${this.x}px, ${this.y}px, 0)`;
-    this.dot().nativeElement.style.transform =
-      `translate3d(${this.x + this.dotX}px, ${this.y + this.dotY}px, 0)`;
+    this.dot().nativeElement.style.transform = `translate3d(${this.x + this.dotX}px, ${this.y + this.dotY}px, 0)`;
   }
 }

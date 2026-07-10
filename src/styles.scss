@@ -3,6 +3,11 @@
 @use 'styles/mixins' as mx;
 @use 'app/shared/ui/btn-primary/btn-primary';
 
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 999999;
+}
 
 @font-face {
   font-family: 'Bricolage Grotesque';
@@ -52,6 +57,16 @@ body {
   box-sizing: border-box;
   font-family: var(--font-main);
   background-color: vars.$base-white-option1;
+}
+
+.cursor__ring {
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.cursor__dot {
+  background: #fff;
+  border-radius: 50%;
 }
 
 // Project-details carousel slide (View Transitions API, enabled via router)
