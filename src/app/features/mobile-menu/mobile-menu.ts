@@ -45,14 +45,12 @@ export class MobileMenuComponent implements OnDestroy {
     const fragment = target.getAttribute('fragment');
 
     if (fragment) {
-      // Close menu first
       this.closeMenu();
 
-      // Wait for menu to close, then scroll
       setTimeout(() => {
         const element = document.getElementById(fragment);
         if (element) {
-          const headerOffset = -4; // Fixed header height
+          const headerOffset = -4;
           const elementPosition = element.getBoundingClientRect().top;
           const offsetPosition = elementPosition + window.scrollY - headerOffset;
 

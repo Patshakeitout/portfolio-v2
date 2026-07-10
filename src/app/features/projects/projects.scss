@@ -306,6 +306,7 @@
 
     @media (min-width: vars.$breakpoint-desktop) {
       white-space: nowrap;
+      font-size: 64px;
     }
 
     &::before {
@@ -373,7 +374,7 @@
     min-height: 320px;
     width: 311px;
     transform: rotate(-4deg);
-    background-image: url('/design-material/03_Stickers/02_Testimonials/color-option-3/A.png');
+    background-image: url('/design-material/03_Stickers/02_Testimonials/color-option-3/A.webp');
     background-size: 100% 100%;
     background-repeat: no-repeat;
     box-sizing: border-box;
@@ -414,7 +415,7 @@
     }
 
     &--b {
-      background-image: url('/design-material/03_Stickers/02_Testimonials/color-option-3/B.png');
+      background-image: url('/design-material/03_Stickers/02_Testimonials/color-option-3/B.webp');
       transform: none;
       position: relative;
       z-index: 0;

@@ -11,8 +11,8 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  margin-top: 88px;
-  margin-bottom: 88px;
+  padding-block: 144px;
+  box-sizing: border-box;
   @include mix.content-bounds;
 
   @media (min-width: vars.$breakpoint-desktop) {

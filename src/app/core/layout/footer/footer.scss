@@ -66,12 +66,12 @@
     background-image: url('/design-material/00_Hand-drawn lines/05_Contact/legal.png');
     background-repeat: no-repeat;
     background-position: left bottom;
-    padding-bottom: 0.5rem;
-    background-size: 0% 1.5rem;
+    padding-bottom: 0.8rem;
+    background-size: 0% 2rem;
     transition: background-size 0.3s ease-out;
 
     &:hover {
-      background-size: 100% 1.5rem;
+      background-size: 100% 2.5rem;
     }
   }
 

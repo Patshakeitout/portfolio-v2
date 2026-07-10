@@ -9,15 +9,15 @@
     /></a>
     <div class="footer__meta">
       <small class="footer__copyright">{{ 'footer.copyright' | translate }}</small>
-      <a class="footer__legal" [routerLink]="['/', lang(), 'legal-notice']">{{
-        'footer.legalNotice' | translate
+      <a class="footer__legal" [routerLink]="['/', lang(), legalLink]">{{
+        legalLabelKey | translate
       }}</a>
     </div>
   </section>
 
   <section class="footer__bottom">
-    <a class="footer__legal footer__legal--bottom" [routerLink]="['/', lang(), 'legal-notice']">{{
-      'footer.legalNotice' | translate
+    <a class="footer__legal footer__legal--bottom" [routerLink]="['/', lang(), legalLink]">{{
+      legalLabelKey | translate
     }}</a>
     <nav class="footer__links" aria-label="Footer navigation">
       <a

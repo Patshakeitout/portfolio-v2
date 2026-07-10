@@ -13,6 +13,11 @@ export class FooterComponent {
   readonly lang = inject(LanguageService).lang;
   @Input() theme: 'light' | 'dark' = 'light';
   @Input({ transform: booleanAttribute }) adaptive = false;
+  @Input() legalLink: 'legal-notice' | 'privacy-policy' = 'legal-notice';
+
+  get legalLabelKey(): string {
+    return this.legalLink === 'privacy-policy' ? 'footer.privacyPolicy' : 'footer.legalNotice';
+  }
 
   /** Scrolls the window back to the top at a steady, unhurried pace. */
   scrollToTop(): void {

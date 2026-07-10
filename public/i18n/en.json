@@ -110,7 +110,8 @@
   },
   "footer": {
     "copyright": "© Patrick Schauer 2026",
-    "legalNotice": "Legal Notice"
+    "legalNotice": "Legal Notice",
+    "privacyPolicy": "Privacy Policy"
   },
   "legalNotice": {
     "title": "Legal Notice",
