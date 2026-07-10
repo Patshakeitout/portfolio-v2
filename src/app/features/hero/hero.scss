@@ -111,6 +111,12 @@
       gap: 0.75rem;
     }
 
+    .hero__frontend-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
     .hero__sound {
       display: inline-flex;
       padding: 0;
@@ -412,8 +418,20 @@
     pointer-events: none;
   }
 
+  &__polaroid-caption-hover {
+    display: none;
+  }
+
   &__polaroid:hover &__polaroid-photo {
     filter: grayscale(0%);
+  }
+
+  &__polaroid:hover &__polaroid-caption-default {
+    display: none;
+  }
+
+  &__polaroid:hover &__polaroid-caption-hover {
+    display: inline;
   }
 
   &__contact {
@@ -423,7 +441,7 @@
     position: absolute;
     bottom: 11.5rem;
     left: 0;
-    right: 0;
+    width: fit-content;
     box-sizing: border-box;
     padding-left: 72px;
 

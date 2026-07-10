@@ -20,9 +20,10 @@
     "getInTouch": "Get in touch",
     "soundOn": "Turn sound on",
     "soundOff": "Turn sound off",
-    "polaroidCaption": "Patrick :D",
-    "frontendWords": ["Fullstack", "R-Shiny", "OOP", "Normalization", "TypeScript", "Endpoints", "Navigation", "Django"],
-    "developerWords": ["Detail-oriented", "Exacting", "Versatile", "Empathetic", "Logical", "Observant", "Precise", "Eager", "Resilient"]
+    "polaroidCaption": "Patrick :)",
+    "polaroidCaptionHover": "Patrick :D",
+    "frontendWords": ["Figma", "R-Shiny", "OOP", "Normalization", "TypeScript", "Endpoints", "Navigation", "Django"],
+    "developerWords": ["Dynamic", "Experimental", "Versatile", "Empathetic", "Logical", "Observant", "Precise", "Eager", "Resilient"]
   },
   "about": {
     "subtitle": "WHO'S PATRICK?",

@@ -4,6 +4,8 @@
 @use 'mixins' as mix;
 
 .contact {
+  display: grid;
+  grid-template-rows: 1fr auto;
   position: relative;
   min-height: 100dvh;
   overflow: hidden;
@@ -15,9 +17,10 @@
 
   &__content {
     display: flex;
+    align-self: center;
+    flex-direction: column;
     position: relative;
     z-index: 1;
-    flex-direction: column;
     align-items: flex-start;
     padding-top: 9rem;
     @include mix.content-bounds;
@@ -25,6 +28,7 @@
     @media (min-width: vars.$breakpoint-desktop) {
       flex-direction: row;
       justify-content: space-between;
+      align-items: flex-start;
       gap: 112px;
     }
   }
@@ -54,8 +58,8 @@
 
       @media (min-width: vars.$breakpoint-desktop) {
         position: absolute;
-        top: clamp(9rem, calc(5.1146dvw + 4rem), 9.9375rem);
-        right: clamp(2.75rem, 4.25dvw, 5rem);
+        top: clamp(17rem, calc(5.1146dvw + 4rem), 9.9375rem);
+        right: clamp(4rem, 4.25dvw, 5rem);
         z-index: 2;
       }
     }
@@ -86,7 +90,7 @@
 
     @media (min-width: vars.$breakpoint-desktop) {
       width: 50%;
-      margin-top: 4.375rem;
+      margin-top: 12.375rem;
     }
   }
 
@@ -259,22 +263,27 @@
 
   &__arrow {
     position: absolute;
-    right: 100%;
-    top: 0.1rem;
-    margin-right: 0.5rem;
-    max-width: 9.56rem;
+    top: 142%;
+    left: -42px;
+    max-width: 7rem;
     pointer-events: none;
-    animation: arrow-fly 4s ease-out infinite;
+    transform: rotate(-90deg);
+    animation: arrow-blink 1.2s ease-in-out infinite;
 
     @media (min-width: vars.$breakpoint-desktop) {
-      animation-name: arrow-fly-wide;
+      max-width: 9.56rem;
+      top: 0.1rem;
+      left: auto;
+      right: 100%;
+      margin-right: 0.5rem;
+      transform: none;
+      animation: arrow-fly-wide 4s ease-out infinite;
     }
   }
 
-  @keyframes arrow-fly {
-    0%   { transform: translateX(-120%); }
-    25%  { transform: translateX(0); }
-    100% { transform: translateX(0); }
+  @keyframes arrow-blink {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0; }
   }
 
   @keyframes arrow-fly-wide {
@@ -300,7 +309,11 @@
 
   h1 {
     font-weight: 700;
-    font-size: 64px;
+    font-size: 48px;
     margin: 0;
+
+    @media (min-width: vars.$breakpoint-desktop) {
+      font-size: 64px;
+    }
   }
 }

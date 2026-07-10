@@ -16,6 +16,18 @@
         <img class="btn-primary__wave" src="/design-material/03_Stickers/waving_hand.png" alt="Waving hand" />
       </button>
 
+    </div>
+
+    <h1 class="visually-hidden">Frontend Developer</h1>
+
+    <div class="hero__frontend-row">
+      <span class="hero__text hero__text--frontend" aria-hidden="true">
+        @for (item of frontendLetters(); track $index) {<span
+          (mouseenter)="playNote($index)"
+          [attr.data-word]="item.word"
+          [attr.data-hover]="$first ? item.letter.toLowerCase() : item.letter.toUpperCase()">{{ item.letter }}</span>}
+      </span>
+
       <button
         class="hero__sound"
         [class.hero__sound--off]="!soundOn()"
@@ -33,15 +45,6 @@
       </button>
     </div>
 
-    <h1 class="visually-hidden">Frontend Developer</h1>
-
-    <span class="hero__text hero__text--frontend" aria-hidden="true">
-      @for (item of frontendLetters(); track $index) {<span
-        (mouseenter)="playNote($index)"
-        [attr.data-word]="item.word"
-        [attr.data-hover]="$first ? item.letter.toLowerCase() : item.letter.toUpperCase()">{{ item.letter }}</span>}
-    </span>
-
     <div class="hero__developer-row">
       <span class="hero__text hero__text--developer" aria-hidden="true">
         @for (item of developerLetters(); track $index) {<span
@@ -56,7 +59,10 @@
       <figure class="hero__polaroid" aria-label="Polaroid photo">
         <img class="hero__polaroid-frame" src="/design-material/03_Stickers/polaroid-frame.webp" alt="" aria-hidden="true"/>
         <img class="hero__polaroid-photo" src="/design-material/03_Stickers/Behmer_0426.jpg" alt="Portrait photo"/>
-        <figcaption class="hero__polaroid-caption">{{ 'hero.polaroidCaption' | translate }}</figcaption>
+        <figcaption class="hero__polaroid-caption">
+          <span class="hero__polaroid-caption-default">{{ 'hero.polaroidCaption' | translate }}</span>
+          <span class="hero__polaroid-caption-hover">{{ 'hero.polaroidCaptionHover' | translate }}</span>
+        </figcaption>
       </figure>
     </div>
   </header>
