@@ -4,14 +4,14 @@
 
 // Begrenzt + zentriert den Inhalt auf eine Maximalbreite. Full-bleed-Backgrounds
 // muessen ausserhalb des Elements liegen, das dieses Mixin anwendet.
-@mixin content-bounds($max: vars.$content-max) {
+@mixin content-bounds($max: vars.$content-max, $breakpoint: vars.$breakpoint-desktop) {
   width: 100%;
   max-width: $max;
   margin-inline: auto;
   padding-inline: 1rem;
   box-sizing: border-box;
 
-  @media (min-width: vars.$breakpoint-desktop) {
+  @media (min-width: $breakpoint) {
     padding-inline: 4.5rem;
   }
 }

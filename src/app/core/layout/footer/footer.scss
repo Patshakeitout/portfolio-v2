@@ -1,4 +1,7 @@
+/* footer.scss */
+
 @use 'variables' as vars;
+@use 'mixins' as mix;
 
 :host {
   display: block;
@@ -14,6 +17,7 @@
   padding-block: 1rem 2rem;
   margin-top: 2rem;
   color: vars.$base-black-option1;
+  @include mix.content-bounds;
 
   @media (min-width: vars.$breakpoint-desktop) {
     padding-inline: 4.5rem;
