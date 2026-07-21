@@ -120,50 +120,6 @@ $hero-breakpoint: 875px;
     .hero__frontend-row {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-    }
-
-    .hero__sound {
-      position: relative;
-      display: inline-flex;
-      padding: 0;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: currentColor;
-      transition:
-        color 0.3s ease-out,
-        transform 0.2s ease-out;
-
-      svg {
-        width: 1.75rem;
-        height: 1.75rem;
-      }
-
-      &:hover,
-      &:focus-visible {
-        color: vars.$highlight1-option1;
-      }
-
-      &:active {
-        transform: scale(0.9);
-      }
-
-      &--off {
-        color: vars.$base-grey-option1;
-      }
-    }
-
-    .hero__sound-slash {
-      stroke: currentColor;
-      stroke-width: 2;
-      stroke-linecap: round;
-      opacity: 0;
-      transition: opacity 0.2s ease-out;
-    }
-
-    .hero__sound--off .hero__sound-slash {
-      opacity: 1;
     }
 
     // Letter hover effects: ::before is a zero-height in-flow block holding
@@ -322,7 +278,25 @@ $hero-breakpoint: 875px;
         width: 2.5rem;
         height: 2.5rem;
         opacity: 0;
+        pointer-events: none;
         z-index: 2;
+      }
+
+      // Sound-on indicator: replaces the wave once the visitor clicks the button.
+      &__bell {
+        position: absolute;
+        right: 0.6rem;
+        top: -1.6rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        pointer-events: none;
+        z-index: 2;
+        color: vars.$highlight1-option1;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
       }
 
       // World button
@@ -472,7 +446,7 @@ $hero-breakpoint: 875px;
     height: 2.5rem;
     gap: 0.5rem;
     border-radius: 50%;
-    border: 1px solid vars.$base-white-option1;
+    border: 2px solid vars.$base-white-option1;
     flex-shrink: 0;
     transition:
       background 300ms ease,
@@ -487,6 +461,8 @@ $hero-breakpoint: 875px;
       width: 2rem;
       height: 2rem;
       filter: brightness(0) invert(1);
+      border: 1px solid white;
+      border-radius: 50%;
     }
   }
 }
