@@ -177,6 +177,7 @@
 
   &__privacy {
     position: relative;
+    align-self: flex-start;
     border: none;
     padding: 0;
     margin: 2.5rem 0 1rem;
@@ -291,7 +292,7 @@
 
   &__arrow {
     position: absolute;
-    top: 142%;
+    top: 5rem;
     left: -42px;
     max-width: 7rem;
     pointer-events: none;
