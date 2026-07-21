@@ -124,6 +124,7 @@ $hero-breakpoint: 875px;
     }
 
     .hero__sound {
+      position: relative;
       display: inline-flex;
       padding: 0;
       background: none;

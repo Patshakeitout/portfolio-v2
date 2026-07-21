@@ -53,8 +53,12 @@
       transform: rotate(90deg);
       cursor: pointer;
 
-      &--cw  { animation: sticker-cw  1.5s ease-out forwards; }
-      &--ccw { animation: sticker-ccw 1.5s ease-out forwards; }
+      &--cw {
+        animation: sticker-cw 1.5s ease-out forwards;
+      }
+      &--ccw {
+        animation: sticker-ccw 1.5s ease-out forwards;
+      }
 
       @media (min-width: vars.$breakpoint-desktop) {
         position: absolute;
@@ -65,13 +69,21 @@
     }
 
     @keyframes sticker-cw {
-      from { transform: rotate(90deg); }
-      to   { transform: rotate(450deg); }
+      from {
+        transform: rotate(90deg);
+      }
+      to {
+        transform: rotate(450deg);
+      }
     }
 
     @keyframes sticker-ccw {
-      from { transform: rotate(90deg); }
-      to   { transform: rotate(-270deg); }
+      from {
+        transform: rotate(90deg);
+      }
+      to {
+        transform: rotate(-270deg);
+      }
     }
   }
 
@@ -102,7 +114,7 @@
     padding: 0 1.5rem;
 
     &:hover {
-      color: #F87A55;
+      color: #f87a55;
     }
   }
 
@@ -110,7 +122,7 @@
     width: 100%;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #F7C518;
+    border-bottom: 1px solid #f7c518;
     color: vars.$base-white-option1;
     font-family: inherit;
     font-size: 1.125rem;
@@ -124,14 +136,14 @@
     }
 
     &:hover {
-      border-color: #3355FF;
+      border-color: #3355ff;
     }
 
     &--error {
-      border-bottom-color: #FF3A00;
+      border-bottom-color: #ff3a00;
 
       &::placeholder {
-        color: #FF3A00;
+        color: #ff3a00;
       }
     }
 
@@ -146,7 +158,7 @@
   }
 
   &__privacy-error {
-    color: #F87A55;
+    color: #f87a55;
     font-size: 0.875rem;
     line-height: 1.2;
     min-height: 1.2em;
@@ -155,7 +167,7 @@
   }
 
   &__error {
-    color: #FF3A00;
+    color: #ff3a00;
     font-size: 0.875rem;
     line-height: 1.2;
     min-height: 1.2em; // reserve space so the layout doesn't shift when the message appears
@@ -176,46 +188,52 @@
     text-underline-offset: 0.15rem;
 
     &:hover {
-      color: #E08C05;
+      color: #e08c05;
     }
   }
 
   &__privacy-label {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: flex-start;
+    align-self: center;
     gap: 0.5rem;
     font-size: 0.9375rem;
     color: vars.$base-white-option1;
     cursor: pointer;
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       appearance: none;
       flex-shrink: 0;
       width: 1.125rem;
       height: 1.125rem;
       background: transparent;
-      border: 2px solid #3355FF;
+      border: 2px solid #3355ff;
       border-radius: 0.125rem;
       cursor: pointer;
       position: relative;
 
       &:hover {
-        background: #3355FF4D;
-        box-shadow: 0 0 0 0.1875rem #3355FF4D;
+        background: #3355ff4d;
+        box-shadow: 0 0 0 0.1875rem #3355ff4d;
       }
 
       &:checked {
-        background: url("/design-material/00_Hand-drawn lines/05_Contact/checked.png") center / 100% no-repeat;
+        background: url('/design-material/00_Hand-drawn lines/05_Contact/checked.png') center / 100%
+          no-repeat;
       }
+    }
+
+    @media (max-height: 1426px) {
+      line-height: 1.55rem;
     }
   }
 
   &__privacy-link {
-    color: #3355FF;
+    color: #3355ff;
 
     &:hover {
-      color:#F7C518;
+      color: #f7c518;
     }
   }
 
@@ -245,17 +263,19 @@
 
       &.btn-primary--ghost {
         background-color: rgba(0, 0, 0, 0.01);
-        color: #F8F9FA;
-        border: 1px solid #F8F9FA;
-        box-shadow: 2px 4px 0 #F8F9FA;
-        transition: transform 0.3s ease-out,
-                    box-shadow 0.3s ease-out,
-                    background-color 0.3s ease-out;
+        color: #f8f9fa;
+        border: 1px solid #f8f9fa;
+        box-shadow: 2px 4px 0 #f8f9fa;
+        transition:
+          transform 0.3s ease-out,
+          box-shadow 0.3s ease-out,
+          background-color 0.3s ease-out;
 
-        &:active, &.is-pressing {
+        &:active,
+        &.is-pressing {
           transform: translate(2px, 4px);
-          box-shadow: 0 0 0 0 #F8F9FA;
-          background-color: #E08C05;
+          box-shadow: 0 0 0 0 #f8f9fa;
+          background-color: #e08c05;
         }
       }
     }
@@ -282,22 +302,37 @@
   }
 
   @keyframes arrow-blink {
-    0%, 100% { opacity: 1; }
-    50%      { opacity: 0; }
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
   }
 
   @keyframes arrow-fly-wide {
-    0%   { transform: translateX(-100vw); }
-    25%  { transform: translateX(0); }
-    100% { transform: translateX(0); }
+    0% {
+      transform: translateX(-100vw);
+    }
+    25% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 
   &__feedback {
     font-size: 0.875rem;
     margin: 1rem 0 0;
 
-    &--success { color: #4caf50; }
-    &--error   { color: #f44336; }
+    &--success {
+      color: #4caf50;
+    }
+    &--error {
+      color: #f44336;
+    }
   }
 
   h5 {
