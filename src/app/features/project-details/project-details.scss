@@ -96,20 +96,21 @@
       grid-area: image;
 
       @media (min-width: vars.$breakpoint-desktop) {
-        margin-top: 4rem;
+        margin-top: 3rem;
       }
 
       img {
-        width: 560px;
-        height: 398.22px;
+        // Keep the image right of the paper's torn edge (~84dvh from the left),
+        // so it never slides onto the paper as the viewport width/height change.
+        // = content's right inner edge − torn edge, capped at the design size.
+        width: min(
+          560px,
+          calc((100dvw + min(100dvw, #{vars.$content-max})) / 2 - 4.5rem - 90dvh)
+        );
+        height: auto;
+        aspect-ratio: 560 / 398.22;
         max-width: none;
         object-fit: fill;
-
-        @media (max-height: 742px) {
-          width: auto;
-          height: 53.67dvh;
-          aspect-ratio: 560 / 398.22;
-        }
       }
 
       img[src*='join-board'] {
@@ -216,10 +217,6 @@
       display: block;
       margin-top: 1rem;
       position: relative;
-
-      @media (min-width: vars.$breakpoint-desktop) {
-        z-index: -2;
-      }
     }
 
     img[src*='join-board'] {
@@ -255,10 +252,6 @@
 
       @media (max-width: vars.$breakpoint-desktop) {
         display: none;
-      }
-
-      @media (min-width: vars.$breakpoint-desktop) {
-        z-index: -2;
       }
     }
   }
