@@ -224,9 +224,17 @@
       }
     }
 
-    @media (min-width: 1426px) {
-      line-height: 1.5rem;
+    @media (width >= 617px) and (width < vars.$breakpoint-desktop) {
+      line-height: 1.55rem;
     }
+
+    @media (width >= 1426px) {
+      line-height: 1.55rem;
+    }
+
+    // @media (width < 617px) {
+
+    // }
   }
 
   &__privacy-link {

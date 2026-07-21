@@ -438,6 +438,7 @@ $hero-breakpoint: 875px;
   }
 
   .contact__link {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -446,7 +447,7 @@ $hero-breakpoint: 875px;
     height: 2.5rem;
     gap: 0.5rem;
     border-radius: 50%;
-    border: 2px solid vars.$base-white-option1;
+    border: 1px solid vars.$base-white-option1;
     flex-shrink: 0;
     transition:
       background 300ms ease,
@@ -460,9 +461,6 @@ $hero-breakpoint: 875px;
     img {
       width: 2rem;
       height: 2rem;
-      filter: brightness(0) invert(1);
-      border: 1px solid white;
-      border-radius: 50%;
     }
   }
 }
