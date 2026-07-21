@@ -5,6 +5,7 @@
 
 .project-details {
   margin: 0;
+  margin-top: 48px;
   position: relative;
   isolation: isolate;
   min-height: 100dvh;
@@ -45,15 +46,15 @@
       row-gap: 0;
       height: 100dvh;
 
-      @media (max-height: 755px) {
-        align-content: normal;
-        grid-template-areas:
-          'back    swipe'
-          '.       dots'
-          'header  image'
-          'article image';
-        grid-template-rows: auto auto auto minmax(0, 1fr);
-      }
+      // @media (max-height: 755px) {
+      //   align-content: normal;
+      //   grid-template-areas:
+      //     'back    swipe'
+      //     '.       dots'
+      //     'header  image'
+      //     'article image';
+      //   grid-template-rows: auto auto auto minmax(0, 1fr);
+      // }
     }
 
     .project-details__swipe-hint {
@@ -100,14 +101,15 @@
       }
 
       img {
-        // Keep the image right of the paper's torn edge (~84dvh from the left),
-        // so it never slides onto the paper as the viewport width/height change.
-        // = content's right inner edge − torn edge, capped at the design size.
-        width: min(
-          560px,
-          calc((100dvw + min(100dvw, #{vars.$content-max})) / 2 - 4.5rem - 90dvh)
+        // Size by viewport height (shorter window -> smaller image), but cap it
+        // at the paper's torn edge (~90dvh) so it can never slide onto the paper.
+        // The paper cap is expressed as a height (× 398.22/560) to keep the ratio.
+        height: min(
+          398.22px,
+          48dvh,
+          calc(((100dvw + min(100dvw, #{vars.$content-max})) / 2 - 4.5rem - 90dvh) * 0.711)
         );
-        height: auto;
+        width: auto;
         aspect-ratio: 560 / 398.22;
         max-width: none;
         object-fit: fill;
@@ -123,7 +125,6 @@
 
     .project-details__arrow--prev {
       grid-area: back;
-      padding-block: 20px;
       font-size: 18px;
       font-weight: bold;
     }
