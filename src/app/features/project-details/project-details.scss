@@ -20,9 +20,13 @@
     inset: 0;
     background-image: url('/design-material/01_Background/design-size-relation/08_project-view-mobile.png');
     background-repeat: no-repeat;
-    background-position: top left;
     background-size: cover;
     z-index: -1;
+
+    @media (max-width: #{vars.$breakpoint-desktop - 1px}) {
+      // Background moves upwards depending on vw, so Copyright and Legal Notice stay on black bg.
+      background-position: left min(0px, calc((610px - 100vw) * 2.5));
+    }
   }
 
   @media (min-width: vars.$breakpoint-desktop) {
@@ -45,16 +49,6 @@
       column-gap: 32px;
       row-gap: 0;
       height: 100dvh;
-
-      // @media (max-height: 755px) {
-      //   align-content: normal;
-      //   grid-template-areas:
-      //     'back    swipe'
-      //     '.       dots'
-      //     'header  image'
-      //     'article image';
-      //   grid-template-rows: auto auto auto minmax(0, 1fr);
-      // }
     }
 
     .project-details__swipe-hint {

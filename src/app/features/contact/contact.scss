@@ -253,6 +253,18 @@
     gap: 1rem;
     margin-top: 1rem;
 
+    .contact__send-wrap {
+      display: inline-flex;
+    }
+
+    .contact__send-wrap--disabled {
+      cursor: not-allowed;
+
+      .btn-primary:disabled {
+        pointer-events: none;
+      }
+    }
+
     .btn-primary {
       width: 11rem;
       height: 2.75rem;
@@ -280,8 +292,8 @@
           box-shadow 0.3s ease-out,
           background-color 0.3s ease-out;
 
-        &:active,
-        &.is-pressing {
+        &:not(:disabled):active,
+        &:not(:disabled).is-pressing {
           transform: translate(2px, 4px);
           box-shadow: 0 0 0 0 #f8f9fa;
           background-color: #e08c05;

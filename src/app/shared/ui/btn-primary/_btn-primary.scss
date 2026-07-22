@@ -21,13 +21,17 @@
   box-shadow: 2px 4px 0px 0px vars.$base-black-option1;
   transition: all 600ms ease-out;
 
-  &:active,
-  &.is-pressing {
+  &:not(:disabled):active,
+  &:not(:disabled).is-pressing {
     transition: none;
     transform: translate(2px, 4px);
     box-shadow: 0px 0px 0px 0px vars.$base-black-option1;
     background-color: vars.$highlight3-option2;
     color: #f8f9fa;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
   }
 
   &--dark {
@@ -60,6 +64,7 @@
   &--grey {
     mix-blend-mode: exclusion;
     opacity: 0.5;
+    cursor: not-allowed;
 
     &:active,
     &.is-pressing {

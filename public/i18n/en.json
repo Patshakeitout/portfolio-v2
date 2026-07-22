@@ -95,6 +95,7 @@
     "nameLabel": "What's your name?",
     "namePlaceholder": "Your name goes here",
     "nameError": "Oops! It seems your name is missing.",
+    "nameTooShort": "Your name needs at least 3 letters.",
     "emailLabel": "What's your email?",
     "emailPlaceholder": "yourEmail@email.com",
     "emailRequired": "Oops! Your email is required.",

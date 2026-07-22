@@ -95,6 +95,7 @@
     "nameLabel": "Wie heißt du?",
     "namePlaceholder": "Dein Name kommt hierhin",
     "nameError": "Ups! Dein Name scheint zu fehlen.",
+    "nameTooShort": "Dein Name braucht mindestens 3 Buchstaben.",
     "emailLabel": "Wie ist deine E-Mail?",
     "emailPlaceholder": "deineEmail@email.com",
     "emailRequired": "Ups! Deine E-Mail wird benötigt.",

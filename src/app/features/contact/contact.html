@@ -81,6 +81,7 @@
         (keyup)="markTouched('name')"
         (blur)="markTouched('name')"
       />
+      <p class="contact__error" role="alert">{{ nameError() | translate }}</p>
 
       <label class="contact__label" for="contact-email">{{
         'contact.emailLabel' | translate
@@ -134,19 +135,21 @@
       </fieldset>
 
       <div class="contact__actions">
-        <button
-          class="btn-primary"
-          [class.btn-primary--ghost]="form.invalid"
-          [class.btn-primary--grey]="form.invalid"
-          type="submit"
-          [disabled]="status() === 'sending'"
-        >
-          @if (status() === 'sending') {
-            {{ 'contact.sending' | translate }}
-          } @else {
-            {{ 'contact.send' | translate }}
-          }
-        </button>
+        <span class="contact__send-wrap" [class.contact__send-wrap--disabled]="form.invalid">
+          <button
+            class="btn-primary"
+            [class.btn-primary--ghost]="form.invalid"
+            [class.btn-primary--grey]="form.invalid"
+            type="submit"
+            [disabled]="form.invalid || status() === 'sending'"
+          >
+            @if (status() === 'sending') {
+              {{ 'contact.sending' | translate }}
+            } @else {
+              {{ 'contact.send' | translate }}
+            }
+          </button>
+        </span>
       </div>
 
       @if (status() === 'success') {
